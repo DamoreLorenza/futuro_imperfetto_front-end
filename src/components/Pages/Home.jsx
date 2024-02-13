@@ -1,12 +1,14 @@
 import { Col, Container, Row } from "react-bootstrap";
-import CentralSection from "../Home/CentralSection";
+import "./css/Home.css"
+import CentralSection from "../home/centralSection/CentralSection";
 
 const Home = () => {
     return (
       <>
-        <Container>
+        <Container className="container">
           <Row className="">
-            <Col sm={10} md={4} xl={2}>
+          <h1>ciao</h1>
+            <Col>
               <CentralSection />
             </Col>
           </Row>

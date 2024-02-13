@@ -1,16 +1,71 @@
 .App {
   text-align: center;
+
+  background-image: url(http://res.cloudinary.com/drf1t0gkq/image/upload/v1707755845/mik7xvq7elltxh7r3qur.jpg);
+min-height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+background-attachment: scroll;
+image-rendering: pixelated;
 }
 
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+@media screen and (min-width: 280px) {
+
 }
+
+
+  @media screen and (min-width: 360px) {
+
+  }
+
+ @media screen and (min-width: 375px) {
+
+  }
+
+  @media screen and (min-width: 390px) {
+
+  }  
+
+
+  @media screen and (min-width: 412px) {
+
+  }
+
+  @media screen and (min-width: 430px) {
+
+  }
+
+  
+  @media screen and (min-width: 540px) {
+
+  }
+
+  @media screen and (min-width: 768px) {
+
+  }
+
+
+  @media screen and (min-width: 820px) {
+
+  }
+
+  @media screen and (min-width: 912px) {
+
+  }  
+
+  @media screen and (min-width: 1024px) {
+
+  }
+
+  @media screen and (min-width: 1280px) {
+
+  }
+
+  @media screen and (min-width: 1400px) {
+
+  }
+
 
