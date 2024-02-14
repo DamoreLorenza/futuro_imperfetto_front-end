@@ -1,0 +1,99 @@
+
+@media screen and (min-width: 280px) {
+
+    .formControlLogin{
+        width: 10em;
+        background-color: rgba(36,32,33,255);
+        color: white;
+    }
+
+    .formLabelLogin{
+        color: black;
+        font-size: larger;
+        font-weight: bold;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+}
+
+
+  @media screen and (min-width: 360px) {
+    .formControlLogin{
+        width: 15em;
+    }
+    .labelOne{
+        margin-top: 15em;
+    }
+  }
+
+ @media screen and (min-width: 375px) {
+    .formControlLogin{
+        width: 15em;
+    }
+
+    .labelOne{
+        margin-top: 5em;
+    }
+  }
+
+  @media screen and (min-width: 390px) {
+    .formControlLogin{
+        width: 15em;
+    }
+
+    .labelOne{
+        margin-top: 10em !important;
+    }
+  
+  }  
+
+
+  @media screen and (min-width: 412px) {
+
+  }
+
+  @media screen and (min-width: 430px) {
+
+  }
+
+  
+  @media screen and (min-width: 540px) {
+    .formControlLogin{
+        width: 24em;
+    }
+
+    .labelOne{
+        margin-top: 25em;
+    }
+  
+  }
+
+  @media screen and (min-width: 768px) {
+
+  }
+
+
+  @media screen and (min-width: 820px) {
+
+  }
+
+  @media screen and (min-width: 912px) {
+    .formControlLogin{
+        width: 27em;
+    }
+  }  
+
+  @media screen and (min-width: 1024px) {
+
+  }
+
+  @media screen and (min-width: 1280px) {
+    .formControlLogin{
+        width: 25em;
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+
+  }
+
+

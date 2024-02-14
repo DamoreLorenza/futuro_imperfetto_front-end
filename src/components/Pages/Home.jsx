@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import "./css/Home.css"
 import CentralSection from "../home/centralSection/CentralSection";
-import OffCanvas from "../commonComponent/offCanvas/OffCanvas";
+import CustomOffCanvas from "../commonComponent/offCanvas/CustomOffCanvas";
 
 const Home = () => {
     return (
@@ -9,7 +9,7 @@ const Home = () => {
         <Container className="container">
           <Row>
           <Col xs={1} md={2} lg={1} xl={2} className="inserimentoCanvas">
-            <OffCanvas/>
+            <CustomOffCanvas/>
           </Col>
             <Col xs={10} md={9} lg={10} xl={10}>
             <div className="divisoreSezioneCentrale">

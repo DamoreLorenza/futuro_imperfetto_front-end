@@ -1,4 +1,5 @@
 
+
 /* prova card ! */
 
 .figure {
@@ -47,9 +48,6 @@ box-shadow: -1px 52px 163px -28px rgba(0,0,0,1);
 /* 
 fine prova card 1 */
 
-/* prova card 2 */
-
-/* fine prova card 2 */
 
 
 @media screen and (min-width: 280px) {
@@ -182,11 +180,6 @@ fine prova card 1 */
         .cardImg{
           width: 100%px;
           height: 700px;
-        
-        }
-
-        .try{
-
         }
     
       }
