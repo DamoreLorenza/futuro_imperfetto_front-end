@@ -72,6 +72,12 @@ function CustomOffCanvas() {
             navigate("/reservation");
           }}>Prenotazioni</Button></i>
         </Offcanvas.Body>
+        {/* <Offcanvas.Body>
+        <i class="bi bi-person iconCanvas"><Button className='iconCanvasWrite'
+           onClick={() => {
+            navigate("/me");
+          }}>Profilo</Button></i>
+        </Offcanvas.Body> */}
         <Offcanvas.Body>
         <i class="bi bi-box-arrow-in-right iconCanvas"><Button className='iconCanvasWrite mt-2 ' onClick={handleLoginLogout}>{isLoggedIn ? 'Logout' : 'Login'}</Button></i>
         {isLoggedIn && <Button className="iconCanvasWrite" 

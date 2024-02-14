@@ -6,6 +6,7 @@ import Event from './components/pages/Event';
 import Login from './components/pages/Login';
 import Games from './components/pages/Games';
 import Reservation from './components/pages/Reservation';
+import Registration from './components/pages/Registration';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
 <Route element={<Login/>} path="/login" />
 <Route element={<Games/>} path="/games" />
 <Route element={<Reservation/>} path="/reservation" />
+<Route element={<Registration/>} path="/registration" />
 </Routes>
 </BrowserRouter>
 

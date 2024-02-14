@@ -20,11 +20,6 @@
 }
 
 
-.iconCanvas{
-
-}
-
-
 .iconCanvasWrite{
     color: white;
     font-size: larger;
@@ -81,7 +76,8 @@
    
    
            .menuButton{
-               font-size: 20px;
+               font-size: 20px ;
+               height: 50px;
            }
    
    }
@@ -110,7 +106,9 @@
 
            .menuButton{
                font-size: 30px;
+               height: 60px;
            }
+
    
    }
    
@@ -120,6 +118,7 @@
 
    .menuButton{
        font-size: 40px;
+       height: 70px;
    }
    
    

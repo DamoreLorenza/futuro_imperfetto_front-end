@@ -23,6 +23,12 @@
    .menuButton::selection{
        color: black !important;
    }
+
+
+   .formSearchBar{
+    margin-top: 15em;
+    margin-bottom: 0 !important;
+   }
    
    @media screen and (min-width: 250px) {
    

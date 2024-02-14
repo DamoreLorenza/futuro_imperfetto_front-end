@@ -72,8 +72,10 @@ fine prova card 1 */
     
       }
     
-      @media screen and (min-width: 430px) {
-    
+      @media screen and (min-width: 465px) {
+        .cardEvent{
+          margin-left: 2em;
+      }
       }
       @media screen and (min-width: 540px) {
         .cardEvent{
@@ -172,9 +174,11 @@ fine prova card 1 */
       @media screen and (min-width: 1400px) {
 
         .cardEvent{
-            width: 55rem;
+            width: 30rem;
+            height: 30rem;
             display: flex;
             justify-content: center;
+            margin-left: 10em;
         }
 
         .cardImg{
@@ -187,29 +191,27 @@ fine prova card 1 */
       @media screen and (min-width: 1700px) {
 
         .cardEvent{
-            width: 60rem;
+          width: 35rem;
+          height: 35rem;
             display: flex;
             justify-content: center;
+            margin-left: 11em;
         }
     
       }
-      @media screen and (min-width: 1700px) {
 
-        .cardEvent{
-            width: 75rem;
-            display: flex;
-            justify-content: center;
-        }
-    
-      }
     
       @media screen and (min-width: 2000px) {
 
+
         .cardEvent{
-            width: 85rem;
+          width: 35rem;
+          height: 35rem;
             display: flex;
             justify-content: center;
+            margin-left: 25em;
         }
+    
     
       }
     
