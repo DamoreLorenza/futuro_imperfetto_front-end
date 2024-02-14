@@ -1,0 +1,154 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+
+.offCanvasSection{
+
+    background-image: url(../../../assets/futuro4.png);
+    background-position: bottom;
+    box-shadow: 50px 10px 10px rgba(0, 0, 0, 0.5);
+    /* opacity: 85%; */
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-color: rgba(36,32,33,255);
+}
+
+.OffcanvasTitle{
+    color: white;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    margin-top: 5px;
+}
+
+
+.iconCanvas{
+
+}
+
+
+.iconCanvasWrite{
+    color: white;
+    font-size: larger;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 20px;
+    background-color: transparent;
+    border: 0;
+
+}
+
+.iconCanvasWrite:hover{
+    background-color: transparent;
+    border: 0;
+}
+
+.iconCanvasWrite:active{
+    background-color: transparent !important;
+    border: 0 !important;
+}
+
+
+ .offcanvas-body {
+     flex-grow: 0 !important; 
+     padding: 10px 20px 10px 20px ; 
+    color: white;
+    width: 350px;
+    height: 55px;
+    margin: 15px 30px 15px 30px;
+    overflow-y: hidden;
+
+    }
+   
+   .menuButton{
+       margin-left: 12px;
+       background-color: transparent;
+       color: black;
+       font-weight: bolder;
+       font-size: 40px;
+       border: solid 3px black;
+   }
+   
+   .menuButton:hover {
+       background-color: rgba(148,26,30,255) !important;
+       border: solid 3px black;
+       color: black;
+   }
+   
+   .menuButton:active{
+       color: black !important;
+       border: solid black !important;
+   }
+   
+   @media screen and (min-width: 250px) {
+   
+   
+           .menuButton{
+               font-size: 20px;
+           }
+   
+   }
+   
+   
+   
+   @media screen and (min-width: 375px) {
+
+   
+           .menuButton{
+               font-size: 25px;
+           }
+   
+   }
+   
+   @media screen and (min-width: 390px) {
+
+   
+           .menuButton{
+               font-size: 25px;
+           }
+   }  
+   
+   
+   @media screen and (min-width: 412px) {
+
+           .menuButton{
+               font-size: 30px;
+           }
+   
+   }
+   
+   @media screen and (min-width: 470px) {
+   
+
+
+   .menuButton{
+       font-size: 40px;
+   }
+   
+   
+   }
+
+   @media screen and (min-width: 540px) {
+    .menuButton{
+        margin-left: 10px;
+    }
+   }
+ 
+   @media screen and (min-width: 768px) {
+    .menuButton{
+        margin-left: 35px;
+    }
+   }
+ 
+ 
+   @media screen and (min-width: 1200px) {
+    .menuButton{
+        margin-left: 2.5em;
+    }
+ 
+   }
+ 
+   @media screen and (min-width: 1280px) {
+ 
+   }
+ 
+   @media screen and (min-width: 1400px) {
+ 
+   }

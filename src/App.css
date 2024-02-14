@@ -1,24 +1,46 @@
-.App {
-  text-align: center;
 
-  background-image: url(http://res.cloudinary.com/drf1t0gkq/image/upload/v1707755845/mik7xvq7elltxh7r3qur.jpg);
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+.App {
+background-image: url(http://res.cloudinary.com/drf1t0gkq/image/upload/v1707839944/l6fzqnqj6usfuszhuenv.jpg);
 min-height: 100vh;
-background-repeat: no-repeat;
-background-size: cover;
-background-position: center;
+width: 100%;
+background-repeat: repeat repeat !important;
+background-size: contain;
+background-position: center center;
+background-attachment: fixed; 
+image-rendering: pixelated !important;
+
+}
+
+.imgUp{
+  width: 100%;
+height: 200px;
+background-image: url(./assets/futuro2.pgn.png);
+background-position: top;
+background-repeat: repeat-x !important;
+background-size: contain;
 background-attachment: scroll;
-image-rendering: pixelated;
+image-rendering: pixelated !important;
+position: absolute;
+top: 20px;
 }
 
 
 
 @media screen and (min-width: 280px) {
-
+.imgUp{
+  position: absolute;
+top: 25px;
+}
 }
 
 
   @media screen and (min-width: 360px) {
-
+    .imgUp{
+      position: absolute;
+    top: 30px;
+    }
   }
 
  @media screen and (min-width: 375px) {
