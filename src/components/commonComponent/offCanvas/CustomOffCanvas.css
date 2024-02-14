@@ -62,7 +62,7 @@
        background-color: transparent;
        color: black;
        font-weight: bolder;
-       font-size: 40px;
+       /* font-size: 40px; */
        border: solid 3px black;
    }
    
@@ -150,5 +150,8 @@
    }
  
    @media screen and (min-width: 1400px) {
+    .menuButton{
+        font-size: 30px !important;
+        margin-left: 3em !important;    }
  
    }

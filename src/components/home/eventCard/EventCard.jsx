@@ -7,7 +7,7 @@ const EventCard = () => {
       
       <Card className="figure bg-dark text-white mt-5 mb-5">
       <Card.Img className="cardImg cardEvent try" src="https://scontent.fmxp6-1.fna.fbcdn.net/v/t39.30808-6/425298357_18378073003077002_6669410608499316182_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=3635dc&_nc_ohc=2cZiEcm2y70AX8qZQBB&_nc_ht=scontent.fmxp6-1.fna&oh=00_AfAOvNFs0_3ORz8p8LCQzN9mRHRENaHbmZFGZdRFxJpgkw&oe=65D1CBD0" alt="Card image" />
-      <figcaption>The Day</figcaption>
+      <figcaption>Ti aspettiamo a Futuro Imperfetto 2.0</figcaption>
       </Card>
 
 

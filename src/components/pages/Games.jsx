@@ -1,10 +1,10 @@
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import CustomOffCanvas from "../commonComponent/offCanvas/CustomOffCanvas";
-import "./css/Event.css"
+import { Col, Container, Row } from "react-bootstrap";
 import "./css/Home.css"
-import SpecificEventCard from "../home/specificEventPageCard/SpecificEventCard";
+import "./css/Games.css"
+import CustomOffCanvas from "../commonComponent/offCanvas/CustomOffCanvas";
+import GamesCard from "../home/gamesCard/GamesCard";
 
-const Event = () => {
+const Games = () => {
     return (
       <>
         <Container className="container">
@@ -13,7 +13,7 @@ const Event = () => {
             <CustomOffCanvas/>
           </Col>
             <Col xs={10} md={10} lg={5} xl={5}>
-          <SpecificEventCard/>
+          <GamesCard/>
             </Col>
           </Row>
         </Container>
@@ -21,4 +21,4 @@ const Event = () => {
     );
   };
   
-  export default Event;
+  export default Games;

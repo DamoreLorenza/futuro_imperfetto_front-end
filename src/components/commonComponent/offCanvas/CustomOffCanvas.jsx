@@ -61,10 +61,16 @@ function CustomOffCanvas() {
           </i>
         </Offcanvas.Body>
         <Offcanvas.Body>
-        <i class="bi bi-boxes iconCanvas"><Button className='iconCanvasWrite'>Giochi da tavola</Button></i>
+        <i class="bi bi-boxes iconCanvas"><Button className='iconCanvasWrite'
+            onClick={() => {
+            navigate("/games");
+          }}>Giochi da tavola</Button></i>
         </Offcanvas.Body>
         <Offcanvas.Body>
-        <i class="bi bi-calendar-minus iconCanvas"><Button className='iconCanvasWrite'>Prenotazioni</Button></i>
+        <i class="bi bi-calendar-minus iconCanvas"><Button className='iconCanvasWrite'
+           onClick={() => {
+            navigate("/reservation");
+          }}>Prenotazioni</Button></i>
         </Offcanvas.Body>
         <Offcanvas.Body>
         <i class="bi bi-box-arrow-in-right iconCanvas"><Button className='iconCanvasWrite mt-2 ' onClick={handleLoginLogout}>{isLoggedIn ? 'Logout' : 'Login'}</Button></i>
