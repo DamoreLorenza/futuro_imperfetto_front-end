@@ -24,12 +24,12 @@ function CustomOffCanvas() {
       // Esegui azioni di logout, ad esempio azzerare lo stato di autenticazione, ecc.
       setIsLoggedIn(false);
       // Naviga verso la pagina di login o homepage dopo il logout
-      navigate("login"); // Sostituisci con il percorso effettivo della pagina di login
+      navigate("/"); // Sostituisci con il percorso effettivo della pagina di login
     } else {
       // Esegui azioni di login, ad esempio impostare lo stato di autenticazione, ecc.
       setIsLoggedIn(true);
       // Naviga verso la pagina del profilo utente dopo il login
-      navigate("login"); // Sostituisci con il percorso effettivo della pagina del profilo utente
+      navigate("/login"); // Sostituisci con il percorso effettivo della pagina del profilo utente
     }
   };
 
