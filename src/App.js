@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Home from './components/pages/Home';
 import { Container, Row } from 'react-bootstrap';
+import Event from './components/pages/Event';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 <BrowserRouter>
 <Routes>
 <Route element={<Home />} path="/" />
+<Route element={<Event />} path="/event" />
 </Routes>
 </BrowserRouter>
 
