@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import "./CustomOffCanvas.css"
 import { useNavigate } from 'react-router-dom';
+import { Figure, Image } from 'react-bootstrap';
 
 // chiedi per singolo logo da mettere come background in offcanvas
 
@@ -89,7 +90,12 @@ const functionGetUser = (event) => {
   return (
     <>
       <Button onClick={handleShowOffCanvas} className='menuButton'>
-      <i class="bi bi-justify"></i>
+      <i className="bi bi-justify iconaPerMenuCanvas"></i>
+      <Image
+      className='dadiPerCanvas'
+        src='http://res.cloudinary.com/drf1t0gkq/image/upload/v1708045968/paux2tmz8k7itvbvtzw3.png'
+      />
+
       </Button>
 
       <Offcanvas show={showOffCanvas} onHide={handleCloseOffCanvas} className="offCanvasSection">
@@ -97,34 +103,53 @@ const functionGetUser = (event) => {
           <Offcanvas.Title className='OffcanvasTitle'>BENVENUTI A FUTURO IMPERFETTO 2.0 </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-        <i class="bi bi-house iconCanvas">
-        <Button className='iconCanvasWrite'
+        {/* <i class="bi bi-house iconCanvas"> */}
+        <Image
+       className='figureHome rounded-circle '
+       src="http://res.cloudinary.com/drf1t0gkq/image/upload/v1708045941/je6ptzmtbxdeumicedad.png"/>
+        <Button className='iconCanvasWrite scrittaHome'
           onClick={() => {
             navigate("/");
           }}>Home</Button>
-          </i>
+          {/* </i> */}
         </Offcanvas.Body>
         <Offcanvas.Body>
-        <i class="bi bi-stack iconCanvas">
-        <Button className='iconCanvasWrite'
+        {/* <i class="bi bi-stack iconCanvas"> */}
+        <Button className='iconCanvasWrite scrittaEvent'
           onClick={() => {
             navigate("/event");
-          }}>Eventi</Button>
-          </i>
+          }}>
+                 <Image
+       className='figureEvent rounded-circle '
+       src="http://res.cloudinary.com/drf1t0gkq/image/upload/v1708050361/h5mem9paokodnpa6emza.png"/>
+          Eventi</Button>
+          {/* </i> */}
         </Offcanvas.Body>
         <Offcanvas.Body>
-        <i class="bi bi-boxes iconCanvas"><Button className='iconCanvasWrite'
+        {/* <i class="bi bi-boxes iconCanvas"> */}
+        <Image
+        className='figureDadi rounded-circle '
+       src=" http://res.cloudinary.com/drf1t0gkq/image/upload/v1708045968/paux2tmz8k7itvbvtzw3.png"/>
+        <Button className='iconCanvasWrite ms-4 scrittaGiochiDaTavola'
             onClick={() => {
             navigate("/games");
-          }}>Giochi da tavola</Button></i>
+          }}>Giochi da tavola</Button>
+          {/* </i> */}
         </Offcanvas.Body>
 
 
         <Offcanvas.Body>
-        <i class="bi bi-calendar-minus iconCanvas"><Button className='iconCanvasWrite'
+        {/* <i class="bi bi-calendar-minus iconCanvas"> */}
+        <Button className='iconCanvasWrite scrittaReservation'
            onClick={() => {
             navigate("/reservation");
-          }}>Prenotazioni</Button></i>
+          }}> 
+       <Image
+       className='figureReservation rounded '
+       src="http://res.cloudinary.com/drf1t0gkq/image/upload/v1708047658/dfpek7js5cgp61okbhya.png"/>
+       Prenotazioni</Button>
+          
+          {/* </i> */}
             {userRole === 'ADMIN' && (
             <Button>Lista prenotazioni</Button>
           )}
@@ -135,23 +160,29 @@ const functionGetUser = (event) => {
 
           {/* Pulsante Profilo */}
           {isLoggedIn && (
-            <Button className='iconCanvasWrite' onClick={() => navigate("/profile")}>
-              <i className="bi bi-person-circle iconCanvas"></i>
+            <Button className='iconCanvasWrite iphoneSe' onClick={() => navigate("/profile")}>
+              {/* <i className="bi bi-person-circle iconCanvas"></i> */}
+              
+      <Image
+className='figureProfile me-2 rounded-circle'
+        src="http://res.cloudinary.com/drf1t0gkq/image/upload/v1708047714/hpcrzd1ukdbsj5gagrg1.png"
+      />
+   
               Profilo
             </Button>
           )}
 
           {/* Pulsante Logout */}
           {isLoggedIn && (
-            <Button className='iconCanvasWrite' onClick={() => logout()}>
-              <i className="bi bi-box-arrow-left iconCanvas"></i>
+            <Button className='iconCanvasWrite ' onClick={() => logout()}>
+              <i className="bi bi-box-arrow-left iconCanvas iphoneSe"></i>
               Logout
             </Button>
           )}
 
           {/* Pulsante Login */}
           {!isLoggedIn && (
-            <Button className='iconCanvasWrite' onClick={() => navigate("/login")}>
+            <Button className='iconCanvasWrite iphoneSe' onClick={() => navigate("/login")}>
               <i className="bi bi-box-arrow-in-right iconCanvas"></i>
               Login
             </Button>

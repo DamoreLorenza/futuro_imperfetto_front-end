@@ -1,5 +1,72 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
+.figureProfile{
+    width: 25px !important;
+    height: 25px !important;
+   
+}
+
+.figureReservation{
+    width: 25px !important;
+    height: 25px !important;
+    position: absolute;
+    left: 50px;
+}
+.scrittaReservation{
+    margin-left: 30px !important;
+    
+}
+
+.figureEvent{
+    width: 25px !important;
+    height: 25px !important;
+    position: absolute;
+    left: 50px;
+}
+
+.scrittaEvent{
+    margin-left: 33px !important;  
+}
+
+.figureHome{
+    width: 35px !important;
+    height: 35px !important;
+}
+.scrittaHome{
+    margin-left: 1px !important; 
+}
+
+.scrittaGiochiDaTavola{
+    margin-left: 32px !important;
+}
+
+.figureDadi{
+    width: 70px !important;
+    height: 80px !important;
+    position: absolute;
+    left: 14px;
+    transform: rotate(30deg);
+}
+
+.dadiPerCanvas{
+    width: 200px !important;
+    height: 310px !important;
+    transform: rotate(-0.7turn);
+    box-shadow: 50px 10px 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 5em;
+    left: 2em;
+}
+  .iconaPerMenuCanvas{
+    
+margin-left: 70px;
+font-weight: bolder;
+font-size: 40px !important;
+   }
+
+   .iconaPerMenuCanvas:hover{
+    background-color: transparent !important;
+   }
 
 .offCanvasSection{
 
@@ -8,7 +75,7 @@
     box-shadow: 50px 10px 10px rgba(0, 0, 0, 0.5);
     /* opacity: 85%; */
     background-repeat: no-repeat;
-    background-size: 70%;
+    background-size: 60%;
     background-color: rgba(36,32,33,255);
 }
 
@@ -51,25 +118,30 @@
     overflow-y: hidden;
 
     }
-   
+
+
+ 
+
+
    .menuButton{
+    border: none !important;
        margin-left: 12px;
-       background-color: transparent;
+       background-color: transparent !important;
        color: black;
        font-weight: bolder;
        /* font-size: 40px; */
-       border: solid 3px black;
+       /* border: solid 3px black; */
    }
    
    .menuButton:hover {
-       background-color: rgba(148,26,30,255) !important;
-       border: solid 3px black;
+       background-color: transparent !important;
+       /* border: solid 3px black; */
        color: black;
    }
    
    .menuButton:active{
-       color: black !important;
-       border: solid black !important;
+       color: transparent !important;
+       /* border: solid black !important; */
    }
    
    @media screen and (min-width: 250px) {
@@ -82,8 +154,13 @@
    
    }
    
+   @media screen and (min-width: 355px) {
+
+
+}
+
    
-   
+
    @media screen and (min-width: 375px) {
 
    
@@ -153,4 +230,4 @@
         font-size: 30px !important;
         margin-left: 3em !important;    }
  
-   }
+   } 
