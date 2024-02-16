@@ -27,7 +27,8 @@ em{
 	height: 50vmin;
 	margin: 2rem auto;
 	border: 8px solid;
-	border-image: linear-gradient(-50deg, rgba(148,26,30,255), rgba(148,26,30,255), rgb(93, 101, 93), black, rgba(36,32,33,255), rgba(36,32,33,255), black) 1;
+	/* border-image: linear-gradient(-50deg, rgba(148,26,30,255), rgba(148,26,30,255), rgb(93, 101, 93), black, rgba(36,32,33,255), rgba(36,32,33,255), black) 1; */
+  border-image: linear-gradient(-50deg,  black) 1;
 	transition: .3s ease-in-out;
 	position: relative;
 	overflow: hidden;

@@ -14,9 +14,6 @@ function App() {
     <div className="App">
     <div className="imgUp">
 
-
-    
-
 <BrowserRouter>
 <Routes>
 <Route element={<Home />} path="/" />

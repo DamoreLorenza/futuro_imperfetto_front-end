@@ -2,16 +2,22 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 .App {
-background-image: url(http://res.cloudinary.com/drf1t0gkq/image/upload/v1707839944/l6fzqnqj6usfuszhuenv.jpg);
-min-height: 100vh;
-width: 100%;
-background-repeat: repeat repeat !important;
-background-size: contain;
-background-position: center center;
-background-attachment: fixed; 
-image-rendering: pixelated !important;
-
 }
+
+body {
+  background-image: url(http://res.cloudinary.com/drf1t0gkq/image/upload/v1707839944/l6fzqnqj6usfuszhuenv.jpg);
+  background-repeat: repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: contain;
+  min-height: 100vh;
+  /* background-size: 11rem; */
+  margin: 0;
+  padding: 0;
+}
+
+
+
 
 .imgUp{
   width: 100%;

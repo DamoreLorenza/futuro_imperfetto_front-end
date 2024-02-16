@@ -5,8 +5,8 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import "./css/Login.css"
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function Login() {
   //per layout
@@ -17,6 +17,8 @@ function Login() {
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 
+const [user, setUser] = useState("");
+
 
 //per layout
   const togglePasswordVisibility = () => {
@@ -25,7 +27,7 @@ const [password, setPassword] = useState("");
   };
 //fine layout
 
-
+const {idUser} = useParams()
 
 function loginUser() {
   fetch(`${process.env.REACT_APP_BACKEND}/auth/login`, {
@@ -48,9 +50,12 @@ function loginUser() {
       }
     })
     .then((data) => {
+      console.log("dataUno", data)
       localStorage.setItem("authToken", data.token);
+
       navigate("/");
     })
+
     .catch((err) =>{
       alert("Il tuo account non esiste. Si prega di registrarsi.");
       navigate("/registration");
@@ -58,52 +63,47 @@ function loginUser() {
 }
 
 
-// function loginUser() {
-//   fetch(`${process.env.REACT_APP_BACKEND}/auth/login`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({
-//       email: email,
-//       password: password,
-//     }),
-//   })
-//     .then((response) => {
-//       if (response.ok) {
-//         setEmail("");
-//         setPassword("");
-//         return response.json();
-//       } else {
-//         throw new Error("Errore nella fetch");
-//       }
-//     })
-//     .then((data) => {
-//       localStorage.setItem("authToken", data.token);
-      
-//       // Ora fai una nuova fetch per ottenere le informazioni sull'utente e salvare il ruolo
-//       fetch(`${process.env.REACT_APP_BACKEND}/user/${data.userId}`)
-//         .then(response => {
-//           if (response.ok) {
-//             return response.json();
-//           } else {
-//             throw new Error('Errore durante il recupero delle informazioni sull\'utente');
-//           }
-//         })
-//         .then(userData => {
-//           localStorage.setItem('userRole', userData.role);
-//           navigate("/");
-//         })
-//         .catch(error => {
-//           console.error('Si è verificato un errore durante il recupero delle informazioni sull\'utente:', error);
-//         });
-//     })
-//     .catch((err) =>{
-//       alert("Il tuo account non esiste. Si prega di registrarsi.");
-//       navigate("/registration");
-//       console.error("ERRORE!", err);
-//     });
-// }
+const getUser = (event) => {
+  if (event) {
+    event.preventDefault();
+  }
+
+  fetch(`${process.env.REACT_APP_BACKEND}/user`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        "Content-Type": "application/json",
+      },
+    })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("errore");
+      }
+    })
+    .then((data) => {
+      console.log("data", data.content[1].role);
+      // if (data && Array.isArray(data.content)) {
+      //     setUser(data.content);
+      //     console.log("user", data)
+      //     console.log("user", data.content[0].id)
+      //     console.log("user", data.content[0].email)
+      if(email == data.content[0].email){console.log("siii")}
+     
+      else {
+          // setUser([]); 
+          console.log("nooo");
+      }
+   })
+    .catch((err) => {
+      console.log("errore", err);
+    });
+};
+
+useEffect(() => {
+  getUser();
+}, []);
 
 
   return (

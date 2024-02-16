@@ -67,14 +67,6 @@
 }
 
 
-/* Demo purposes only */
-
-/* body {
-  background-color: #212121;
-  text-align: center;
-} */
-
-
 .cardEventPageText{
     font-size: 15px;
 }
@@ -92,7 +84,7 @@
       }
 
       .snip1578One{
-        margin-top: 12em !important;
+        margin-top: 7em !important;
       }
 
       .snip1578 .imgEventPage {
@@ -103,7 +95,7 @@
 
       .snip1578 h3 {
         margin: 0;
-        font-size: 15px;
+        font-size: 25px;
         font-weight: normal;
       }
 
@@ -114,7 +106,7 @@
       }
 
       .cardEventPageText{
-        font-size: 20px;
+        font-size: 18px;
     }
     }
     
@@ -122,7 +114,7 @@
       @media screen and (min-width: 360px) {
 
         .snip1578One {
-            margin-top: 13em !important;
+            margin-top: 8em !important;
             
           }
       }
@@ -138,7 +130,8 @@
     
       @media screen and (min-width: 465px) {
         .snip1578One {
-            margin-top: 15em !important;
+            margin-top: 6em !important;
+            margin-left: 3em !important;
             
           }
       }
@@ -146,7 +139,7 @@
       @media screen and (min-width: 470px) {
     
         .snip1578One {
-            margin-top: 18em !important;
+            margin-top: 6em !important;
             
           }
       }
@@ -166,7 +159,8 @@
     
       @media screen and (min-width: 768px) {
         .snip1578 {
-            margin-left: 0 !important;
+            margin-left: 3em !important;
+            margin-top: 0 !important;
             
             min-width: 400px;
             max-width: 400px;
@@ -175,7 +169,7 @@
           }
 
           .snip1578One{
-            margin-top: 10em !important;
+            margin-top: 2em !important;
           }
     
           .snip1578 .imgEventPage {
@@ -192,7 +186,7 @@
     
           .snip1578 .iconEventPage {
             font-size: 25px;
-            margin-top: 15px !important;
+            margin-top: 5px !important;
             
           }
       }
@@ -209,7 +203,7 @@
             
           }
           .snip1578One{
-margin-top: 10em !important;
+margin-top: 2em !important;
 
           }
           .snip1578:hover{
@@ -228,26 +222,26 @@ margin-top: 10em !important;
           }
 
           .snip1578One{
-           margin-top: 10em !important; 
+           margin-top: 2em !important; 
           }
       }
     
       @media screen and (min-width: 1200px) {
         .snip1578 {
             
-            margin-left: 2.5em !important;
+            margin-left: 5em !important;
             margin-right: 20px !important;
             
           }
 
           .snip1578One{
-            margin-top: 10em !important;
+            margin-top: 4em !important;
           }
       }
     
       @media screen and (min-width: 1600px) {
         .snip1578 {
-            margin-left: 4em !important;
+            margin-left: 6em !important;
             margin-right: 20px !important;
           }
           .snip1578One{

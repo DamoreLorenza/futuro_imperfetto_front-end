@@ -12,9 +12,12 @@ const Event = () => {
           <Col xs={1} md={2} lg={1} xl={1} className="inserimentoCanvas">
             <CustomOffCanvas/>
           </Col>
-            <Col xs={10} md={10} lg={5} xl={5}>
+          </Row>
+          <Row>
+            <Col xs={10} md={5} lg={5} xl={5}>
           <SpecificEventCard/>
             </Col>
+            
           </Row>
         </Container>
       </>
