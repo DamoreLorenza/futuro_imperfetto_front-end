@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import "./CustomOffCanvas.css"
@@ -8,8 +8,10 @@ import { useNavigate } from 'react-router-dom';
 
 function CustomOffCanvas() {
   const [showOffCanvas, setShowOffCanvas] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("authToken") !== null);
+  const [user, setUser] = useState([]);
+ 
+  const [userRole, setUserRole] = useState(localStorage.getItem("userRole") || '');
 
   const navigate = useNavigate();
 
@@ -18,21 +20,71 @@ function CustomOffCanvas() {
 
 
 
-  const handleLoginLogout = () => {
-    // Se l'utente è autenticato, esegui il logout, altrimenti esegui il login
-    if (isLoggedIn) {
-      // Esegui azioni di logout, ad esempio azzerare lo stato di autenticazione, ecc.
-      setIsLoggedIn(false);
-      // Naviga verso la pagina di login o homepage dopo il logout
-      navigate("/"); // Sostituisci con il percorso effettivo della pagina di login
-    } else {
-      // Esegui azioni di login, ad esempio impostare lo stato di autenticazione, ecc.
-      setIsLoggedIn(true);
-      // Naviga verso la pagina del profilo utente dopo il login
-      navigate("/login"); // Sostituisci con il percorso effettivo della pagina del profilo utente
-    }
+
+  //funzione per logout
+  function logout() {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("userRole");
+    setIsLoggedIn(false);
+    navigate("/");
+  }
+
+
+//ascoltiamo gli eventi nello storage per l'accesso e l'uscita dell'utente dal suo profilo
+useEffect(() => {
+  const handleStorageChange = () => {
+    setIsLoggedIn(localStorage.getItem("authToken") !== null);
+    const storedUserRole = localStorage.getItem("userRole") || '';
+    setUserRole(storedUserRole);
+    console.log("userRole:", storedUserRole); // Verifica il valore di userRole
   };
 
+  // Verifica se c'è un token di autenticazione presente nel localStorage
+  if (localStorage.getItem("authToken") !== null) {
+    setIsLoggedIn(true); //utente è autenticato
+    const storedUserRole = localStorage.getItem("userRole") || '';
+    setUserRole(storedUserRole);
+  } else {
+    setIsLoggedIn(false); //utente non è autenticato
+    setUserRole('');
+  }
+
+  window.addEventListener("storage", handleStorageChange);
+
+  return () => {
+    window.removeEventListener("storage", handleStorageChange);
+  };
+}, []);
+
+
+const functionGetUser = (event) => {
+  if (event) {
+    event.preventDefault();
+  }
+
+  fetch(`${process.env.REACT_APP_BACKEND}/user`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        "Content-Type": "application/json",
+      },
+    })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("errore");
+      }
+    })
+    .then((data) => {
+      console.log("data", data);
+      if (data && Array.isArray(data.content)) {
+        setUser(data.content);
+    }})
+    .catch((err) => {
+      console.log("errore", err);
+    });
+};
 
   return (
     <>
@@ -42,7 +94,7 @@ function CustomOffCanvas() {
 
       <Offcanvas show={showOffCanvas} onHide={handleCloseOffCanvas} className="offCanvasSection">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title className='OffcanvasTitle'>BENVENUTI A FUTURO IMPERFETTO 2.0</Offcanvas.Title>
+          <Offcanvas.Title className='OffcanvasTitle'>BENVENUTI A FUTURO IMPERFETTO 2.0 {user && <span>({user.getRole})</span>} </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
         <i class="bi bi-house iconCanvas">
@@ -66,24 +118,45 @@ function CustomOffCanvas() {
             navigate("/games");
           }}>Giochi da tavola</Button></i>
         </Offcanvas.Body>
+
+
         <Offcanvas.Body>
         <i class="bi bi-calendar-minus iconCanvas"><Button className='iconCanvasWrite'
            onClick={() => {
             navigate("/reservation");
           }}>Prenotazioni</Button></i>
+            {userRole === 'ADMIN' && (
+            <Button>Lista prenotazioni</Button>
+          )}
         </Offcanvas.Body>
-        {/* <Offcanvas.Body>
-        <i class="bi bi-person iconCanvas"><Button className='iconCanvasWrite'
-           onClick={() => {
-            navigate("/me");
-          }}>Profilo</Button></i>
-        </Offcanvas.Body> */}
+
         <Offcanvas.Body>
-        <i class="bi bi-box-arrow-in-right iconCanvas"><Button className='iconCanvasWrite mt-2 ' onClick={handleLoginLogout}>{isLoggedIn ? 'Logout' : 'Login'}</Button></i>
-        {isLoggedIn && <Button className="iconCanvasWrite" 
-           onClick={() => {
-            navigate("/profile");
-          }}>Profilo</Button>}
+        
+
+          {/* Pulsante Profilo */}
+          {isLoggedIn && (
+            <Button className='iconCanvasWrite' onClick={() => navigate("/profile")}>
+              <i className="bi bi-person-circle iconCanvas"></i>
+              Profilo
+            </Button>
+          )}
+
+          {/* Pulsante Logout */}
+          {isLoggedIn && (
+            <Button className='iconCanvasWrite' onClick={() => logout()}>
+              <i className="bi bi-box-arrow-left iconCanvas"></i>
+              Logout
+            </Button>
+          )}
+
+          {/* Pulsante Login */}
+          {!isLoggedIn && (
+            <Button className='iconCanvasWrite' onClick={() => navigate("/login")}>
+              <i className="bi bi-box-arrow-in-right iconCanvas"></i>
+              Login
+            </Button>
+          )}
+
         </Offcanvas.Body>
       </Offcanvas>
     </>
