@@ -94,7 +94,7 @@ const functionGetUser = (event) => {
 
       <Offcanvas show={showOffCanvas} onHide={handleCloseOffCanvas} className="offCanvasSection">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title className='OffcanvasTitle'>BENVENUTI A FUTURO IMPERFETTO 2.0 {user && <span>({user.getRole})</span>} </Offcanvas.Title>
+          <Offcanvas.Title className='OffcanvasTitle'>BENVENUTI A FUTURO IMPERFETTO 2.0 </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
         <i class="bi bi-house iconCanvas">
