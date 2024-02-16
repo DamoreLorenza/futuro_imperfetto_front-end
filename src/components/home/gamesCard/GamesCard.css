@@ -1,9 +1,11 @@
 
 
 .h1Games {
-	font-size: 5.25vmin;
+	font-size: 4vmin;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
 	text-align: center;
 	color: rgba(36,32,33,255);
+  color: black;
     
 }
 .pGames {
@@ -13,12 +15,16 @@
 	margin-bottom: 1.5rem;
 }
 
+em{
+  color: black !important;
+}
+
 .wrapGames {
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-between;
 	width: 85vmin;
-	height: 65vmin;
+	height: 50vmin;
 	margin: 2rem auto;
 	border: 8px solid;
 	border-image: linear-gradient(-50deg, rgba(148,26,30,255), rgba(148,26,30,255), rgb(93, 101, 93), black, rgba(36,32,33,255), rgba(36,32,33,255), black) 1;
@@ -32,7 +38,8 @@
 	width: 100%;
 	height: 100%;
 	padding: 1rem .75rem;
-	background: rgba(148,26,30,255);
+	/* background: rgba(36,32,33,255); */
+  background: whitesmoke;
 	transition: .4s ease-in-out;
 	z-index: 1;
 }
@@ -56,14 +63,21 @@
 }
 .imageGames-content {
 	position: absolute;
-	top: 0;
+	top: 0em;
 	right: 0;
+  left: 15em;
 	width: 60vmin;
 	height: 100%;
-	background-image: url("https://assets.codepen.io/4787486/trees.png");
-	background-size: cover;
+  /* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1708088792/x4jkgnm2rbpjflyrgsw2.png"); */
+	background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1708090348/qsjyftsknwzwp1ixbktf.png");
+	background-repeat: no-repeat;
+  background-size: 5rem;
+  background-position: bottom;
 	transition: .3s ease-in-out;
-	/* border: 1px solid green; */
+  /* background-color: rgba(36,32,33,255); */
+  background-color:whitesmoke;
+
+  
 }
 
 .insetGames {
@@ -71,6 +85,7 @@
 	margin: 0.25em 1em 1em 0;
 	border-radius: 0.25em;
 	float: left;
+ 
 }
 
 .dotsGames {
@@ -84,6 +99,7 @@
 	width: 55px;
 	height: 4vmin;
 	transition: .3s ease-in-out .3s;
+  
 }
 .dotGames {
 	width: 14px;
@@ -104,11 +120,20 @@
 	background: rgba(36,32,33,255);
 	box-shadow: inset 1px 1px 15px 0 rgba(0 0 0 / .4);
 	overflow-y: scroll;
+  
 }
 
 .wrapGames:hover .overlayGames
  {
-	transform: translateX(-60vmin);
+	transform: translateX(-59vmin);
+  margin-right: 5px;
+
+}
+
+.wrapGames:hover .overlayGames:hover
+ {
+	transform: translateX(-59vmin);
+  margin-right: 5px;
 }
 .wrapGames:hover .imageGames-content {
 	width: 30vmin;

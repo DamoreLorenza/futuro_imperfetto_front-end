@@ -19,7 +19,7 @@ const Games = () => {
           <Form.Control
               type="text"
               placeholder="Search"
-              className="formSearchBar mr-sm-2"
+              className="formSearchBar  mr-sm-2"
             />
           </Form>
           </Col>
