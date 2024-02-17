@@ -1,7 +1,48 @@
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import "./EventCard.css"
+import { useEffect, useState } from "react";
 
 const EventCard = () => {
+const [event, setEvent]=useState([])
+
+
+const getEvent = (event) => {
+  if (event) {
+    event.preventDefault();
+  }
+
+  fetch(`${process.env.REACT_APP_BACKEND}/event`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      "Content-Type": "application/json",
+    },
+  })
+  .then((res) => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      throw new Error("errore");
+    }
+  })
+  .then((data) => {
+    console.log("data", data);
+    if (data && Array.isArray(data.content)) {
+        setEvent(data.content);
+    } else {
+        setEvent([]); 
+    }
+})
+  .catch((err) => {
+    console.log("errore", err);
+  });
+};
+
+useEffect(() => {
+  getEvent();
+}, []);
+
+
     return (
       <>    
       

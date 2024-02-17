@@ -1,12 +1,47 @@
 import { useState } from "react"
 import "./ReservationSection.css"
-import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import TimeRangePicker from "react-time-range-picker";
+import ModalChooserGame from "./ModalChooserGame";
 
 
 const ReservationSection = () =>{
+  //per il gioco selezionato da prenotare
+  const [selectedGame, setSelectedGame] = useState("");
+
+
+  // function gettableReservation() {
+  //   fetch(`${process.env.REACT_APP_BACKEND}/tableReservation`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       username: username,
+  //       email: email,
+  //       password: password,
+  //       name: name,
+  //       surname: surname,
+  //       role: role,
+  //     }),
+  //   })
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         setUsername("");
+  //         setEmail("");
+  //         setPassword("");
+  //         setName("");
+  //         setSurname("");
+  //         setRole("");
+  //         window.alert("Registrazione Effettuata con successo!");
+  //       } else {
+  //         throw new Error("errore nella fetch");
+  //       }
+  //     })
+  //     .catch((err) => console.log("ERRORE!", err));
+  // }
+
+
 
 
     return(
@@ -49,21 +84,23 @@ const ReservationSection = () =>{
         
         </Col>
         </Row> 
-        <Row className="rowForInput">
+        {/* <Row className="rowForInput">
         <Col xs={10} sm={8} md={8} xl={7}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Alle ore</Form.Label>
         <Form.Control className="inputPrenotazione" size="sm" type="time" placeholder="Alle ore" />
       </Form.Group>
-      
+       
       </Col>
-    </Row>
+    </Row> */}
 
     <Row className="rowForInput">
         <Col xs={10} sm={8} md={8} xl={7}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Vuoi prenotare un gioco da tavola?</Form.Label>
-        <Form.Control className="inputPrenotazione" size="sm" type="text" placeholder="" />
+        <Form.Label>Desideri prenotare un gioco da tavola?</Form.Label>
+        <ModalChooserGame onGameSelect={(gameName) => setSelectedGame(gameName)}/>
+        <Form.Control className="inputPrenotazione" size="sm" type="text" placeholder="" value={selectedGame} onChange={(e) => setSelectedGame(e.target.value)}/>
+        
       </Form.Group>
       
       </Col>

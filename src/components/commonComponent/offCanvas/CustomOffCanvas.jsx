@@ -124,12 +124,14 @@ const functionGetUser = (event) => {
         <i className="bi bi-calendar-minus iconCanvas"><Button className='iconCanvasWrite'
            onClick={() => {
             navigate("/reservation");
-          }}>Prenotazioni {userRole === 'ADMIN' && (
+          }}>Prenotazioni </Button></i>
+          
+          {userRole === 'ADMIN' && (
             <Button
               onClick={() => {
             navigate("/reservationListPage");}}
              className='buttonListaPrenotazioni'>| Lista prenotazioni</Button>
-          )}</Button></i>
+          )}
 
         </Offcanvas.Body>
 

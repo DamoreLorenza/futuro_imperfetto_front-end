@@ -1,0 +1,76 @@
+/* modale card */
+
+.cardModalChooser{
+    width: 8rem;
+    /* background-color: whitesmoke !important; */
+    background-image: url(https://res.cloudinary.com/drf1t0gkq/image/upload/v1707755845/mik7xvq7elltxh7r3qur.jpg);
+    background-size: contain;
+    border: 0;
+    color: black;
+}
+
+.cardModalImgChooser{
+
+    width: 100px;
+  
+
+}
+
+.cardModalButtonChooser{
+width: 70px;
+font-size: 10px;
+background-color: rgba(148,26,30,255);
+border-color: black;
+
+}
+
+.cardModalButtonChooser:hover{
+    background-color: rgba(148,26,30,255); 
+    border-color: black;
+}
+
+.cardModalTitleChooser{
+
+    font-size: 10px !important;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.bigButton{
+background-image: url(https://res.cloudinary.com/drf1t0gkq/image/upload/v1707755845/mik7xvq7elltxh7r3qur.jpg);
+background-size: contain;
+/* background-color:whitesmoke ; */
+    border: solid black 4px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    width: 10em;
+}
+
+.bigButton:hover{
+    border-color: black;
+}
+
+/* fine modale card */
+
+/* modale */
+
+modalChooser{
+    background-color: rgba(36,32,33,255);
+    color: white !important;
+}
+
+.modal-title{
+    color: white !important;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.modal-body{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* 
+fine modale */

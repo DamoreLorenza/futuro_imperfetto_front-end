@@ -71,6 +71,41 @@
     font-size: 15px;
 }
 
+.insertCardPositionButton{
+  position: absolute !important;
+  right: 14em !important;
+  top:8em !important;
+}
+
+.buttonModale{
+  position: absolute !important;
+  right: 14em !important;
+  top:19em !important;
+}
+
+
+.buttonDelete{
+z-index: 999!important;
+position: relative;
+background-color:  rgba(148,26,30,255);
+border-color: white;
+}
+
+.buttonDelete:hover {
+
+  background-color:  rgba(148,26,30,255) !important;
+  border-color: white !important;
+  }
+
+  .buttonDelete::selection {
+    background-color:  rgba(148,26,30,255) !important;
+    border-color: white !important;
+  }
+
+.buttonDelete:focus{
+  background-color:  rgba(148,26,30,255) !important;
+  border-color: white !important;
+}
 
 @media screen and (min-width: 280px) {
     .snip1578 {
@@ -108,6 +143,13 @@
       .cardEventPageText{
         font-size: 18px;
     }
+
+    .buttonModale{
+      position: absolute !important;
+      right: 3em !important;
+      top:19em !important;
+    }
+
     }
     
     
@@ -144,6 +186,15 @@
           }
       }
     
+
+      @media screen and (min-width: 540px) {
+
+      .buttonModale{
+        position: absolute !important;
+        right: 14em !important;
+        top:19em !important;
+      }
+    }
       
       @media screen and (min-width: 570px) {
         
@@ -180,7 +231,7 @@
     
           .snip1578 h3 {
             margin: 0;
-            font-size: 30px;
+            font-size: 25px;
             font-weight: normal;
           }
     
@@ -206,11 +257,11 @@
 margin-top: 2em !important;
 
           }
-          .snip1578:hover{
+          /* .snip1578:hover{
     
             transform: translateX(50%);
             transform: (1.5, 1.5);
-        }
+        } */
       }  
     
       @media screen and (min-width: 1180px) {
