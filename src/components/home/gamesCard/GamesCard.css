@@ -10,6 +10,12 @@ right: 14em;
   
   }
 
+  .insertCardPosition{
+    position: absolute;
+    right: 14em ;
+    top:5em;
+  }
+
 .h1Games {
 	font-size: 3vmin;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
@@ -383,17 +389,17 @@ per schermo grande */
     }
 
     .buttonChangePageLeft{
-     top: 19em;
+     top: 18em;
       
       }
       
       .buttonChangePageRight{
-        top: 19em;
+        top: 18em;
         
         }
 
         .insertCardPosition{
-          margin-right: 2em !important;
+        
         }
     }
     
@@ -406,7 +412,7 @@ per schermo grande */
           }
       }
     
-     @media screen and (min-width: 374px) {
+     @media screen and (min-width: 370px) {
       .buttonChangePageLeft{
         top: 16em;
         right: 7em;

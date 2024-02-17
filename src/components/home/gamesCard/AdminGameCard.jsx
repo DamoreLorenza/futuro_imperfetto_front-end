@@ -22,6 +22,7 @@ const AdminGameCard = () =>{
         fetch(`${process.env.REACT_APP_BACKEND}/game`, {
           method: "POST",
           headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
@@ -48,18 +49,22 @@ const AdminGameCard = () =>{
           })
           .catch((err) => console.log("ERRORE!", err));
       }
-
-
+      const handleSubmit = (e) => {
+        e.preventDefault(); 
+        handleClose(); // Chiudi il modale
+        createGameCard(); // Invia i dati del gioco
+        navigate("/games"); // Naviga verso la pagina dei giochi
+      };
 
 return(
     <>
-<Button variant="primary" onClick={handleShow}>
-Launch demo modal
+<Button className="buttonModale" onClick={handleShow}>
+Inserisci un nuovo gioco da tavola
 </Button>
 <Modal className="modaleGame" show={show} onHide={handleClose}>
 <Modal.Header closeButton>
 </Modal.Header>
-<Form className="formInsertGame">
+<Form className="formInsertGame" onSubmit={handleSubmit}>
       <Form.Group className="mb-3" >
         <Form.Label>Nome gioco</Form.Label>
         <Form.Control className="formControlInsertGame" type="text" placeholder="nome" 
@@ -95,13 +100,7 @@ Launch demo modal
       onChange={(e) => {setAvatar(e.target.value); }} />
       </Form.Group>
 
-      <Button type="submit" className="btn btn-danger mb-2 mt-2 col-6 round-pillow "
-             onClick={() => {
-              handleClose();
-              createGameCard();
-            navigate("/game");
-          }}
-  >Inserisci gioco</Button>
+      <Button type="submit" className="btn btn-danger mb-2 mt-2 col-6 round-pillow ">Inserisci gioco</Button>
     
     </Form>
 </Modal>

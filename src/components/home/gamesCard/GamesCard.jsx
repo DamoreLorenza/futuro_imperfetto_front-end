@@ -6,6 +6,7 @@ import AdminGameCard from "./AdminGameCard";
 const GamesCard = () => {
     const [screenSize, setScreenSize] = useState(getScreenSize());
     const [game, setGame] = useState([]);
+    const [userRole, setUserRole] = useState(localStorage.getItem(""));
 
     // per paginazione
     const [currentPage, setCurrentPage] = useState(0);
@@ -31,6 +32,13 @@ const GamesCard = () => {
             height: window.innerHeight
         };
     }
+
+    useEffect(() => {
+        const role = localStorage.getItem("userRole");
+        if (role) {
+            setUserRole(role);
+        }
+    }, []);
 
     // per paginazione
     const nextPage = () => {
@@ -80,10 +88,9 @@ const GamesCard = () => {
                       <div>
                         <button className="buttonChangePageLeft rounded-circle bg-danger" onClick={prevPage} disabled={currentPage === 0}><i className="bi bi-arrow-left-circle-fill"></i></button>
                         <button className="buttonChangePageRight rounded-circle bg-danger" onClick={nextPage} disabled={game.length < gamesPerPage }><i className="bi bi-arrow-right-circle-fill"></i></button>
-                       </div>
-                       <Container>
-<Row>
-<Col xs={11} md={6}>
+                       </div> 
+                       {userRole === "ADMIN" && <AdminGameCard className="insertCardPosition"/>}
+
 
                 {isFullScreen ? (
 
@@ -156,12 +163,6 @@ const GamesCard = () => {
                     ))
                 )}
 
-</Col>
-<Col xs={1} md={6}>
-              <AdminGameCard className="insertCardPosition"/>
-</Col>
-</Row>
-</Container>
             </>
     )
 }

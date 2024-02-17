@@ -18,3 +18,29 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: rgba(36,32,33,255);
     width: 450px;
 }
+
+.buttonModale{
+    background-color: rgba(36,32,33,255);
+    color: whitesmoke;
+    border-color: rgba(148,26,30,255);
+}
+.buttonModale:hover{
+    background-color: rgba(148,26,30,255);
+    color: whitesmoke;
+    border-color: rgba(148,26,30,255);
+}
+
+.buttonModale::selection {
+    background-color: rgba(148,26,30,255);
+    color: whitesmoke;
+}
+
+.buttonModale:focus {
+    background-color: rgba(148,26,30,255);
+    color: whitesmoke;
+}
+
+.buttonModale:active {
+    background-color: rgba(148,26,30,255);
+    color: whitesmoke;
+}
