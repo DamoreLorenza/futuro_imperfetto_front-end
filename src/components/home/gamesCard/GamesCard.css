@@ -1,7 +1,17 @@
+.buttonChangePageLeft{
+position: absolute;
+right: 14em;
 
+}
+
+.buttonChangePageRight{
+  position: absolute;
+  right: 12em;
+  
+  }
 
 .h1Games {
-	font-size: 4vmin;
+	font-size: 3vmin;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
 	text-align: center;
 	color: rgba(36,32,33,255);
@@ -331,6 +341,9 @@ per schermo grande */
     font-size: 15px;
 }
 
+.insertCardPosition{
+  
+}
 
 @media screen and (min-width: 280px) {
     .game1578 {
@@ -368,6 +381,20 @@ per schermo grande */
       .cardGamePageText{
         font-size: 20px;
     }
+
+    .buttonChangePageLeft{
+     top: 19em;
+      
+      }
+      
+      .buttonChangePageRight{
+        top: 19em;
+        
+        }
+
+        .insertCardPosition{
+          margin-right: 2em !important;
+        }
     }
     
     
@@ -379,8 +406,21 @@ per schermo grande */
           }
       }
     
-     @media screen and (min-width: 375px) {
-    
+     @media screen and (min-width: 374px) {
+      .buttonChangePageLeft{
+        top: 16em;
+        right: 7em;
+         
+         }
+         
+         .buttonChangePageRight{
+           top: 16em;
+           right: 5em;
+           }
+
+           .insertCardPosition{
+            
+          }
       }
     
       @media screen and (min-width: 390px) {
@@ -401,6 +441,17 @@ per schermo grande */
             margin-top: 3em !important;
             
           }
+          .buttonChangePageLeft{
+            top: 20em;
+            right: 7em;
+             
+             }
+             
+             .buttonChangePageRight{
+               top: 20em;
+               right: 5em;
+               }
+          
       }
     
       
@@ -461,7 +512,7 @@ per schermo grande */
             
           }
           .game1578One{
-margin-top: 10em !important;
+margin-top: 3em !important;
 
           }
           .game1578:hover{
@@ -480,7 +531,7 @@ margin-top: 10em !important;
           }
 
           .game1578One{
-           margin-top: 10em !important; 
+           margin-top: 3em !important; 
           }
       }
     

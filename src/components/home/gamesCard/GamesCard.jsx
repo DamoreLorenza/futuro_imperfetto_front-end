@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
 import "./GamesCard.css"
-import { Card, Image } from "react-bootstrap";
+import { Card, Col, Container, Image, Row } from "react-bootstrap";
+import AdminGameCard from "./AdminGameCard";
 
 const GamesCard = () => {
     const [screenSize, setScreenSize] = useState(getScreenSize());
-    const [game, setGame]= useState([]);
- 
+    const [game, setGame] = useState([]);
 
-    const isFullScreen = screenSize.width > 1000 && screenSize.height > 900;
-    const isLargeScreen = screenSize.width > 1000;
+    // per paginazione
+    const [currentPage, setCurrentPage] = useState(0);
+    const gamesPerPage = 10;
+    const orderBy = 'id';
+
+    // per schermo card
+    const isFullScreen = screenSize.width > 1200 && screenSize.height > 900;
+    const isLargeScreen = screenSize.width > 1200;
 
     useEffect(() => {
         function handleResize() {
@@ -26,50 +32,64 @@ const GamesCard = () => {
         };
     }
 
+    // per paginazione
+    const nextPage = () => {
+        setCurrentPage((prevPage) => prevPage + 1);
+    };
+
+    const prevPage = () => {
+        setCurrentPage((prevPage) => Math.max(prevPage - 1, 0)); 
+    };
+  
+    useEffect(() => {
+        fetchGames(currentPage);
+    }, [currentPage]); // Aggiorna i giochi quando la pagina corrente cambia
     
-    const getGame = (event) => {
-        if (event) {
-          event.preventDefault();
-        }
-      
-        fetch(`${process.env.REACT_APP_BACKEND}/game`, {
+    const fetchGames = (page) => {
+        fetch(`${process.env.REACT_APP_BACKEND}/game?page=${page}&size=${gamesPerPage}&orderBy=${orderBy}`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${localStorage.getItem("authToken")}`,
               "Content-Type": "application/json",
             },
-          })
-          .then((res) => {
+        })
+        .then((res) => {
             if (res.ok) {
               return res.json();
             } else {
-              throw new Error("errore");
+              throw new Error("Errore nella richiesta");
             }
-          })
-          .then((data) => {
-            console.log("data", data);
+        })
+        .then((data) => {
             if (data && Array.isArray(data.content)) {
                 setGame(data.content);
             } else {
-                setGame([]); // Imposta game come un array vuoto se i dati non sono nel formato previsto
+                setGame([]); 
             }
         })
-          .catch((err) => {
-            console.log("errore", err);
-          });
-      };
+        .catch((err) => {
+            console.log("Errore nella richiesta:", err);
+        });
+    };
 
-      useEffect(() => {
-        getGame();
-      }, []);
-    
 
 
     return(
 
             <>
+                      <div>
+                        <button className="buttonChangePageLeft rounded-circle bg-danger" onClick={prevPage} disabled={currentPage === 0}><i className="bi bi-arrow-left-circle-fill"></i></button>
+                        <button className="buttonChangePageRight rounded-circle bg-danger" onClick={nextPage} disabled={game.length < gamesPerPage }><i className="bi bi-arrow-right-circle-fill"></i></button>
+                       </div>
+                       <Container>
+<Row>
+<Col xs={11} md={6}>
+
                 {isFullScreen ? (
-                    // Renderizza questa card per schermo pieno
+
+
+
+                    //per schermo pieno
                     game.map((gameItem, index) => (
                         <div key={index} className="fullScreenCard ">
                             <div className="wrapGames animateGames popGames">
@@ -90,9 +110,10 @@ const GamesCard = () => {
                                 </div>
                             </div>
                         </div>
+                        
                     ))
                 ) : isLargeScreen ? (
-                    // Renderizza questa card per schermi grandi
+                    //  per schermi grandi
                     game.map((gameItem, index) => (
                         <div key={index} className="wrapGames animateGames popGames">
                             <div className="overlayGames">
@@ -113,7 +134,7 @@ const GamesCard = () => {
                         </div>
                     ))
                 ) : (
-                    // Renderizza questa card per schermi più piccoli
+                    //  per schermi più piccoli
                     game.map((gameItem, index) => (
                         <div key={index} className="wrapGamesSmall">
                             <Card className="game1578 game1578One">
@@ -134,6 +155,13 @@ const GamesCard = () => {
                         </div>
                     ))
                 )}
+
+</Col>
+<Col xs={1} md={6}>
+              <AdminGameCard className="insertCardPosition"/>
+</Col>
+</Row>
+</Container>
             </>
     )
 }

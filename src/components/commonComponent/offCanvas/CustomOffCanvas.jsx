@@ -97,7 +97,7 @@ const functionGetUser = (event) => {
           <Offcanvas.Title className='OffcanvasTitle'>BENVENUTI A FUTURO IMPERFETTO 2.0 </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-        <i class="bi bi-house iconCanvas">
+        <i className="bi bi-house iconCanvas">
         <Button className='iconCanvasWrite'
           onClick={() => {
             navigate("/");
@@ -105,7 +105,7 @@ const functionGetUser = (event) => {
           </i>
         </Offcanvas.Body>
         <Offcanvas.Body>
-        <i class="bi bi-stack iconCanvas">
+        <i className="bi bi-stack iconCanvas">
         <Button className='iconCanvasWrite'
           onClick={() => {
             navigate("/event");
@@ -113,7 +113,7 @@ const functionGetUser = (event) => {
           </i>
         </Offcanvas.Body>
         <Offcanvas.Body>
-        <i class="bi bi-boxes iconCanvas"><Button className='iconCanvasWrite'
+        <i className="bi bi-boxes iconCanvas"><Button className='iconCanvasWrite'
             onClick={() => {
             navigate("/games");
           }}>Giochi da tavola</Button></i>
@@ -121,13 +121,16 @@ const functionGetUser = (event) => {
 
 
         <Offcanvas.Body>
-        <i class="bi bi-calendar-minus iconCanvas"><Button className='iconCanvasWrite'
+        <i className="bi bi-calendar-minus iconCanvas"><Button className='iconCanvasWrite'
            onClick={() => {
             navigate("/reservation");
-          }}>Prenotazioni</Button></i>
-            {userRole === 'ADMIN' && (
-            <Button>Lista prenotazioni</Button>
-          )}
+          }}>Prenotazioni {userRole === 'ADMIN' && (
+            <Button
+              onClick={() => {
+            navigate("/reservationListPage");}}
+             className='buttonListaPrenotazioni'>| Lista prenotazioni</Button>
+          )}</Button></i>
+
         </Offcanvas.Body>
 
         <Offcanvas.Body>

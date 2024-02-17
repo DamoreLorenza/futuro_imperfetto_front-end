@@ -71,6 +71,19 @@
        color: black !important;
        border: solid black !important;
    }
+
+   .buttonListaPrenotazioni{
+    font-size: 10px;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+   }
+
+   .buttonListaPrenotazioni:hover{
+    background-color: rgba(148,26,30,255);
+
+   }
+
    
    @media screen and (min-width: 250px) {
    
