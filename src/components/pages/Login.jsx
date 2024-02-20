@@ -51,6 +51,7 @@ function loginUser() {
       console.log("dataUno", data)
       localStorage.setItem("authToken", data.token);
       localStorage.setItem("userRole", data.user.role);
+      localStorage.setItem("userData", JSON.stringify(data.user));
       navigate("/");
     })
 
