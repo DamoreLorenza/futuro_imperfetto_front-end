@@ -58,7 +58,7 @@ const ReservationSection = () =>{
         <Col xs={10} sm={8} md={8} xl={7}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Numero persone</Form.Label>
-        <Form.Control className="inputPrenotazione" size="sm" type="number" placeholder="Numero persone" />
+        <Form.Control className="inputPrenotazione" size="sm" type="number" placeholder="Numero persone" max={10} min={1}/>
       </Form.Group>
         </Col>
         </Row> 

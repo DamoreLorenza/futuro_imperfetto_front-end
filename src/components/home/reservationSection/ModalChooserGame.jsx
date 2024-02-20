@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 
 
-const ModalChooserGame = () => {
+const ModalChooserGame = ({ onGameSelect }) => {
     const [show, setShow] = useState(false);
     const [game, setGame] = useState([]);
 
@@ -71,7 +71,7 @@ const handleGameSelection = (gameName) => {
 
     return(
         <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button className="showListButton"  onClick={handleShow}>
         Mostrami la lista
       </Button>
 
@@ -91,9 +91,13 @@ const handleGameSelection = (gameName) => {
 <div key={gameItem.id} className="bigButton">
 <Card key={index} className="cardModalChooser">
       <Card.Img className="cardModalImgChooser" variant="top" src={gameItem.avatar} />
-      <Card.Body>
+      <Card.Body >
         <Card.Title className="cardModalTitleChooser">{gameItem.name}</Card.Title>
-        <Button className="cardModalButtonChooser" variant="primary" onClick={() => handleGameSelection(gameItem.name)}>Prenota</Button>
+        <Button className="cardModalButtonChooser" variant="primary"
+                      onClick={() => {
+                      onGameSelect(gameItem.name);
+                      handleClose();
+                    }}>Prenota</Button>
       </Card.Body>
 
       

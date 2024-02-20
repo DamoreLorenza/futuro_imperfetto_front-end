@@ -16,12 +16,34 @@
 
 }
 
+.showListButton{
+    background-color: rgba(148,26,30,255);
+border-color: black;
+}
+
+.showListButton:hover{
+    background-color: rgba(148,26,30,255);
+    border-color: black;
+}
+
+.showListButton:active{
+    background-color: rgba(148,26,30,255);
+    border-color: black;
+}
+
+.showListButton::selection{
+    background-color: rgba(148,26,30,255);
+    border-color: black;
+}
+
 .cardModalButtonChooser{
 width: 70px;
 font-size: 10px;
 background-color: rgba(148,26,30,255);
 border-color: black;
-
+    /* display: flex !important;
+justify-content: flex-end !important;
+align-items: flex-end !important; */
 }
 
 .cardModalButtonChooser:hover{
