@@ -12,6 +12,8 @@ const ReservationSection = () =>{
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [userData, setUserData] = useState(null);
+  const [deskId, setDeskId] = useState(null);
+  const [gameId, setGameId] = useState(null);
 
   useEffect(() => {
     const storedUserData = JSON.parse(localStorage.getItem("userData"));
@@ -25,71 +27,85 @@ const ReservationSection = () =>{
 
 
   const reservationSubmit = () => {
-    let deskId; // Dichiaro deskId all'inizio della funzione per renderlo disponibile all'interno della catena delle promesse
+    if (!selectedGame || !date || !time || !seats ) {
+      alert("Si prega di compilare tutti i campi.");
+      return;
+    }
 
-    fetch(`${process.env.REACT_APP_BACKEND}/desk?seats=${seats}`, {
-        method: "GET",
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-            "Content-Type": "application/json",
-        },
+    // Effettua la richiesta per ottenere l'ID del desk
+fetch(`${process.env.REACT_APP_BACKEND}/desk?seats=${seats}`)
+.then((deskResponse) => {
+  if (!deskResponse.ok) {
+    throw new Error("Errore nel recupero dell'ID del desk");
+  }
+  return deskResponse.json();
+})
+.then((deskData) => {
+  const deskId = deskData.id;
+  if (!deskId) {
+    throw new Error("ID del desk non trovato nella risposta");
+  }
+
+  // Effettua la richiesta per ottenere l'ID del gioco
+  fetch(`${process.env.REACT_APP_BACKEND}/game?name=${selectedGame}`)
+    .then((gameResponse) => {
+      if (!gameResponse.ok) {
+        throw new Error("Errore nel recupero dell'ID del gioco");
+      }
+      return gameResponse.json();
     })
-        .then((deskResponse) => {
-            if (!deskResponse.ok) {
-                throw new Error("Errore nel recupero dell'ID del desk");
-            }
-            return deskResponse.json();
-        })
-        .then((deskData) => {
-            deskId = deskData.id; // Assegno deskId con il valore recuperato da deskData
-            return fetch(`${process.env.REACT_APP_BACKEND}/game?name=${selectedGame}`, {
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-                    "Content-Type": "application/json",
-                },
-            });
-        })
-        .then((gameResponse) => {
-            if (!gameResponse.ok) {
-                throw new Error("Errore nel recupero dell'ID del gioco");
-            }
-            return gameResponse.json();
-        })
-        .then((gameData) => {
-            const gameId = gameData.id;
-            const reservationData = {
-                date: date,
-                time: time,
-                seats: seats,
-                userId: userData.id,
-                deskId: deskId, // Utilizzo deskId qui all'interno della catena delle promesse
-                gameId: gameId
-            };
+    .then((gameData) => {
+      const gameId = gameData.id;
+      if (!gameId) {
+        throw new Error("ID del gioco non trovato nella risposta");
+      }
 
-            return fetch(`${process.env.REACT_APP_BACKEND}/tableReservation`, {
-                method: "POST",
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(reservationData)
-            });
-        })
-        .then((reservationResponse) => {
-            if (reservationResponse.ok) {
-                alert("Prenotazione effettuata con successo!");
-                // Effettua eventuali azioni aggiuntive dopo la prenotazione
-            } else {
-                throw new Error("Errore durante la prenotazione");
-            }
-        })
-        .catch((error) => {
-            console.error("Errore durante la gestione della prenotazione:", error);
-            alert("Si è verificato un errore durante la gestione della prenotazione. Si prega di riprovare più tardi.");
-        });
-};
+      // Continua con la logica della prenotazione utilizzando deskId e gameId
+      const reservationData = {
+        date: date,
+        time: time,
+        seats: seats,
+        userId: userData.id,
+        deskId: deskId,
+        gameId: gameId
+      };
 
+      fetch(`${process.env.REACT_APP_BACKEND}/tableReservation`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(reservationData)
+      })
+      .then((reservationResponse) => {
+        if (!reservationResponse.ok) {
+          throw new Error("Errore durante la prenotazione");
+        }
+        setDate("");
+        setTime("");
+        setSeats(1);
+        setSelectedGame("");
+        setDeskId(null);
+        setGameId(null);
+        setUserData(null);
+        alert("Prenotazione effettuata con successo!");
+      })
+      .catch((error) => {
+        console.error("Errore durante la prenotazione:", error);
+        alert("Si è verificato un errore durante la prenotazione. Si prega di riprovare più tardi.");
+      });
+    })
+    .catch((error) => {
+      console.error("Errore nel recupero dell'ID del gioco:", error);
+      alert("Si è verificato un errore durante il recupero dell'ID del gioco.");
+    });
+})
+.catch((error) => {
+  console.error("Errore nel recupero dell'ID del desk:", error);
+  alert("Si è verificato un errore durante il recupero dell'ID del desk.");
+});
+  
+  }
 
     return(
         <>
