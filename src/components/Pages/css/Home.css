@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Roboto:wght@100;400;700&family=Spectral:wght@300;400;700&display=swap');
 
 .container{
  margin: 0;
@@ -5,118 +6,187 @@
  
 }
 
-.menuButton{
-    margin-left: 15px;
+
+/* // daiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+.logoutLogin{
+    display: flex !important;
+
+    justify-content: flex-end !important;
+    /* margin-left: 60em; */
+}
+
+ .offCanvasSection{
+    text-align: center;
+    background: transparent;
+    border: 0 !important;
+
+    /* box-shadow: 50px 10px 10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(36,32,33,255); */
+} 
+
+.OffcanvasTitle{
+    color: black;
+    text-align: center;
+    font-family: "Protest Revolution", sans-serif;
+  font-size: 40px !important;
+    margin-top: 5px;
+}
+
+
+.iconCanvasWrite{
+    color: black;
+    line-height: 10px;
+    font-size: 25px;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+  
+    margin-left: 20px;
     background-color: transparent;
-    color: black;
-    font-weight: bolder;
-    font-size: 40px;
-    border: solid 3px black;
+    border: 0;
+
+}
+/* .prenotazioniWrite{
+   margin-left: 20px !important; 
+} */
+
+.iconCanvasWrite:hover{
+    background-color: transparent;
+    border: 0;
+    color: rgba(148,26,30,255) ;
 }
 
-.menuButton:hover {
-    background-color: rgb(130, 0, 0) !important;
-    border: solid 3px black;
-    color: black;
+.iconCanvasWrite:active{
+    background-color: transparent !important;
+    border: 0 !important;
+    color: rgba(148,26,30,255) ;
 }
 
-.menuButton::selection{
-    color: black !important;
-}
 
-@media screen and (min-width: 250px) {
+ /* .offcanvas-body {
+     flex-grow: 0 !important; 
+     padding: 10px 20px 10px 20px ; 
+    color: white;
+    width: 350px;
+    height: 55px;
+    margin: 10px 30px 10px 30px;
+    overflow-y: hidden;
 
-    .inserimentoCanvas{
+    } */
+   
+   .menuButton{
+       margin-left: 12px;
+       background-color: transparent;
+       color: black;
+       font-weight: bolder;
+       /* font-size: 40px; */
+       border: solid 3px black;
+   }
+   
+   .menuButton:hover {
+       background-color: rgba(148,26,30,255) !important;
+       border: solid 3px black;
+       color: black;
+   }
+   
+   .menuButton:active{
+       color: black !important;
+       border: solid black !important;
+   }
 
-        margin-top: 9em;
-    
+   .buttonListaPrenotazioni{
+    font-size: 10px;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+   }
+
+   .buttonListaPrenotazioni:hover{
+    background-color: rgba(148,26,30,255);
+
+   }
+
+   
+   @media screen and (min-width: 250px) {
+   
+   
+           .menuButton{
+               font-size: 20px ;
+               height: 50px;
+           }
+   
+   }
+   
+   
+   
+   @media screen and (min-width: 375px) {
+
+   
+           .menuButton{
+               font-size: 25px;
+           }
+   
+   }
+   
+   @media screen and (min-width: 390px) {
+
+   
+           .menuButton{
+               font-size: 25px;
+           }
+   }  
+   
+   
+   @media screen and (min-width: 412px) {
+
+           .menuButton{
+               font-size: 30px;
+               height: 60px;
+           }
+
+   
+   }
+   
+   @media screen and (min-width: 470px) {
+   
+
+
+   .menuButton{
+       font-size: 40px;
+       height: 70px;
+   }
+   
+   
+   }
+
+   @media screen and (min-width: 540px) {
+    .menuButton{
+        margin-left: 10px;
     }
-
-    .divisoreSezioneCentrale{
-
-        margin-top: 10em;
-        }
-
-        .menuButton{
-            font-size: 20px;
-        }
-
-}
-
-
-
-@media screen and (min-width: 375px) {
-
-    .inserimentoCanvas{
-
-        margin-top: 11em;
-    
+   }
+ 
+   @media screen and (min-width: 768px) {
+    .menuButton{
+        margin-left: 35px;
     }
-
-    .divisoreSezioneCentrale{
-
-        margin-top: 12em;
-        }
-
-        .menuButton{
-            font-size: 25px;
-        }
-
-}
-
-@media screen and (min-width: 390px) {
-
-    .inserimentoCanvas{
-
-        margin-top: 11em;
-    
+   }
+ 
+ 
+   @media screen and (min-width: 1200px) {
+    .menuButton{
+        margin-left: 2.5em;
     }
-
-    .divisoreSezioneCentrale{
-
-        margin-top: 12em;
-        }
-
-        .menuButton{
-            font-size: 25px;
-        }
-}  
-
-
-@media screen and (min-width: 412px) {
-    .inserimentoCanvas{
-
-        margin-top: 11em;
-    
-    }
-
-    .divisoreSezioneCentrale{
-
-        margin-top: 12em;
-        }
-
-        .menuButton{
-            font-size: 30px;
-        }
-
-}
-
-@media screen and (min-width: 470px) {
-
-.inserimentoCanvas{
-
-    margin-top: 15em;
-
-}
-
-.divisoreSezioneCentrale{
-
-margin-top: 15em;
-}
-
-.menuButton{
-    font-size: 40px;
-}
-
-
-}
+ 
+   }
+ 
+   @media screen and (min-width: 1280px) {
+ 
+   }
+ 
+   @media screen and (min-width: 1400px) {
+    .menuButton{
+        font-size: 30px !important;
+        margin-left: 3em !important;    }
+ 
+   }
