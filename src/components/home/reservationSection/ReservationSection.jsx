@@ -13,6 +13,7 @@ const ReservationSection = () =>{
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [userData, setUserData] = useState(null);
+  const [gameName, setGameName] = useState("")
 
   const [deskId, setDeskId] = useState(null);
   const [gameId, setGameId] = useState(null);
@@ -25,10 +26,10 @@ const ReservationSection = () =>{
   }, []);
 
   const [desk, setDesk] = useState([])
-  // const [game, setGame] = useState([])
+  const [game, setGame] = useState([])
 
 
-  const reservationSubmit = () => {
+  const reservationSubmitDesk = () => {
     fetch(`${process.env.REACT_APP_BACKEND}/desk`, {
       method: "GET",
       headers: {
@@ -65,118 +66,107 @@ const handleSeatsChange = (e) => {
 
   // Trova l'ID del desk che corrisponde al numero di posti selezionato
   const deskWithSelectedSeats = desk.find(desk => desk.seats === selectedSeats);
-  console.log("desk2", deskWithSelectedSeats)
+  console.log("desk2", deskWithSelectedSeats);
   if (deskWithSelectedSeats) {
     // Memorizza l'ID del desk trovato nello stato
     setDeskId(deskWithSelectedSeats.id);
-    console.log("desk id", deskId)
-    console.log("desk 2", deskWithSelectedSeats)
+    console.log("desk id", deskId);
+    
   } else {
     // Se non viene trovato nessun desk con il numero di posti selezionato, reimposta lo stato dell'ID del desk a null
     setDeskId(null);
   }
 };}
 
+const fetchGameName = () => {
+  fetch(`${process.env.REACT_APP_BACKEND}/game`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      "Content-Type": "application/json",
+    },
+  })
+  .then((res) => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      throw new Error("errore");
+    }
+  })
+  .then((gameData) => {
+    console.log("game", gameData);
+    if (gameData && Array.isArray(gameData.content)) {
+        setGame(gameData.content);
+        
+       console.log("game name",gameData.content[0].name) 
+    } else {
+        setGame([]); 
+    }
+})
+.catch((err) => {
+  console.log("errore", err);
+});
+};
+
+const handleGameChange = (e) => {
+  setGame(selectedGame);
+  console.log(selectedGame)
+
+  // Trova il nome del game che corrisponde al numero di posti selezionato
+  const gameWithSelectedName = game.find(game => game.name === selectedGame);
+  console.log("game2", gameWithSelectedName);
+  if (gameWithSelectedName) {
+    // Memorizza il nome del game trovato nello stato
+    setGameId(gameWithSelectedName.id);
+    console.log("game id", gameId);
+    
+  } else {
+    // Se non viene trovato nessun game con il nome selezionato, reimposta lo stato del nome del gioco a null
+    setGameName(null);
+  }
+// };
+}
+
+// function reservationPost() {
+//   fetch(`${process.env.REACT_APP_BACKEND}/tableReservation`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//         date: date,
+//         time: time,
+//
+//      userId: userData.id,
+//         game: gameId,
+//            deskId: deskId,
+
+        
+//     }),
+//   })
+//     .then((response) => {
+//       if (response.ok) {
+//         setDate("");
+//         setTime("");
+//         setUserId("");
+//          setGameId("");
+//         setDeskId("");
+//         
+//         
+//         window.alert("Prenotazione effettuata con successo!");
+//       } else {
+//         throw new Error("errore nella fetch");
+//       }
+//     })
+//     .catch((err) => console.log("ERRORE!", err));
+// }
+
+
     // if (!selectedGame || !date || !time || !seats ) {
     //   alert("Si prega di compilare tutti i campi.");
     //   return;
     // }
 
-    // // Effettua la richiesta per ottenere l'ID del desk
-    // fetch(`${process.env.REACT_APP_BACKEND}/desk?seats=${seats}`)
-    // .then((deskResponse) => {
-    //   if (!deskResponse.ok) {
-    //     throw new Error("Errore nel recupero dell'ID del desk");
-    //   }
-    //   return deskResponse.json();
-    // })
-    // .then((deskData) => {
-    //   // Qui dovresti filtrare i desk per trovare quello con il numero di posti desiderato
-    //   const deskWithSeats = deskData.find(desk => desk.seats === seats);
-    //   if (!deskWithSeats) {
-    //     throw new Error("Desk con il numero di posti specificato non trovato");
-    //   }
-    //   const deskId = deskWithSeats.id;
-    //   console.log("desk", deskData)
-    //   console.log("desk id", deskId)
-
-//     fetch(`${process.env.REACT_APP_BACKEND}/desk`)
-//     .then((deskResponse) => {
-//       if (!deskResponse.ok) {
-//         throw new Error("Errore nel recupero del desk");
-//       }
-//       return deskResponse.json();
-//     })
-//     .then((deskData) => {
-//       // Qui dovresti filtrare i desk per trovare quello con il numero di posti desiderato
-//       const deskWithSeats = deskData.find(deskData => deskData.seats === seats);
-//       if (!deskWithSeats) {
-//         throw new Error("Desk con il numero di posti specificato non trovato");
-//       }
-//       // Utilizza l'oggetto Desk trovato
-//       console.log("Desk trovato:", deskWithSeats);
-
-//   // Effettua la richiesta per ottenere l'ID del gioco
-//   fetch(`${process.env.REACT_APP_BACKEND}/game?name=${selectedGame}`)
-//     .then((gameResponse) => {
-//       if (!gameResponse.ok) {
-//         throw new Error("Errore nel recupero dell'ID del gioco");
-//       }
-//       return gameResponse.json();
-//     })
-//     .then((gameData) => {
-//       const gameId = gameData.id;
-//       if (!gameId) {
-//         throw new Error("ID del gioco non trovato nella risposta");
-//       }
-
-//       // Continua con la logica della prenotazione utilizzando deskId e gameId
-//       const reservationData = {
-//         date: date,
-//         time: time,
-//         seats: seats,
-//         userId: userData.id,
-//         // deskId: deskId,
-//         deskId: deskWithSeats.id,
-//         gameId: gameId
-//       };
-
-//       fetch(`${process.env.REACT_APP_BACKEND}/tableReservation`, {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(reservationData)
-//       })
-//       .then((reservationResponse) => {
-//         if (!reservationResponse.ok) {
-//           throw new Error("Errore durante la prenotazione");
-//         }
-//         setDate("");
-//         setTime("");
-//         setSeats(1);
-//         setSelectedGame("");
-//         setDeskId(null);
-//         setGameId(null);
-//         setUserData(null);
-//         alert("Prenotazione effettuata con successo!");
-//       })
-//       .catch((error) => {
-//         console.error("Errore durante la prenotazione:", error);
-//         alert("Si è verificato un errore durante la prenotazione. Si prega di riprovare più tardi.");
-//       });
-//     })
-//     .catch((error) => {
-//       console.error("Errore nel recupero dell'ID del gioco:", error);
-//       alert("Si è verificato un errore durante il recupero dell'ID del gioco.");
-//     });
-// })
-// .catch((error) => {
-//   console.error("Errore nel recupero dell'ID del desk:", error);
-//   alert("Si è verificato un errore durante il recupero dell'ID del desk.");
-// });
-  
-//  }
 
     return(
         <>
@@ -278,7 +268,11 @@ const handleSeatsChange = (e) => {
         <Form.Group className="mb-3" >
         <Form.Label>Desideri prenotare un gioco da tavola?</Form.Label>
         <ModalChooserGame onGameSelect={(gameName) => setSelectedGame(gameName)}/>
-        <Form.Control className="inputPrenotazione" size="sm" type="text" placeholder="" value={selectedGame} onChange={(e) => setSelectedGame(e.target.value)}/>
+        <Form.Control className="inputPrenotazione" size="sm" type="text" placeholder=""
+         value={selectedGame} onChange={(e) => {setSelectedGame(e.target.value);
+         
+         handleGameChange()}}
+         />
         
       </Form.Group>
       
@@ -290,8 +284,10 @@ const handleSeatsChange = (e) => {
         </Card.Footer>
         <Button className="buttonReservation"  
         onClick={() => {
-    reservationSubmit();
+    reservationSubmitDesk();
     handleSeatsChange();
+    handleGameChange();
+    fetchGameName()
 }}>Conferma prenotazione</Button>
       </Card.Body>
 
