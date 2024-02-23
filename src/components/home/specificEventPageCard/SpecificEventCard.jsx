@@ -75,11 +75,18 @@ useEffect(() => {
   }, []);
 
     return (
+
       <>
       {userRole === "ADMIN" && <AdminSpecificEventCard className="buttonModale"/>}
 
-      <div className="specific-event-card-container">
+      <Container className="specific-event-card-container">
+
 { event.map((eventItem, index) =>(
+
+  <Row key={index}> 
+
+
+  <Col xs={10} md={10} lg={5} xl={5}>
     <Card key={index} className="snip1578 snip1578One">
   <Card.Img className="imgEventPage" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample6.jpg" alt="profile-sample6" />
   <Card.Body>
@@ -87,7 +94,11 @@ useEffect(() => {
 {eventItem.description}
         </Card.Text>
         <Card.Text className="cardEventPageText">
-{eventItem.date}
+        {new Date(eventItem.date).toLocaleDateString('en-GB', {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric'
+  })}
         </Card.Text>
 
      {userRole === "ADMIN" &&  
@@ -98,20 +109,58 @@ useEffect(() => {
       </Card.Body>
   <figcaption className="figCaptionEventPage">
     <h3>{eventItem.name}</h3>
-    <div className="iconEventPage"><a href="#"><i className="ion-social-twitter me-2"></i></a>
-      <a href="#"> <i className="ion-social-instagram-outline me-2"></i></a>
-      <a href="#"> <i className="bi bi-facebook me-2"></i></a>
+    <div className="iconEventPage"><a href="#"><i className="ion-social-twitter me-2 xxIcon"></i></a>
+      <a href="#"> <i className="ion-social-instagram-outline me-2 xxIcon"></i></a>
+      <a href="#"> <i className="bi bi-facebook me-2 xxIcon"></i></a>
     </div>
   </figcaption>
-
-
-
 </Card>
+</Col>
+
+
+<Col xs={10} md={10} lg={10} xl={6}>
+
+
+    <Card key={index} className="snip1578 snip1578One">
+  <Card.Img className="imgEventPage" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample6.jpg" alt="profile-sample6" />
+  <Card.Body>
+        <Card.Text className="cardEventPageText">
+{eventItem.description}
+        </Card.Text>
+        <Card.Text className="cardEventPageText">
+        {new Date(eventItem.date).toLocaleDateString('en-GB', {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric'
+  })}
+        </Card.Text>
+
+     {userRole === "ADMIN" &&  
+
+<Button className="buttonDelete" onClick={ () => deleteCard(eventItem.id)}>Elimina</Button>
+}   
+    
+      </Card.Body>
+  <figcaption className="figCaptionEventPage">
+    <h3>{eventItem.name}</h3>
+    <div className="iconEventPage"><a href="#"><i className="ion-social-twitter me-2 xxIcon"></i></a>
+      <a href="#"> <i className="ion-social-instagram-outline me-2 xxIcon"></i></a>
+      <a href="#"> <i className="bi bi-facebook me-2 xxIcon"></i></a>
+    </div>
+  </figcaption>
+</Card>
+
+
+</Col>
+
+
+</Row>
+
 
 ))}
 
 
-</div>
+</Container>
       </>
     );
   };

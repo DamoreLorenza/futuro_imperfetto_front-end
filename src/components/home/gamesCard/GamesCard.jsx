@@ -71,12 +71,13 @@ const GamesCard = () => {
         .then((data) => {
             if (data && Array.isArray(data.content)) {
                 setGame(data.content);
+                console.log("game", game)
             } else {
                 setGame([]); 
             }
         })
         .catch((err) => {
-            console.log("Errore nella richiesta:", err);
+            console.log("Errore", err);
         });
     };
 

@@ -8,6 +8,7 @@ import ModalChooserGame from "./ModalChooserGame";
 const ReservationSection = () =>{
   //per il gioco selezionato da prenotare
   const [selectedGame, setSelectedGame] = useState("");
+  const [selectedSeats, setSelectedSeats] = useState("");
 
   const [seats, setSeats] = useState(1); 
   const [date, setDate] = useState("");
@@ -15,6 +16,7 @@ const ReservationSection = () =>{
   const [userData, setUserData] = useState(null);
   const [gameName, setGameName] = useState("")
 
+const [userId, setUserId] = useState(null);
   const [deskId, setDeskId] = useState(null);
   const [gameId, setGameId] = useState(null);
 
@@ -22,45 +24,62 @@ const ReservationSection = () =>{
     const storedUserData = JSON.parse(localStorage.getItem("userData"));
     if (storedUserData) {
       setUserData(storedUserData);
+      console.log("userdata", storedUserData)
+      // console.log("userdata2", userData)
+      // console.log("userid", userData.id)
+      // setUserId(userData.id)
+      // console.log("userid2", userId)
+
+      
     }
   }, []);
 
   const [desk, setDesk] = useState([])
   const [game, setGame] = useState([])
 
+  const handleDateChange = (e) => {
+    // Ottieni il valore della data dall'input
+    const selectedDate = e.target.value;
+    // Formatta la data nel formato "YYYY-MM-DD"
+    const formattedDate = selectedDate.split('-').reverse().join('-');
+    // Imposta la data formattata nello stato
+    setDate(formattedDate);
+  };
 
-  const reservationSubmitDesk = () => {
-    fetch(`${process.env.REACT_APP_BACKEND}/desk`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        "Content-Type": "application/json",
-      },
-    })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        throw new Error("errore");
-      }
-    })
-    .then((data) => {
-      console.log("desk", data);
-      if (data && Array.isArray(data.content)) {
-          setDesk(data.content);
+
+//   const reservationSubmitDesk = () => {
+//     fetch(`${process.env.REACT_APP_BACKEND}/desk`, {
+//       method: "GET",
+//       headers: {
+//         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+//         "Content-Type": "application/json",
+//       },
+//     })
+//     .then((res) => {
+//       if (res.ok) {
+//         return res.json();
+//       } else {
+//         throw new Error("errore");
+//       }
+//     })
+//     .then((data) => {
+//       console.log("desk", data);
+//       if (data && Array.isArray(data.content)) {
+//           setDesk(data.content);
           
-         console.log("seats",data.content[0].seats) 
-      } else {
-          setDesk([]); 
-      }
-  })
-    .catch((err) => {
-      console.log("errore", err);
-    });
-};
+//          console.log("seats",data.content[0].seats) 
+//       } else {
+//           setDesk([]); 
+//       }
+//   })
+//     .catch((err) => {
+//       console.log("errore", err);
+//     });
+// };
+
 const handleSeatsChange = (e) => {
-  if (e && e.target && e.target.value){
-  const selectedSeats = parseInt(e.target.value);
+  
+
   setSeats(selectedSeats);
   console.log(selectedSeats)
 
@@ -70,43 +89,43 @@ const handleSeatsChange = (e) => {
   if (deskWithSelectedSeats) {
     // Memorizza l'ID del desk trovato nello stato
     setDeskId(deskWithSelectedSeats.id);
-    console.log("desk id", deskId);
+    console.log("deskid", deskWithSelectedSeats.id)
+    console.log("desk id2", deskId);
     
   } else {
-    // Se non viene trovato nessun desk con il numero di posti selezionato, reimposta lo stato dell'ID del desk a null
     setDeskId(null);
   }
-};}
+;}
 
-const fetchGameName = () => {
-  fetch(`${process.env.REACT_APP_BACKEND}/game`, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-      "Content-Type": "application/json",
-    },
-  })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      throw new Error("errore");
-    }
-  })
-  .then((gameData) => {
-    console.log("game", gameData);
-    if (gameData && Array.isArray(gameData.content)) {
-        setGame(gameData.content);
+// const fetchGameName = () => {
+//   fetch(`${process.env.REACT_APP_BACKEND}/game`, {
+//     method: "GET",
+//     headers: {
+//       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+//       "Content-Type": "application/json",
+//     },
+//   })
+//   .then((res) => {
+//     if (res.ok) {
+//       return res.json();
+//     } else {
+//       throw new Error("errore");
+//     }
+//   })
+//   .then((gameData) => {
+//     console.log("game", gameData);
+//     if (gameData && Array.isArray(gameData.content)) {
+//         setGame(gameData.content);
         
-       console.log("game name",gameData.content[0].name) 
-    } else {
-        setGame([]); 
-    }
-})
-.catch((err) => {
-  console.log("errore", err);
-});
-};
+//        console.log("game name",gameData.content[0].name) 
+//     } else {
+//         setGame([]); 
+//     }
+// })
+// .catch((err) => {
+//   console.log("errore", err);
+// });
+// };
 
 const handleGameChange = (e) => {
   setGame(selectedGame);
@@ -118,27 +137,103 @@ const handleGameChange = (e) => {
   if (gameWithSelectedName) {
     // Memorizza il nome del game trovato nello stato
     setGameId(gameWithSelectedName.id);
-    console.log("game id", gameId);
+    console.log("game id", gameWithSelectedName.id);
+    console.log("game id2", gameId);
+    console.log("userid", userId)
     
   } else {
     // Se non viene trovato nessun game con il nome selezionato, reimposta lo stato del nome del gioco a null
     setGameName(null);
   }
-// };
+
 }
 
-// function reservationPost() {
+
+function reservationPost() {
+  Promise.all([
+    fetch(`${process.env.REACT_APP_BACKEND}/desk`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        "Content-Type": "application/json",
+      },
+    }),
+    fetch(`${process.env.REACT_APP_BACKEND}/game`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        "Content-Type": "application/json",
+      },
+    }),
+  ])
+  .then(([deskRes, gameRes]) => {
+    if (!deskRes.ok || !gameRes.ok) {
+      throw new Error("Errore nella fetch");
+    }
+    return Promise.all([deskRes.json(), gameRes.json()]);
+  })
+  .then(([deskData, gameData]) => {
+   
+          if (gameData && deskData && Array.isArray(deskData.content && gameData.content)) {
+           setDesk(deskData.content);
+           setGame(gameData.content);
+          
+      
+          } else {
+          setDesk([]); 
+           setGame([]); 
+          }
+    
+
+    
+
+    // Invio della richiesta di prenotazione
+    return fetch(`${process.env.REACT_APP_BACKEND}/tableReservation`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        date: date,
+        time: time,
+        userId: userId,
+        gameId: gameId,
+        deskId: deskId,
+      }),
+    });
+  })
+  .then((response) => {
+    if (response.ok) {
+      setDate("");
+      setTime("");
+      setUserId("");
+      setGameId("");
+      setDeskId("");
+      window.alert("Prenotazione effettuata con successo!");
+    } else {
+      throw new Error("Errore nella fetch");
+    }
+  })
+  .catch((error) => {
+    console.log("ERRORE!", error);
+  });
+}
+
+// function reservationPost(e) {
+  
 //   fetch(`${process.env.REACT_APP_BACKEND}/tableReservation`, {
 //     method: "POST",
 //     headers: {
-//       "Content-Type": "application/json",
-//     },
+//      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+//      "Content-Type": "application/json",
+//      },
 //     body: JSON.stringify({
 //         date: date,
 //         time: time,
-//
+
 //      userId: userData.id,
-//         game: gameId,
+//         gameId: gameId,
 //            deskId: deskId,
 
         
@@ -148,11 +243,11 @@ const handleGameChange = (e) => {
 //       if (response.ok) {
 //         setDate("");
 //         setTime("");
-//         setUserId("");
+//         setUserData.id("");
 //          setGameId("");
 //         setDeskId("");
-//         
-//         
+        
+        
 //         window.alert("Prenotazione effettuata con successo!");
 //       } else {
 //         throw new Error("errore nella fetch");
@@ -160,13 +255,7 @@ const handleGameChange = (e) => {
 //     })
 //     .catch((err) => console.log("ERRORE!", err));
 // }
-
-
-    // if (!selectedGame || !date || !time || !seats ) {
-    //   alert("Si prega di compilare tutti i campi.");
-    //   return;
-    // }
-
+  
 
     return(
         <>
@@ -219,8 +308,8 @@ const handleGameChange = (e) => {
         <Form.Label>Numero persone</Form.Label>
         <Form.Control className="inputPrenotazione" size="sm" type="number" placeholder="Numero persone" max={10} min={1} 
           value={seats}
-          //  onChange={(e) => setSeats(parseInt(e.target.value))}
-          onChange={(e) => handleSeatsChange(e)}
+           onChange={(e) => {setSelectedSeats(parseInt(e.target.value));
+          handleSeatsChange()}}
            />
       </Form.Group>
         </Col>
@@ -231,7 +320,7 @@ const handleGameChange = (e) => {
         <Form.Group className="mb-3" >
         <Form.Label>Data prenotazione</Form.Label>
        <Form.Control className="inputPrenotazione" size="sm" type="date" placeholder="Data prenotazione" 
-        value={date} onChange={(e) => setDate(e.target.value)}
+        value={date}  onChange={handleDateChange}
        /> 
       </Form.Group>
       
@@ -251,15 +340,6 @@ const handleGameChange = (e) => {
         
         </Col>
         </Row> 
-        {/* <Row className="rowForInput">
-        <Col xs={10} sm={8} md={8} xl={7}>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Alle ore</Form.Label>
-        <Form.Control className="inputPrenotazione" size="sm" type="time" placeholder="Alle ore" />
-      </Form.Group>
-       
-      </Col>
-    </Row> */}
 
     
 
@@ -269,9 +349,9 @@ const handleGameChange = (e) => {
         <Form.Label>Desideri prenotare un gioco da tavola?</Form.Label>
         <ModalChooserGame onGameSelect={(gameName) => setSelectedGame(gameName)}/>
         <Form.Control className="inputPrenotazione" size="sm" type="text" placeholder=""
-         value={selectedGame} onChange={(e) => {setSelectedGame(e.target.value);
-         
-         handleGameChange()}}
+         value={selectedGame} onChange={(e) => {setSelectedGame(parseInt(e.target.value));
+         handleGameChange()
+         }}
          />
         
       </Form.Group>
@@ -284,10 +364,13 @@ const handleGameChange = (e) => {
         </Card.Footer>
         <Button className="buttonReservation"  
         onClick={() => {
-    reservationSubmitDesk();
-    handleSeatsChange();
+     handleSeatsChange();      
+    // reservationSubmitDesk();
+   
     handleGameChange();
-    fetchGameName()
+    // fetchGameName();
+
+    reservationPost();
 }}>Conferma prenotazione</Button>
       </Card.Body>
 

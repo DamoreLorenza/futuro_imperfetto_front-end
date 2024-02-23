@@ -14,9 +14,10 @@ const Event = () => {
           </Col>
           </Row>
           <Row>
-            <Col xs={10} md={5} lg={5} xl={5}>
+            <Col xs={10} md={10} lg={5} xl={11}>
           <SpecificEventCard/>
             </Col>
+
             
           </Row>
         </Container>
