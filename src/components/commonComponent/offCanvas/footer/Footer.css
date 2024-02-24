@@ -1,12 +1,11 @@
-.containerFooter{
+.rowFooter{
 
-position: absolute;
-bottom: auto;
 
-max-height: 2em !important;
-max-width: 100% !important;
+
+min-width: 100% !important;
 background-color: rgba(36,32,33,255);
 color: white;
 
 
 }
+

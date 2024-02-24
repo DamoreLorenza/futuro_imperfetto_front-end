@@ -3,8 +3,15 @@ import "./css/Home.css"
 import "./css/Games.css"
 import CustomOffCanvas from "../commonComponent/offCanvas/CustomOffCanvas";
 import GamesCard from "../home/gamesCard/GamesCard";
+import { useState } from "react";
 
 const Games = () => {
+  const [searchTerm, setSearchTerm] = useState(""); // Stato per il termine di ricerca
+
+  // Funzione per gestire il cambio del termine di ricerca
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
     return (
       <>
         <Container className="container">
@@ -19,7 +26,10 @@ const Games = () => {
           <Form.Control
               type="text"
               placeholder="Search"
-              className="formSearchBar  mr-sm-2"
+              className="formSearchBar  mr-sm-2 "
+              value={searchTerm} // Assegna il valore di ricerca al campo di input
+                onChange={handleSearchChange}
+                
             />
           </Form>
           </Col>
@@ -31,7 +41,7 @@ const Games = () => {
             
           </Col>
             <Col xs={10} md={9} lg={11} xl={11}>
-          <GamesCard/>
+          <GamesCard searchTerm={searchTerm}/>
             </Col>
           </Row>
         </Container>

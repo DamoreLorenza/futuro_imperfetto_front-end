@@ -6,63 +6,66 @@ import { useEffect, useState } from "react"
 const ReservationList = () =>{
 const [tableReservation, setTableReservation]= useState([])
 
-const getTableReservation = ()=>{
-
-    fetch(`${process.env.REACT_APP_BACKEND}/tableReservation`,{
+const getTableReservations = () => {
+  fetch(`${process.env.REACT_APP_BACKEND}/tableReservation`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
       "Content-Type": "application/json",
-    }})
+    },
+  })
     .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error("errore");
-        }
-      })
-      .then((data) => {
-        console.log("data", data);
-        if (data && Array.isArray(data.content)) {
-            setTableReservation(data.content);
-        } else {
-            setTableReservation([]); 
-        }
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("errore");
+      }
     })
-      .catch((err) => {
-        console.log("errore", err);
-      })
-    } 
+    .then((data) => {
+      console.log("data", data); // Controlla cosa viene restituito qui
+      if (data && Array.isArray(data.content)) {
+        setTableReservation(data.content);
+        console.log("prenotazione", tableReservation)
+      } else {
+        setTableReservation([]);
+      }
+    })
+    .catch((err) => {
+      console.log("errore", err);
+    });
+};
 
+useEffect(() => {
+  getTableReservations();
+}, []);
 
-useEffect(()=>{
-    getTableReservation()},
-[]
-)
 
     return(
     
     <>
-    {tableReservation.map((tableReservationItem, index)=>(
-    <Table key={index} className="tableReservation" striped bordered hover>
+    <Table className="tableReservation" >
       <thead>
         <tr>
-          <th>Tavolo/Numero persone</th>
-          <th>Prenotazione a nome di</th>
-          <th>Data</th>
-          <th>Giochi prenotati</th>
+          <th className="table">Prenotazione a nome di</th>
+          <th className="table">Numero persone</th>
+          <th className="table">Data</th>
+          <th className="table">Orario</th>
+          <th className="table">Giochi prenotati</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>{tableReservationItem.desk}</td>
-          <td>{tableReservationItem.user}</td>
-          <td>{tableReservationItem.date}</td>
-          <td>{tableReservationItem.game}</td>
-        </tr>
+        {tableReservation.map((tableReservationItem, index) => (
+          <tr key={index}>
+            <td className="tableTwo">{tableReservationItem.user.name} {tableReservationItem.user.surname}</td>
+            <td className="tableTwo"> {tableReservationItem.desk.seats}</td>
+            <td className="tableTwo">{tableReservationItem.date}</td>
+            <td className="tableTwo">{tableReservationItem.time}</td>
+            <td className="tableTwo">{tableReservationItem.game.name}</td>
+          </tr>
+        ))}
       </tbody>
     </Table>
-  ))  }
+
     </>
     )
     

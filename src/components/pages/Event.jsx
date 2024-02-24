@@ -14,7 +14,7 @@ const Event = () => {
           </Col>
           </Row>
           <Row>
-            <Col xs={10} md={10} lg={5} xl={11}>
+            <Col xs={11} md={10} lg={11} xl={11} className="d-flex flex-wrap">
           <SpecificEventCard/>
             </Col>
 

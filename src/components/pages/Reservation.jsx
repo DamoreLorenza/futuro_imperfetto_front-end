@@ -3,6 +3,7 @@ import "./css/Home.css"
 import "./css/Reservation.css"
 import CustomOffCanvas from "../commonComponent/offCanvas/CustomOffCanvas";
 import ReservationSection from "../home/reservationSection/ReservationSection";
+import ReservationForm from "../home/reservationSection/ReservationForm";
 
 const Reservation = () => {
     return (
@@ -13,7 +14,8 @@ const Reservation = () => {
             <CustomOffCanvas/>
           </Col>
             <Col xs={10} md={9} lg={10} xl={10}>
-<ReservationSection/>
+{/* <ReservationSection/> */}
+<ReservationForm/>
             </Col>
             <Col xs={1} md={1} lg={1} xl={1}></Col>
           </Row>

@@ -3,7 +3,7 @@ import "./GamesCard.css"
 import { Card, Col, Container, Image, Row } from "react-bootstrap";
 import AdminGameCard from "./AdminGameCard";
 
-const GamesCard = () => {
+const GamesCard = ({ searchTerm }) => {
     const [screenSize, setScreenSize] = useState(getScreenSize());
     const [game, setGame] = useState([]);
     const [userRole, setUserRole] = useState(localStorage.getItem(""));
@@ -52,6 +52,25 @@ const GamesCard = () => {
     useEffect(() => {
         fetchGames(currentPage);
     }, [currentPage]); // Aggiorna i giochi quando la pagina corrente cambia
+
+
+    const filterAndSortGames = (games) => {
+        const matchingExact = [];
+        const containingKeywords = [];
+    
+        games.forEach((game) => {
+          if (game.name.toLowerCase() === searchTerm.toLowerCase()) {
+            matchingExact.push(game);
+          } else if (game.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            containingKeywords.push(game);
+          }
+        });
+    
+        return [...matchingExact, ...containingKeywords];
+      };
+    
+      // Filtra e ordina i giochi
+      const filteredAndSortedGames = filterAndSortGames(game);
     
     const fetchGames = (page) => {
         fetch(`${process.env.REACT_APP_BACKEND}/game?page=${page}&size=${gamesPerPage}&orderBy=${orderBy}`, {
@@ -98,7 +117,7 @@ const GamesCard = () => {
 
 
                     //per schermo pieno
-                    game.map((gameItem, index) => (
+                    filteredAndSortedGames.map((gameItem, index) => (
                         <div key={index} className="fullScreenCard ">
                             <div className="wrapGames animateGames popGames">
                                 <div className="overlayGames">
@@ -122,7 +141,7 @@ const GamesCard = () => {
                     ))
                 ) : isLargeScreen ? (
                     //  per schermi grandi
-                    game.map((gameItem, index) => (
+                    filteredAndSortedGames.map((gameItem, index) => (
                         <div key={index} className="wrapGames animateGames popGames">
                             <div className="overlayGames">
                                 <div className="overlayGames-content animateGames slideGames-left delayGames-2">
@@ -143,7 +162,7 @@ const GamesCard = () => {
                     ))
                 ) : (
                     //  per schermi più piccoli
-                    game.map((gameItem, index) => (
+                    filteredAndSortedGames.map((gameItem, index) => (
                         <div key={index} className="wrapGamesSmall">
                             <Card className="game1578 game1578One">
                                 <Card.Img className="imgGamePage" src={gameItem.avatar} alt="profile-sample6" />

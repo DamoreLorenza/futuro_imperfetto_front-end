@@ -8,11 +8,13 @@ import Games from './components/pages/Games';
 import Reservation from './components/pages/Reservation';
 import Registration from './components/pages/Registration';
 import ReservationListPage from './components/pages/ReservationListPage';
-import Footer from './components/commonComponent/offCanvas/footer/Footer';
+
 
 
 function App() {
   return (
+    <>
+   
     <div className="App">
     <div className="imgUp">
 
@@ -27,9 +29,12 @@ function App() {
 <Route element={<ReservationListPage/>} path="/reservationListPage" />
 </Routes>
 </BrowserRouter>
-<Footer/>
+
     </div>
+  
     </div>
+
+</>
   );
 }
 

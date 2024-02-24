@@ -2,6 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import "./css/Home.css"
 import CentralSection from "../home/centralSection/CentralSection";
 import CustomOffCanvas from "../commonComponent/offCanvas/CustomOffCanvas";
+import Footer from "../commonComponent/offCanvas/footer/Footer";
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
             <Col xs={1} md={1} lg={1} xl={1}></Col>
           </Row>
         </Container>
+        <Footer/>
       </>
     );
   };
