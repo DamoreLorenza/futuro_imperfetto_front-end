@@ -25,3 +25,12 @@ width: 800px !important;
     border: solid 3px white;
 
 }   
+
+.buttonEliminaRiga{
+    color: white;
+    border:  white;
+    background-color: transparent !important;
+}
+.buttonEliminaRiga:hover{
+    color: black ;
+}

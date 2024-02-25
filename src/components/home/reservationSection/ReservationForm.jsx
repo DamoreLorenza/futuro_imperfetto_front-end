@@ -50,6 +50,9 @@ const ReservationForm = () =>{
       console.log("deskSelected", deskWithSelectedSeats)
       console.log("deskId", deskWithSelectedSeats.id)
       console.log("deskId2", deskId)
+      console.log("time", time)
+      console.log("date", date)
+      console.log("user", userId)
     }
   }, [selectedSeats, desk]);
 
@@ -401,7 +404,7 @@ const reservationSubmitDesk = async () => {
     </Row>
         </Card.Text>
         <Card.Footer className="">
-        Hai prenotato il giorno {date} alle ore {time} per {seats} persone. Il gioco selezionato è: {selectedGame}
+        Hai prenotato il giorno {date} alle ore {time} per {selectedSeats} persone. Il gioco selezionato è: {selectedGame}
         </Card.Footer>
         <Button className="buttonReservation"  
 //         onClick={() => {
