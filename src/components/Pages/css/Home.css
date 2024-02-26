@@ -13,12 +13,13 @@
 
 .logoutLogin{
     display: flex !important;
-
     justify-content: flex-end !important;
+    
+    margin-top: 15em !important;
     /* margin-left: 60em; */
 }
 
- .offCanvasSection{
+ .offHomeSection{
     text-align: center;
     background: transparent;
     border: 0 !important;
@@ -27,7 +28,7 @@
     background-color: rgba(36,32,33,255); */
 } 
 
-.OffcanvasTitle{
+.OffHomeTitle{
     color: black;
     text-align: center;
     font-family: "Protest Revolution", sans-serif;
@@ -36,7 +37,7 @@
 }
 
 
-.iconCanvasWrite{
+.iconHomeWrite{
     color: black;
     line-height: 10px;
     font-size: 25px;
@@ -51,70 +52,91 @@
    margin-left: 20px !important; 
 } */
 
-.iconCanvasWrite:hover{
+.iconHomeWrite:hover{
     background-color: transparent;
     border: 0;
     color: rgba(148,26,30,255) ;
 }
 
-.iconCanvasWrite:active{
+.iconHomeWrite:active{
     background-color: transparent !important;
     border: 0 !important;
     color: rgba(148,26,30,255) ;
 }
 
 
- /* .offcanvas-body {
-     flex-grow: 0 !important; 
-     padding: 10px 20px 10px 20px ; 
-    color: white;
-    width: 350px;
-    height: 55px;
-    margin: 10px 30px 10px 30px;
-    overflow-y: hidden;
 
-    } */
-   
-   .menuButton{
-       margin-left: 12px;
-       background-color: transparent;
-       color: black;
-       font-weight: bolder;
-       /* font-size: 40px; */
-       border: solid 3px black;
-   }
-   
-   .menuButton:hover {
-       background-color: rgba(148,26,30,255) !important;
-       border: solid 3px black;
-       color: black;
-   }
-   
-   .menuButton:active{
-       color: black !important;
-       border: solid black !important;
-   }
 
    .buttonListaPrenotazioni{
     font-size: 10px;
     background-color: transparent;
     border: 0;
     margin: 0;
+    color: black;
+    margin-top: 10px;
+    position: relative;
    }
 
    .buttonListaPrenotazioni:hover{
-    background-color: rgba(148,26,30,255);
+    background-color: transparent;
+    border: 0;
 
    }
 
+   .accordion-header{
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    color: black !important;
+
+   }
+
+   .accordion-item{
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+  color: black  !important;
+    background-color: transparent;
+    text-align: center !important;
+   }
+
+   .accordion-button{
+    font-size: 22px !important;
+    color: black;
+   }
+
+   .accordion{
+    color: black !important;
+     position: relative;
+     left: 29em;
+     top: -40px;
+     
+    --bs-accordion-bg: transparent;
+    --bs-accordion-btn-focus-border-color: trasparent !important;
+    --bs-accordion-btn-selected-border-color: trasparent !important;
+    --bs-accordion-border-color: 0;
+    --bs-accordion-active-bg: trasparent;
+    --bs-accordion-active-color: trasparent;
+    --bs-accordion-transition: trasparent !important;
+    --bs-accordion-btn-focus-box-shadow: trasparent;
+    text-align: center !important;
+    width: 10em;
+   }
+
+   .accordion-collapse.collapse.show{
+    font-size: 15px !important;
+    width: 15em;
+   }
    
+
+   .accordion-button::after{
+    color: black !important;
+    font-weight: bolder !important;
+   }
+
    @media screen and (min-width: 250px) {
    
    
-           .menuButton{
-               font-size: 20px ;
-               height: 50px;
-           }
+
    
    }
    
@@ -123,27 +145,20 @@
    @media screen and (min-width: 375px) {
 
    
-           .menuButton{
-               font-size: 25px;
-           }
+
    
    }
    
    @media screen and (min-width: 390px) {
 
    
-           .menuButton{
-               font-size: 25px;
-           }
+
    }  
    
    
    @media screen and (min-width: 412px) {
 
-           .menuButton{
-               font-size: 30px;
-               height: 60px;
-           }
+
 
    
    }
@@ -152,32 +167,39 @@
    
 
 
-   .menuButton{
-       font-size: 40px;
-       height: 70px;
-   }
+
    
    
    }
 
    @media screen and (min-width: 540px) {
-    .menuButton{
-        margin-left: 10px;
-    }
+
    }
  
    @media screen and (min-width: 768px) {
-    .menuButton{
-        margin-left: 35px;
-    }
+    .accordion{
+        
+        position: relative;
+        left: 10em;
+        top: -40px;
+   }
+   }
+   @media screen and (min-width: 992px) {
+    .accordion{
+        
+        position: relative;
+        left: 18em;
+        top: -40px;
+   }
    }
  
- 
    @media screen and (min-width: 1200px) {
-    .menuButton{
-        margin-left: 2.5em;
-    }
- 
+    .accordion{
+        
+        position: relative;
+        left: 23em;
+        top: -40px;
+   }
    }
  
    @media screen and (min-width: 1280px) {
@@ -185,8 +207,11 @@
    }
  
    @media screen and (min-width: 1400px) {
-    .menuButton{
-        font-size: 30px !important;
-        margin-left: 3em !important;    }
- 
+
+    .accordion{
+        
+         position: relative;
+         left: 27em;
+         top: -40px;
+    }    
    }
