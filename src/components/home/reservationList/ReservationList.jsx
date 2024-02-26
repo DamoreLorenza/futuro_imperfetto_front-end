@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 
 const ReservationList = () =>{
 const [tableReservation, setTableReservation]= useState([])
+const [tableReservation2, setTableReservation2]= useState([])
 
   // Funzione per verificare se una data è passata
   const isPastDate = (dateString) => {
@@ -45,6 +46,38 @@ const getTableReservations = () => {
     });
 };
 
+// const getTableReservations2 = (deskId) => {
+//   fetch(`${process.env.REACT_APP_BACKEND}/tableReservation/${deskId}`, {
+//     method: "GET",
+//     headers: {
+//       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+//       "Content-Type": "application/json",
+//     },
+//   })
+//     .then((res) => {
+//       if (res.ok) {
+//         return res.json();
+//       } else {
+//         throw new Error("errore");
+//       }
+//     })
+//     .then((data2) => {
+//       console.log("data", data2);
+//       if (data2 && Array.isArray(data2.content)) {
+//         // Ordina le prenotazioni per data in ordine crescente
+//         const sortedReservations2 = data2.content.sort((a, b) => new Date(a.date) - new Date(b.date));
+//         setTableReservation2(sortedReservations2);
+//         console.log("prenotazione2", sortedReservations2);
+//       } else {
+//         setTableReservation2([]);
+//       }
+//     })
+//     .catch((err) => {
+//       console.log("errore", err);
+//     });
+// };
+
+
 
 
 const deleteTableReservations = (tableReservationId) => {
@@ -74,6 +107,7 @@ const deleteTableReservations = (tableReservationId) => {
 
 useEffect(() => {
   getTableReservations();
+  
 }, []);
 
 
@@ -95,10 +129,16 @@ useEffect(() => {
         {tableReservation.map((tableReservationItem, index) => (
           <tr key={index} className={isPastDate(tableReservationItem.date) ? 'past-date' : ''}>
               <td className="tableTwo">{tableReservationItem.user.name} {tableReservationItem.user.surname}</td>
-              <td className="tableTwo"> {tableReservationItem.desk ? tableReservationItem.desk.seats : ''}</td>
+              <td className="tableTwo">
+               {tableReservationItem.desk ? tableReservationItem.desk.seats : ''}
+              
+               </td>
               <td className="tableTwo">{tableReservationItem.date}</td>
               <td className="tableTwo">{tableReservationItem.time}</td>
-              <td className="tableTwo">{tableReservationItem.game ? tableReservationItem.game.name : 'Gioco non disponibile'}</td>
+              <td className="tableTwo">
+              {tableReservationItem.game ? tableReservationItem.game.name : 'Gioco non disponibile'}
+             
+              </td>
               <td className="buttonEliminaRiga"><Button className="buttonEliminaRiga" onClick={() => deleteTableReservations(tableReservationItem.id)}>Elimina</Button></td>
             </tr>
         ))}

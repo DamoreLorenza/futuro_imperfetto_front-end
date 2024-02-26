@@ -67,7 +67,7 @@
 
 
 
-   .buttonListaPrenotazioni{
+   .buttonListaPrenotazioni2{
     font-size: 10px;
     background-color: transparent;
     border: 0;
@@ -77,7 +77,7 @@
     position: relative;
    }
 
-   .buttonListaPrenotazioni:hover{
+   .buttonListaPrenotazioni2:hover{
     background-color: transparent;
     border: 0;
 
@@ -131,6 +131,13 @@
    .accordion-button::after{
     color: black !important;
     font-weight: bolder !important;
+   }
+
+
+   .imageCarousel{
+
+    width: 500px;
+    height: 500px;
    }
 
    @media screen and (min-width: 250px) {

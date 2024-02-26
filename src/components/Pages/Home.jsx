@@ -1,7 +1,8 @@
-import { Accordion, Card, Col, Container, Image, Row } from "react-bootstrap";
+import { Accordion, Card, Carousel, Col, Container, Image, Row } from "react-bootstrap";
 import "./css/Home.css"
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
+
 
 import { useNavigate } from 'react-router-dom';
 
@@ -161,7 +162,7 @@ const functionGetUser = (event) => {
             <Button
               onClick={() => {
             navigate("/reservationListPage");}}
-             className='buttonListaPrenotazioni'>| Lista prenotazioni</Button>
+             className='buttonListaPrenotazioni2'>| Lista prenotazioni</Button>
           )}
 </Row>
         </Card.Body>
@@ -195,7 +196,40 @@ const functionGetUser = (event) => {
             <Col xs={1} md={1} lg={1} xl={1}></Col>
           </Row>
 <Row>
-return <Image src="holder.js/100px250" fluid />;
+<Col xs={1} md={1} lg={1} xl={2}></Col>
+<Col xs={1} md={1} lg={1} xl={8}>
+<Carousel>
+      <Carousel.Item interval={1000}>
+
+        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c1.jpg"} />
+       
+      </Carousel.Item>
+      <Carousel.Item interval={1000}>
+
+        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c2.jpg"} />
+       
+      </Carousel.Item>
+      <Carousel.Item interval={1000}>
+
+        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c3.jpg"} />
+       
+        </Carousel.Item>
+        <Carousel.Item interval={1000}>
+
+        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c4.jpg"} />
+       
+      </Carousel.Item>
+      <Carousel.Item interval={1000}>
+      
+        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c5.jpg"} />
+       
+      </Carousel.Item>
+
+    </Carousel>
+
+</Col>
+<Col xs={1} md={1} lg={1} xl={2}></Col>
+
 </Row>
           <Row>
 
