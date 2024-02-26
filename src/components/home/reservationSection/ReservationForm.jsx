@@ -10,7 +10,7 @@ const ReservationForm = () =>{
   const [selectedGame, setSelectedGame] = useState("");
   const [selectedSeats, setSelectedSeats] = useState("");
 
-  const [seats, setSeats] = useState(1); 
+  const [seat, setSeat] = useState(1); 
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [userData, setUserData] = useState(null);
@@ -287,7 +287,6 @@ const reservationSubmitDesk = async () => {
       await reservationPost();
     } catch (err) {
         console.error("Errore durante la richiesta POST:", err);
-        // Gestisci l'errore e fornisce un feedback all'utente
         window.alert("Si è verificato un errore durante la prenotazione: " + err.message);
       }
   };

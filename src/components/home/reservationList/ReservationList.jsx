@@ -95,10 +95,10 @@ useEffect(() => {
         {tableReservation.map((tableReservationItem, index) => (
           <tr key={index} className={isPastDate(tableReservationItem.date) ? 'past-date' : ''}>
               <td className="tableTwo">{tableReservationItem.user.name} {tableReservationItem.user.surname}</td>
-              <td className="tableTwo"> {tableReservationItem.desk.seats}</td>
+              <td className="tableTwo"> {tableReservationItem.desk ? tableReservationItem.desk.seats : ''}</td>
               <td className="tableTwo">{tableReservationItem.date}</td>
               <td className="tableTwo">{tableReservationItem.time}</td>
-              <td className="tableTwo">{tableReservationItem.game.name}</td>
+              <td className="tableTwo">{tableReservationItem.game ? tableReservationItem.game.name : 'Gioco non disponibile'}</td>
               <td className="buttonEliminaRiga"><Button className="buttonEliminaRiga" onClick={() => deleteTableReservations(tableReservationItem.id)}>Elimina</Button></td>
             </tr>
         ))}
