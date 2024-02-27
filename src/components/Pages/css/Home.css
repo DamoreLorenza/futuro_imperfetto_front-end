@@ -5,6 +5,14 @@
  width: 100%;
 }
 
+.dadi{
+width: 400px;
+height: 400px;
+position: absolute;
+left: 12em;
+top: 16em;
+transform: rotate(25deg);
+}
 
 /* // daiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii */
 
@@ -240,6 +248,16 @@
 .carousel-control-prev {
     left: 5em;
 }
+
+.dadi{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 5em;
+    top: 20em;
+    
+    }
+
    }
 
 
@@ -270,6 +288,16 @@
 .carousel-control-prev {
     left: 5em;
 }
+
+.dadi{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 5em;
+    top: 20em;
+    
+    }
+
    }
 
    @media screen and (min-width: 855px) {
@@ -279,6 +307,16 @@
         left: 35em;
         top: -40px;
    }
+
+   .dadi{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 5em;
+    top: 20em;
+    
+    }
+
    }
 
 
@@ -289,6 +327,15 @@
         left: 15em !important;
         top: -40px;
    }
+
+   .dadi{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 5em;
+    top: 20em;
+    
+    }
    }
 
 
@@ -315,6 +362,16 @@
 .carousel-control-prev {
     left: 2em;
 }
+
+.dadi{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 5em;
+    top: 20em;
+    
+    }
+
    }
 
    @media screen and (min-width: 1100px) {
@@ -341,6 +398,14 @@ margin-left: 3em;
 .carousel-control-prev {
 left: 2em;
 }
+.dadi{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 2em;
+    
+    
+    }
 
    }
  
@@ -349,7 +414,7 @@ left: 2em;
         
         position: relative;
         left: 20em !important;
-        top: -40px;
+        
    }
 
    .imageCarousel{
@@ -373,6 +438,14 @@ left: 2em;
 .carousel-control-prev {
     left: 1em;
 }
+.dadi{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 4em;
+    
+    
+    }
    }
 
    @media screen and (min-width: 1300px) {
@@ -404,6 +477,15 @@ left: 2em;
 .carousel-control-prev {
     left: 1em;
 }
+
+.dadi{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 5em;
+    
+    
+    }
    }
 
 
@@ -416,7 +498,14 @@ left: 2em;
         top: -40px;
    }
 
-
+   .dadi{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left: 5em;
+    
+    
+    }
    }
  
 
@@ -439,6 +528,14 @@ left: 2em;
     margin-left: 6em;
    }
 
+   .dadi{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left: 10em;
+    
+    
+    }
 
    }
  
@@ -461,6 +558,15 @@ left: 2em;
    .carousel-inner{
     margin-left: 8em;
    }
+
+   .dadi{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left: 12em;
+    top: 16em;
+    transform: rotate(25deg);
+    }
    }
  
    @media screen and (min-width: 1800px) {

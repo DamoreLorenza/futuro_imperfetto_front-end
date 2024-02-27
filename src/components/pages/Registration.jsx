@@ -58,11 +58,12 @@ return(
       <Col xs={2} md={4} lg={4} xl={4} >
 
       </Col>
-        <Col xs={6} md={4} lg={4} xl={4}>
-        <div>
+        <Col xs={6} md={4} lg={4} xl={4} className="mt-3">
+        <div >
+        <h2 className="mt-5">Registrati qui</h2>
         <Form id="register-form">
 
-        <div className="mb-3 mt-5">
+        <div className="mb-3 mt-1">
     <Form.Label  className="formLabelLogin mt-5">Nome</Form.Label>
     <Form.Control type="text" className="formControlLoginFirst formControlLogin"  aria-describedby="emailHelp"
       required

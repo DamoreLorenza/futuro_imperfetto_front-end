@@ -112,13 +112,13 @@ function loginUser() {
       <Col xs={2} md={4} lg={4} xl={4} >
 
       </Col>
-        <Col xs={6} md={4} lg={4} xl={4}>
+        <Col xs={6} md={4} lg={4} xl={4} className='mt-5'>
         <div>
         <Form>
-
+<h2 className='mt-5'>Effettua il login</h2>
   <div className="mb-3 mt-5">
     <Form.Label for="exampleInputEmail1" className="formLabelLogin mt-5">Email</Form.Label>
-    <Form.Control type="email" className="formControlLogin" id="exampleInputEmail1" aria-describedby="emailHelp"
+    <Form.Control type="email" className="formControlLogin"  aria-describedby="emailHelp"
       required
       value={email}
       onChange={(e) => {setEmail(e.target.value);}}

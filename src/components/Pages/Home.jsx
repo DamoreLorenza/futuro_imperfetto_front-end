@@ -86,6 +86,7 @@ const functionGetUser = (event) => {
       <>
         {/* <Container className="container"> */}
           <Row >
+          <Image src="https://res.cloudinary.com/drf1t0gkq/image/upload/v1708045968/paux2tmz8k7itvbvtzw3.png" className="dadi"/>
           <Col xs={2} sm={2} md={2} lg={2} xl={2} className="inserimentoHome">        
         
 <Row className="logoutLogin  mb-2">

@@ -36,9 +36,18 @@
 }
 
 .formControlLogin:focus{
-background-color: black;
-color: white;
+background-color: black !important;
+color: white !important;
 }
+.formControlLogin::selection{
+    background-color: black !important;
+    color: white !important;
+    }
+
+    .formControlLogin:active{
+        background-color: black !important;
+        color: white !important;
+        }
 
 
 
@@ -49,6 +58,7 @@ color: white;
         width: 10em;
         background-color: rgba(36,32,33,255);
         color: white;
+        
     }
 
     .formLabelLogin{
