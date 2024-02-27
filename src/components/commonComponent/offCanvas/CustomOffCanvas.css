@@ -3,7 +3,7 @@
 
 .offCanvasSection{
 
-    background-image: url(../../../assets/futuro4.png);
+    background-image: url(../../../../public/assets/futuro4.png);
     background-position: bottom;
     box-shadow: 50px 10px 10px rgba(0, 0, 0, 0.5);
     /* opacity: 85%; */

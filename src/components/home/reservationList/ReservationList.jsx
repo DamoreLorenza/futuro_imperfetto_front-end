@@ -46,38 +46,6 @@ const getTableReservations = () => {
     });
 };
 
-// const getTableReservations2 = (deskId) => {
-//   fetch(`${process.env.REACT_APP_BACKEND}/tableReservation/${deskId}`, {
-//     method: "GET",
-//     headers: {
-//       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-//       "Content-Type": "application/json",
-//     },
-//   })
-//     .then((res) => {
-//       if (res.ok) {
-//         return res.json();
-//       } else {
-//         throw new Error("errore");
-//       }
-//     })
-//     .then((data2) => {
-//       console.log("data", data2);
-//       if (data2 && Array.isArray(data2.content)) {
-//         // Ordina le prenotazioni per data in ordine crescente
-//         const sortedReservations2 = data2.content.sort((a, b) => new Date(a.date) - new Date(b.date));
-//         setTableReservation2(sortedReservations2);
-//         console.log("prenotazione2", sortedReservations2);
-//       } else {
-//         setTableReservation2([]);
-//       }
-//     })
-//     .catch((err) => {
-//       console.log("errore", err);
-//     });
-// };
-
-
 
 
 const deleteTableReservations = (tableReservationId) => {

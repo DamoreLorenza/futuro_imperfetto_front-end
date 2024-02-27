@@ -22,7 +22,7 @@ body {
 .imgUp{
   width: 100%;
 height: 200px;
-background-image: url(./assets/futuro2.pgn.png);
+background-image: url(../public/assets/futuro2.pgn.png);
 background-position: top;
 background-repeat: repeat-x !important;
 background-size: contain;

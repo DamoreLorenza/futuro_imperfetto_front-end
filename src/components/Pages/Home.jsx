@@ -2,7 +2,7 @@ import { Accordion, Card, Carousel, Col, Container, Image, Row } from "react-boo
 import "./css/Home.css"
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
-
+import "../../App.css"
 
 import { useNavigate } from 'react-router-dom';
 
@@ -84,15 +84,15 @@ const functionGetUser = (event) => {
 
     return (
       <>
-        <Container className="container">
-          <Row>
-          <Col xs={1} md={2} lg={1} xl={2} className="inserimentoHome">        
+        {/* <Container className="container"> */}
+          <Row >
+          <Col xs={2} sm={2} md={2} lg={2} xl={2} className="inserimentoHome">        
         
-<Row className="logoutLogin ms-4 mb-2">
+<Row className="logoutLogin  mb-2">
           {/* Pulsante Profilo */}
           {isLoggedIn && (
             <Button className='iconHomeWrite' onClick={() => navigate("/profile")}>
-              <i className="bi bi-person-circle iconHome"></i>
+              <i className="bi bi-person-circle iconHome me-2"></i>
               Profilo
             </Button>
           )}
@@ -101,7 +101,7 @@ const functionGetUser = (event) => {
       <Row >
             {isLoggedIn && (
             <Button className='iconHomeWrite' onClick={() => logout()}>
-              <i className="bi bi-box-arrow-left iconHome"></i>
+              <i className="bi bi-box-arrow-left iconHome me-2"></i>
               Logout
             </Button>
           )}
@@ -115,14 +115,14 @@ const functionGetUser = (event) => {
           )}  
 </Row>     
           </Col>
-            <Col xs={10} md={9} lg={10} xl={10}>
-            <div className="divisoreSezioneCentrale">
+            <Col xs={8} md={8} lg={8} xl={8}>
+            <div className="sezioneHomeCentrale">
               {/* <CentralSection /> */}
 
 
-      <Card  className="offHomeSection ms-5">
+      <Card  className="offHomeSection ">
         <Card.Header>
-          <Card.Title className='OffHomeTitle ms-5'>BENVENUTI A FUTURO IMPERFETTO 2.0 </Card.Title>
+          <Card.Title className='OffHomeTitle '>BENVENUTI A FUTURO IMPERFETTO 2.0 </Card.Title>
                {/* Pulsante Logout */}
  
           </Card.Header>
@@ -173,13 +173,9 @@ const functionGetUser = (event) => {
       <Accordion.Item eventKey="0">
         <Accordion.Header className="iconHomeWrite iconHome">Contatti</Accordion.Header>
         <Accordion.Body>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+        <Col  className="mt-3"><i className="bi bi-envelope-at">circolofuturoimperfetto@gmail.com</i></Col>
+        <Col  className="mt-3"><i className="bi bi-telephone">   348 773 6697</i></Col>
+        <Col  className="mt-3"><i className="bi bi-sign-turn-slight-right">   Via Bologna 26/28, Pescara, Italy</i></Col>
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
@@ -193,35 +189,95 @@ const functionGetUser = (event) => {
 
               </div>
             </Col>
-            <Col xs={1} md={1} lg={1} xl={1}></Col>
+            <Col xs={2} md={2} lg={2} xl={2} className="colLoghiHome">
+    <Row className="me-3">  
+ <Col>
+       <a href="https://www.facebook.com/futuroimperfetto2.0" className="loghiHome"> <i className="bi bi-facebook text-primary  fs-2 mt-5 loghiHome "></i></a>
+ </Col> 
+ <Col>
+       <a href="https://www.instagram.com/futuroimperfetto/" className="loghiHome2"><i className="bi bi-instagram text-danger fs-2 mt-5 loghiHome2"></i></a> 
+ </Col>       
+      </Row>   
+            </Col>
           </Row>
-<Row>
-<Col xs={1} md={1} lg={1} xl={2}></Col>
-<Col xs={1} md={1} lg={1} xl={8}>
+<Row className="me-5">
+<Col xs={2} md={2} lg={2} xl={2}></Col>
+<Col xs={7} md={8} lg={8} xl={8}>
 <Carousel>
-      <Carousel.Item interval={1000}>
+      <Carousel.Item interval={5000}>
 
         <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c1.jpg"} />
        
       </Carousel.Item>
-      <Carousel.Item interval={1000}>
+      <Carousel.Item interval={5000}>
 
         <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c2.jpg"} />
        
       </Carousel.Item>
-      <Carousel.Item interval={1000}>
+      <Carousel.Item interval={5000}>
 
         <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c3.jpg"} />
        
         </Carousel.Item>
-        <Carousel.Item interval={1000}>
+        <Carousel.Item interval={5000}>
 
         <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c4.jpg"} />
        
       </Carousel.Item>
-      <Carousel.Item interval={1000}>
+      <Carousel.Item interval={5000}>
       
         <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c5.jpg"} />
+       
+      </Carousel.Item>
+
+    </Carousel>
+
+</Col>
+<Col xs={4} md={2} lg={2} xl={2}></Col>
+
+</Row>
+          <Row>
+
+<p className="futuroDescription">
+Futuro Imperfetto 2.0 nasce il 14 settembre 2014 grazie gruppo di ragazzi che ogni mercoledì sera si riuniva in un garage, spartendosi in parti uguali l’affitto, per giocare da tavolo. 
+Tanto erano presi da questa passione che il garage non bastava più.
+Volevano un luogo accogliente dove riunirsi e che potesse accogliere nuov* giocator*.
+E dove prima c’era una lavanderia hanno immaginato e poi creato il locale che conosciamo oggi.
+Sono passati quasi 10 anni da allora, e a Futuro Imperfetto, la nostra amata nave volante, la passione per il gioco da tavolo è ancora il cuore pulsante del progetto. Cuore pulsante ma non unico motore. 
+Da diversi anni infatti ospitiamo concerti, spettacoli teatrali, presentazioni di libri, esposizioni artistiche, incontri e tavoli di confronto su temi vari.
+I principi che portiamo avanti sono quelli dell'inclusività e della condivisione.
+Tutt* sono bene accolti sulla nave volante.
+</p>
+
+          </Row>
+
+          <Row className="mt-5">
+<Col xs={1} md={1} lg={1} xl={2}></Col>
+<Col xs={1} md={1} lg={1} xl={8}>
+<Carousel>
+      <Carousel.Item interval={5000}>
+
+        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c6.jpg"} />
+       
+      </Carousel.Item>
+      <Carousel.Item interval={5000}>
+
+        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c7.jpg"} />
+       
+      </Carousel.Item>
+      <Carousel.Item interval={5000}>
+
+        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c8.jpg"} />
+       
+        </Carousel.Item>
+        <Carousel.Item interval={5000}>
+
+        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c9.jpg"} />
+       
+      </Carousel.Item>
+      <Carousel.Item interval={5000}>
+      
+        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c10.jpg"} />
        
       </Carousel.Item>
 
@@ -231,21 +287,7 @@ const functionGetUser = (event) => {
 <Col xs={1} md={1} lg={1} xl={2}></Col>
 
 </Row>
-          <Row>
-
-<p>
-Futuro Imperfetto 2.0 nasce il 14 settembre 2014 grazie gruppo di ragazzi che ogni mercoledì sera si riuniva in un garage, spartendosi in parti uguali l’affitto, per giocare da tavolo. 
-Tanto erano presi da questa passione che il garage non bastava più.
-Volevano un luogo accogliente dove riunirsi e che potesse accogliere nuov* giocator*.
-E dove prima c’era una lavanderia hanno immaginato e poi creato il locale che conosciamo oggi.
-Sono passati quasi 10 anni da allora, e a Futuro Imperfetto, la nostra amata nave volante, la passione per il gioco da tavolo è ancora il cuore pulsante del progetto. Cuore pulsante ma non unico motore. 
-Da diversi anni infatti ospitiamo concerti, spettacoli teatrali, presentazioni di libri, esposizioni artistiche, incontri e tavoli di confronto su temi vari.
-I principi che portiamo avanti sono quelli dell'inclusività e della condivisione.
-tutt* sono bene accolti sulla nave volante.
-</p>
-
-          </Row>
-        </Container>
+        {/* </Container> */}
       </>
     );
   };

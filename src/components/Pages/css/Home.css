@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Roboto:wght@100;400;700&family=Spectral:wght@300;400;700&display=swap');
 
 .container{
- margin: 0;
  min-height: 100vh;
- 
+ width: 100%;
 }
 
 
@@ -43,14 +42,11 @@
     font-size: 25px;
      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
   
-    margin-left: 20px;
     background-color: transparent;
     border: 0;
 
 }
-/* .prenotazioniWrite{
-   margin-left: 20px !important; 
-} */
+
 
 .iconHomeWrite:hover{
     background-color: transparent;
@@ -107,7 +103,7 @@
    .accordion{
     color: black !important;
      position: relative;
-     left: 29em;
+     left: 490px !important;
      top: -40px;
      
     --bs-accordion-bg: transparent;
@@ -124,7 +120,7 @@
 
    .accordion-collapse.collapse.show{
     font-size: 15px !important;
-    width: 15em;
+    width: 21em;
    }
    
 
@@ -139,6 +135,38 @@
     width: 500px;
     height: 500px;
    }
+
+   .colLoghiHome{
+    margin-top: 16em;
+   }
+
+
+
+   .sezioneHomeCentrale{
+    margin-top: 15em;
+  
+   }
+
+   .carousel-inner{
+    margin-left: 22em;
+    margin-bottom: 5em;
+   }
+
+.carousel-indicators{
+    margin-left: 17em;
+}
+
+
+.futuroDescription{
+
+    color: black;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    
+}
+
 
    @media screen and (min-width: 250px) {
    
@@ -183,42 +211,280 @@
 
    }
  
-   @media screen and (min-width: 768px) {
+   @media screen and (min-width: 756px) {
     .accordion{
         
         position: relative;
-        left: 10em;
+        left: 11em !important;
         top: -40px;
    }
+
+   .imageCarousel{
+
+    width: 400px;
+    height: 400px;
    }
-   @media screen and (min-width: 992px) {
+
+   .carousel-inner{
+    margin-left: 5em;
+   }
+
+   .carousel-indicators{
+    margin-left: 10em;
+}
+
+.carousel-control-next {
+    right: -79px;
+}
+
+.carousel-control-prev {
+    left: 5em;
+}
+   }
+
+
+
+
+
+   @media screen and (min-width: 800px) {
     .accordion{
         
         position: relative;
-        left: 18em;
+        left: 12em !important;
         top: -40px;
    }
+
+
+   .carousel-inner{
+    margin-left: 5em;
+   }
+
+   .carousel-indicators{
+    margin-left: 10em;
+}
+
+.carousel-control-next {
+    right: -2px;
+}
+
+.carousel-control-prev {
+    left: 5em;
+}
+   }
+
+   @media screen and (min-width: 855px) {
+    .accordion{
+        
+        position: relative;
+        left: 35em;
+        top: -40px;
+   }
+   }
+
+
+   @media screen and (min-width: 950px) {
+    .accordion{
+        
+        position: relative;
+        left: 15em !important;
+        top: -40px;
+   }
+   }
+
+
+   @media screen and (min-width: 1000px) {
+    .accordion{
+        
+        position: relative;
+        left: 17em !important;
+        top: -40px;
+   }
+
+   .imageCarousel{
+
+    width: 650px;
+    height: 650px;
+   }
+
+   .carousel-inner{
+    margin-left: 3em;
+   }
+
+
+
+.carousel-control-prev {
+    left: 2em;
+}
+   }
+
+   @media screen and (min-width: 1100px) {
+   .accordion{
+        
+    position: relative;
+    left: 19em !important;
+    top: -40px;
+}
+
+.imageCarousel{
+
+width: 750px;
+height: 750px;
+}
+
+.carousel-inner{
+margin-left: 3em;
+}
+
+.carousel-control-next {
+    right: -75px;
+}
+.carousel-control-prev {
+left: 2em;
+}
+
    }
  
    @media screen and (min-width: 1200px) {
     .accordion{
         
         position: relative;
-        left: 23em;
+        left: 20em !important;
         top: -40px;
    }
+
+   .imageCarousel{
+
+    width: 800px;
+    height: 800px;
    }
- 
-   @media screen and (min-width: 1280px) {
- 
+
+   .carousel-inner{
+    margin-left: 2em;
    }
- 
+
+   .carousel-indicators{
+    margin-left: 10em;
+}
+
+.carousel-control-next {
+    right: -79px;
+}
+
+.carousel-control-prev {
+    left: 1em;
+}
+   }
+
+   @media screen and (min-width: 1300px) {
+    .accordion{
+        
+        position: relative;
+        left: 23em !important;
+        top: -40px;
+   }
+
+   .imageCarousel{
+
+    width: 850px;
+    height: 800px;
+   }
+
+   .carousel-inner{
+    margin-left: 2em;
+   }
+
+   .carousel-indicators{
+    margin-left: 10em;
+}
+
+.carousel-control-next {
+    right: -70px;
+}
+
+.carousel-control-prev {
+    left: 1em;
+}
+   }
+
+
+
    @media screen and (min-width: 1400px) {
+    .accordion{
+        
+        position: relative;
+        left: 25em !important;
+        top: -40px;
+   }
+
+
+   }
+ 
+
+
+   @media screen and (min-width: 1500px) {
+    .accordion{
+        
+        position: relative;
+        left: 27em !important;
+        top: -40px;
+   }
+
+   .imageCarousel{
+
+    width: 850px;
+    height: 850px;
+   }
+
+   .carousel-inner{
+    margin-left: 6em;
+   }
+
+
+   }
+ 
+ 
+ 
+   @media screen and (min-width: 1600px) {
+    .accordion{
+        
+        position: relative;
+        left: 30em !important;
+        top: -40px;
+   }
+
+   .imageCarousel{
+
+    width: 900px;
+    height: 900px;
+   }
+
+   .carousel-inner{
+    margin-left: 8em;
+   }
+   }
+ 
+   @media screen and (min-width: 1800px) {
 
     .accordion{
         
          position: relative;
-         left: 27em;
+         left: 33em !important;
          top: -40px;
     }    
+    .carousel-inner{
+        margin-left: 10em;
+       }
+   }
+
+   @media screen and (min-width: 2000px) {
+
+    .accordion{
+        
+         position: relative;
+         left: 37em !important;
+         top: -40px;
+    }    
+    .carousel-inner{
+        margin-left: 13em;
+       }
    }
