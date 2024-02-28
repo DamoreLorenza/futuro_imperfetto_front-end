@@ -16,9 +16,9 @@ const ReservationForm = () =>{
   const [userData, setUserData] = useState(null);
 //   const [gameName, setGameName] = useState("")
 
-  const [userId, setUserId] = useState(null);
-  const [deskId, setDeskId] = useState(null);
-  const [gameId, setGameId] = useState(null);
+  const [idUser, setIdUser] = useState(null);
+  const [idDesk, setIdDesk] = useState(null);
+  const [idGame, setIdGame] = useState(null);
 
   const [desk, setDesk] = useState([])
   const [game, setGame] = useState([]) 
@@ -35,10 +35,10 @@ const ReservationForm = () =>{
   useEffect(() => {
     const gameWithSelectedName = game.find(game => game.name === selectedGame);
     if (gameWithSelectedName) {
-      setGameId(gameWithSelectedName.id);
+      setIdGame(gameWithSelectedName.id);
       console.log("gameSelected", gameWithSelectedName)
       console.log("gameId", gameWithSelectedName.id)
-      console.log("gameId2", gameId)
+      console.log("gameId2", idGame)
     }
   }, [selectedGame, game]);
 
@@ -46,13 +46,13 @@ const ReservationForm = () =>{
   useEffect(() => {
     const deskWithSelectedSeats = desk.find(desk => desk.seats === selectedSeats);
     if (deskWithSelectedSeats) {
-      setDeskId(deskWithSelectedSeats.id);
+      setIdDesk(deskWithSelectedSeats.id);
       console.log("deskSelected", deskWithSelectedSeats)
       console.log("deskId", deskWithSelectedSeats.id)
-      console.log("deskId2", deskId)
+      console.log("deskId2", idDesk)
       console.log("time", time)
       console.log("date", date)
-      console.log("user", userId)
+      console.log("user", idUser)
     }
   }, [selectedSeats, desk]);
 
@@ -62,10 +62,10 @@ const ReservationForm = () =>{
     const storedUserData = JSON.parse(localStorage.getItem("userData"));
     if (storedUserData) {
       setUserData(storedUserData);
-      setUserId(storedUserData.id); // Imposta direttamente userId con l'ID dell'utente
+      setIdUser(storedUserData.id); // Imposta direttamente userId con l'ID dell'utente
       console.log("userSelected", storedUserData)
       console.log("userId", storedUserData.id)
-      console.log("userId2", userId)
+      console.log("userId2", idUser)
     }
   }, []);
 
@@ -253,18 +253,18 @@ const reservationSubmitDesk = async () => {
           body: JSON.stringify({
             date: date,
             time: time,
-            userId: userId,
-            gameId: gameId,
-            deskId: deskId,
+            idUser: idUser,
+            idGame: idGame,
+            idDesk: idDesk,
           }),
         }
       );
       if (response.ok) {
         setDate("");
         setTime("");
-        setUserId("");
-        setGameId("");
-        setDeskId("");
+        setIdUser("");
+        setIdGame("");
+        setIdDesk("");
         window.alert("Prenotazione effettuata con successo!");
       } else {
         throw new Error("errore nella fetch");

@@ -207,7 +207,7 @@ const functionGetUser = (event) => {
 <Carousel>
       <Carousel.Item interval={5000}>
 
-        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c1.jpg"} />
+        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c8.jpg"} />
        
       </Carousel.Item>
       <Carousel.Item interval={5000}>
@@ -268,7 +268,7 @@ Tutt* sono bene accolti sulla nave volante.
       </Carousel.Item>
       <Carousel.Item interval={5000}>
 
-        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c8.jpg"} />
+        <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c1.jpg"} />
        
         </Carousel.Item>
         <Carousel.Item interval={5000}>

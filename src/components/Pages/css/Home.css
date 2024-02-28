@@ -551,12 +551,12 @@ left: 2em;
 
    .imageCarousel{
 
-    width: 900px;
-    height: 900px;
+    width: 800px;
+    height: 750px;
    }
 
    .carousel-inner{
-    margin-left: 8em;
+    margin-left: 10em;
    }
 
    .dadi{
@@ -566,6 +566,14 @@ left: 2em;
     left: 12em;
     top: 16em;
     transform: rotate(25deg);
+    }
+
+    .carousel-control-next {
+        right: -2px;
+    }
+    
+    .carousel-control-prev {
+        left: 1em;
     }
    }
  
@@ -591,6 +599,6 @@ left: 2em;
          top: -40px;
     }    
     .carousel-inner{
-        margin-left: 13em;
+        margin-left: 17em;
        }
    }

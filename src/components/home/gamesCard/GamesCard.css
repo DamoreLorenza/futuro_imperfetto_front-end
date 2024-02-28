@@ -49,17 +49,7 @@ em{
 	position: relative;
 	overflow: hidden;
 }
-.overlayGames {
-	position: relative;
-	display: flex;
-	width: 100%;
-	height: 100%;
-	padding: 1rem .75rem;
-	/* background: rgba(36,32,33,255); */
-  background: whitesmoke;
-	transition: .4s ease-in-out;
-	z-index: 1;
-}
+
 .overlayGames-content {
 	display: flex;
 	flex-direction: column;
@@ -78,23 +68,44 @@ em{
 	transition: .3s ease-in-out .2s;
 	z-index: 1;
 }
+
+.overlayGames {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	padding: 1rem .75rem;
+	/* background: rgba(36,32,33,255); */
+  /* background: rgb(246,229,199); */
+/* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709072261/f1h9fjkwkcpamsupxgqj.jpg"); */
+
+/* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709072280/qtoamzphavg1wv6oghuf.jpg"); */
+
+background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709044542/y4tcjdcolem2b2ltcifh.jpg");
+
+/* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709043685/l80d3gcjag4n2g4fq0jp.png"); */
+ 
+  background-size: 43rem;
+  transition: .4s ease-in-out;
+	z-index: 1;
+}
+
 .imageGames-content {
 	position: absolute;
 	top: 0em;
 	right: 0;
   left: 15em;
-	width: 60vmin;
-	height: 100%;
+	max-width: 50vmin;
+	
   /* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1708088792/x4jkgnm2rbpjflyrgsw2.png"); */
-	background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1708090348/qsjyftsknwzwp1ixbktf.png");
-	background-repeat: no-repeat;
-  background-size: 5rem;
+	
+  background-image: url("");
+  /* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1708090348/qsjyftsknwzwp1ixbktf.png"); */
+	/* background-repeat: no-repeat;
+  background-size: 5rem; */
   background-position: bottom;
 	transition: .3s ease-in-out;
-  /* background-color: rgba(36,32,33,255); */
-  background-color:whitesmoke;
 
-  
 }
 
 .insetGames {
