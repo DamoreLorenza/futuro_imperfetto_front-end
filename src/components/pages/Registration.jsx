@@ -16,37 +16,79 @@ const Registration = () =>{
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [role, setRole] = useState("USER");
+
+
+
+
+
+  // };
   
-  async function checkExistingEmail(email) {
-    try {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-                "Content-Type": "application/json",
-            },
-        });
+  
+//   async function checkExistingEmail(email) {
+//     try {
+//         const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
+//             method: "GET",
+//             headers: {
+//                 Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+//                 "Content-Type": "application/json",
+//             },
+//         });
 
-        if (!response.ok) {
-            throw new Error("Errore durante il recupero degli utenti");
-        }
+//       .then((data) => {
+//         console.log("data", data);
+//         if (data && Array.isArray(data.content)) {
 
-        const users = await response.json();
-        return users.some(user => user.email === email);
-    } catch (error) {
-        console.error("Errore durante il controllo dell'email:", error);
-        return false; 
-    }
-}
+//         const users = await response.json();
+//         return users.some(user => user.email === email);
+
+
+//         } else {
+//          throw new Error("Errore durante il recupero degli utenti") ;
+//         }
+//       })
+
+//       .catch((err) => {
+//         console.log("errore", err);
+//       });
+// }
+
+
+
+
+
+// async function checkExistingEmail(email) {
+//   try {
+//       const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
+//           method: "GET",
+//           headers: {
+//               Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+//               "Content-Type": "application/json",
+//           },
+//       });
+
+//       if (!response.ok) {
+//           throw new Error("Errore durante il recupero degli utenti");
+//       }
+
+//       const users = await response.json();
+//       return users.some(user => user.email === email);
+//   } catch (error) {
+//       console.error("Errore durante la verifica dell'email:", error);
+//       return false;
+//   }
+// }
+
+
+  // checkExistingEmail(email)
+  //     .then((emailExists) => {
+  //         if (emailExists) {
+  //             alert("Email già in uso!");
+  //             return;
+  //         }
 
 
 function registrationUser() {
-  checkExistingEmail(email)
-      .then((emailExists) => {
-          if (emailExists) {
-              alert("Email già in uso!");
-              return;
-          }
+
 
           fetch(`${process.env.REACT_APP_BACKEND}/auth/register`, {
               method: "POST",
@@ -75,13 +117,12 @@ function registrationUser() {
                   throw new Error("errore nella fetch");
               }
           })
-          .catch((err) => console.log("ERRORE!", err));
-      })
       .catch((error) => {
           console.error("Errore durante il controllo dell'email:", error);
           alert("Si è verificato un errore durante la registrazione.");
       });
 }
+
 
   
 return(
