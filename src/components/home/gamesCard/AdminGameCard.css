@@ -23,6 +23,8 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: rgba(36,32,33,255);
     color: whitesmoke;
     border-color: rgba(148,26,30,255);
+    margin-right: 23px;
+    margin-top: 10px;
 }
 .buttonModale:hover{
     background-color: rgba(148,26,30,255);

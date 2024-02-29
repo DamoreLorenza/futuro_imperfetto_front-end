@@ -28,6 +28,8 @@ const ReservationForm = () =>{
 //     setSelectedSeats(selectedSeats);
 //   };
 
+const formattedTime = `${time}:00`;
+
   const handleGameChange = (e) => {
     setSelectedGame(e.target.value);
   };
@@ -252,7 +254,7 @@ const reservationSubmitDesk = async () => {
           },
           body: JSON.stringify({
             date: date,
-            time: time,
+            time: formattedTime,
             idUser: idUser,
             idGame: idGame,
             idDesk: idDesk,
@@ -374,7 +376,7 @@ const reservationSubmitDesk = async () => {
         <Form.Group className="mb-3" >
         <Form.Label>Dalle ore</Form.Label>
         <Form.Control className="inputPrenotazione" size="sm" type="time" placeholder="Dalle ore" 
-          value={time} onChange={(e) => setTime(e.target.value)} 
+          value={formattedTime} onChange={(e) => setTime(e.target.value)} 
         />
       </Form.Group>
         

@@ -17,10 +17,10 @@ right: 14em;
   }
 
 .h1Games {
+  font-weight: 900;
 	font-size: 3vmin;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
 	text-align: center;
-	color: rgba(36,32,33,255);
   color: black;
     
 }
@@ -77,11 +77,11 @@ em{
 	padding: 1rem .75rem;
 	/* background: rgba(36,32,33,255); */
   /* background: rgb(246,229,199); */
-/* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709072261/f1h9fjkwkcpamsupxgqj.jpg"); */
+background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709072261/f1h9fjkwkcpamsupxgqj.jpg");
 
 /* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709072280/qtoamzphavg1wv6oghuf.jpg"); */
-
-background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709044542/y4tcjdcolem2b2ltcifh.jpg");
+/* 
+background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709044542/y4tcjdcolem2b2ltcifh.jpg"); */
 
 /* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709043685/l80d3gcjag4n2g4fq0jp.png"); */
  
@@ -105,6 +105,7 @@ background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v170904
   background-size: 5rem; */
   background-position: bottom;
 	transition: .3s ease-in-out;
+  
 
 }
 
@@ -113,6 +114,7 @@ background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v170904
 	margin: 0.25em 1em 1em 0;
 	border-radius: 0.25em;
 	float: left;
+ 
  
 }
 

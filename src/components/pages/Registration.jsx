@@ -17,37 +17,71 @@ const Registration = () =>{
   const [surname, setSurname] = useState("");
   const [role, setRole] = useState("USER");
   
-  function registrationUser() {
-    fetch(`${process.env.REACT_APP_BACKEND}/auth/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username,
-        email: email,
-        password: password,
-        name: name,
-        surname: surname,
-        role: role,
-      }),
-    })
-      .then((response) => {
-        if (response.ok) {
-          setUsername("");
-          setEmail("");
-          setPassword("");
-          setName("");
-          setSurname("");
-          setRole("");
-          window.alert("Registrazione Effettuata con successo!");
-        } else {
-          throw new Error("errore nella fetch");
-        }
-      })
-      .catch((err) => console.log("ERRORE!", err));
-  }
+  async function checkExistingEmail(email) {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+                "Content-Type": "application/json",
+            },
+        });
 
+        if (!response.ok) {
+            throw new Error("Errore durante il recupero degli utenti");
+        }
+
+        const users = await response.json();
+        return users.some(user => user.email === email);
+    } catch (error) {
+        console.error("Errore durante il controllo dell'email:", error);
+        return false; 
+    }
+}
+
+
+function registrationUser() {
+  checkExistingEmail(email)
+      .then((emailExists) => {
+          if (emailExists) {
+              alert("Email già in uso!");
+              return;
+          }
+
+          fetch(`${process.env.REACT_APP_BACKEND}/auth/register`, {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                  username: username,
+                  email: email,
+                  password: password,
+                  name: name,
+                  surname: surname,
+                  role: role,
+              }),
+          })
+          .then((response) => {
+              if (response.ok) {
+                  setUsername("");
+                  setEmail("");
+                  setPassword("");
+                  setName("");
+                  setSurname("");
+                  setRole("");
+                  window.alert("Registrazione Effettuata con successo!");
+              } else {
+                  throw new Error("errore nella fetch");
+              }
+          })
+          .catch((err) => console.log("ERRORE!", err));
+      })
+      .catch((error) => {
+          console.error("Errore durante il controllo dell'email:", error);
+          alert("Si è verificato un errore durante la registrazione.");
+      });
+}
 
   
 return(

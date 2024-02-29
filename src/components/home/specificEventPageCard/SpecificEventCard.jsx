@@ -110,48 +110,14 @@ useEffect(() => {
   <figcaption className="figCaptionEventPage">
     <h3>{eventItem.name}</h3>
     <div className="iconEventPage">
-      <a href="#"> <i className="ion-social-instagram-outline me-2 xxIcon"></i></a>
-      <a href="#"> <i className="bi bi-facebook me-2 xxIcon"></i></a>
+      <a href="https://www.instagram.com/futuroimperfetto/"> <i className="ion-social-instagram-outline ms-3 me-5 xxIcon"></i></a>
+      <a href="https://www.facebook.com/futuroimperfetto2.0"> <i className="bi bi-facebook me-2 xxIcon"></i></a>
     </div>
   </figcaption>
 </Card>
 </Col>
 
 
-{/* <Col xs={10} md={10} lg={10} xl={6}>
-
-
-    <Card key={index} className="snip1578 snip1578One">
-  <Card.Img className="imgEventPage" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample6.jpg" alt="profile-sample6" />
-  <Card.Body>
-        <Card.Text className="cardEventPageText">
-{eventItem.description}
-        </Card.Text>
-        <Card.Text className="cardEventPageText">
-        {new Date(eventItem.date).toLocaleDateString('en-GB', {
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric'
-  })}
-        </Card.Text>
-
-     {userRole === "ADMIN" &&  
-
-<Button className="buttonDelete" onClick={ () => deleteCard(eventItem.id)}>Elimina</Button>
-}   
-    
-      </Card.Body>
-  <figcaption className="figCaptionEventPage">
-    <h3>{eventItem.name}</h3>
-    <div className="iconEventPage"><a href="#"><i className="ion-social-twitter me-2 xxIcon"></i></a>
-      <a href="#"> <i className="ion-social-instagram-outline me-2 xxIcon"></i></a>
-      <a href="#"> <i className="bi bi-facebook me-2 xxIcon"></i></a>
-    </div>
-  </figcaption>
-</Card>
-
-
-</Col> */}
 
 
 </Row>

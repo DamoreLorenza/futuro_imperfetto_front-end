@@ -153,19 +153,23 @@ const functionGetUser = (event) => {
 
         <Card.Body>
         <Row>
-        <i className="iconHome prenotazioniWriteHome"><Button className='iconHomeWrite '
+        <i className="iconHome prenotazioniWriteHome mb-4"><Button className='iconHomeWrite '
            onClick={() => {
             navigate("/reservation");
           }}>Prenotazioni </Button></i>
-          </Row>
-          <Row>
+
           {userRole === 'ADMIN' && (
             <Button
               onClick={() => {
             navigate("/reservationListPage");}}
-             className='buttonListaPrenotazioni2'>| Lista prenotazioni</Button>
+             className='iconHomeWrite mb-4'> Lista prenotazioni</Button>
           )}
-</Row>
+
+
+          </Row>
+          
+
+
         </Card.Body>
 
 

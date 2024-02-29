@@ -106,7 +106,7 @@ const GamesCard = ({ searchTerm }) => {
 
             <>
                       <div>
-                        <button className="buttonChangePageLeft rounded-circle bg-danger" onClick={prevPage} disabled={currentPage === 0}><i className="bi bi-arrow-left-circle-fill"></i></button>
+                        <button className="buttonChangePageLeft rounded-circle bg-danger " onClick={prevPage} disabled={currentPage === 0}><i className="bi bi-arrow-left-circle-fill"></i></button>
                         <button className="buttonChangePageRight rounded-circle bg-danger" onClick={nextPage} disabled={game.length < gamesPerPage }><i className="bi bi-arrow-right-circle-fill"></i></button>
                        </div> 
                        {userRole === "ADMIN" && <AdminGameCard className="insertCardPosition"/>}
