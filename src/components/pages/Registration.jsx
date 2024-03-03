@@ -1,7 +1,7 @@
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import "./css/Registration.css"
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Registration = () =>{
   //per layout funzionalità
@@ -20,74 +20,9 @@ const Registration = () =>{
 
 
 
-
-  // };
-  
-  
-//   async function checkExistingEmail(email) {
-//     try {
-//         const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
-//             method: "GET",
-//             headers: {
-//                 Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-//                 "Content-Type": "application/json",
-//             },
-//         });
-
-//       .then((data) => {
-//         console.log("data", data);
-//         if (data && Array.isArray(data.content)) {
-
-//         const users = await response.json();
-//         return users.some(user => user.email === email);
-
-
-//         } else {
-//          throw new Error("Errore durante il recupero degli utenti") ;
-//         }
-//       })
-
-//       .catch((err) => {
-//         console.log("errore", err);
-//       });
-// }
-
-
-
-
-
-// async function checkExistingEmail(email) {
-//   try {
-//       const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
-//           method: "GET",
-//           headers: {
-//               Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-//               "Content-Type": "application/json",
-//           },
-//       });
-
-//       if (!response.ok) {
-//           throw new Error("Errore durante il recupero degli utenti");
-//       }
-
-//       const users = await response.json();
-//       return users.some(user => user.email === email);
-//   } catch (error) {
-//       console.error("Errore durante la verifica dell'email:", error);
-//       return false;
-//   }
-// }
-
-
-  // checkExistingEmail(email)
-  //     .then((emailExists) => {
-  //         if (emailExists) {
-  //             alert("Email già in uso!");
-  //             return;
-  //         }
-
-
 function registrationUser() {
+
+
 
 
           fetch(`${process.env.REACT_APP_BACKEND}/auth/register`, {
@@ -113,14 +48,20 @@ function registrationUser() {
                   setSurname("");
                   setRole("");
                   window.alert("Registrazione Effettuata con successo!");
+
               } else {
                   throw new Error("errore nella fetch");
               }
           })
-      .catch((error) => {
-          console.error("Errore durante il controllo dell'email:", error);
-          alert("Si è verificato un errore durante la registrazione.");
-      });
+          .catch((error) => {
+            console.error("Errore durante la registrazione:", error);
+            if (error.message) {
+                alert("Email già in uso!");
+                
+            } else {
+                alert("Si è verificato un errore durante la registrazione.");
+            }
+        });
 }
 
 
@@ -130,10 +71,10 @@ return(
 
 <Container className="containerPageLogin">
       <Row className='labelOne mt-5'>
-      <Col xs={2} md={4} lg={4} xl={4} >
+      <Col xs={2}  md={4} lg={4} xl={4} >
 
       </Col>
-        <Col xs={6} md={4} lg={4} xl={4} className="mt-3">
+        <Col xs={6} md={4} lg={4} xl={4} className="mt-5">
         <div >
         <h2 className="mt-5">Registrati qui</h2>
         <Form id="register-form">
@@ -199,7 +140,7 @@ return(
             return; 
         }
               registrationUser();
-            navigate("/login");
+               navigate("/login");
           }}
   >Registrati</Button>
 </Form>  

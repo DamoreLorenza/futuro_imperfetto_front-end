@@ -23,7 +23,7 @@ useEffect(() => {
     fetch(`${process.env.REACT_APP_BACKEND}/event`, {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          Authorization: `Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiIzYTA4ODYzNy1kNjYzLTQ2MjktYjBjMi1jNDliYjYxOWE0NzUiLCJpYXQiOjE3MDkzOTg0NzUsImV4cCI6MTcxMDAwMzI3NX0.3JsSp5-K56gzzElpxuwJ0YoSAbTKIOq0Vwjibzpc_VJlwUYmQETC26sPtsna7nQX`,
           "Content-Type": "application/json",
         },
       })
@@ -81,18 +81,23 @@ useEffect(() => {
 
       <Container className="specific-event-card-container d-flex flex-wrap">
 
-{ event.map((eventItem, index) =>(
+{ event
+  .sort((a, b) => new Date(a.date) - new Date(b.date))
+.map((eventItem, index) =>(
 
   <Row key={index} className="d-flex flex-wrap"> 
 
 
   <Col xs={12} md={10} lg={5} xl={5} className="d-flex flex-wrap">
     <Card key={index} className="snip1578 snip1578One">
-  <Card.Img className="imgEventPage" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample6.jpg" alt="profile-sample6" />
+  <Card.Img className="imgEventPage" src={eventItem.avatar} alt="profile-sample6" />
   <Card.Body>
         <Card.Text className="cardEventPageText">
 {eventItem.description}
         </Card.Text>
+
+        <Row className="mt-3 mb-3">
+        <Col xs={6}>
         <Card.Text className="cardEventPageText">
         {new Date(eventItem.date).toLocaleDateString('en-GB', {
     year: 'numeric',
@@ -100,7 +105,14 @@ useEffect(() => {
     day: 'numeric'
   })}
         </Card.Text>
-
+      </Col>
+        <Col xs={6} className="mt-3">
+        <div className="iconEventPage">
+      <a href="https://www.instagram.com/futuroimperfetto/"> <i className="ion-social-instagram-outline ms-1 me-1 xxIcon"></i></a>
+      <a href="https://www.facebook.com/futuroimperfetto2.0"> <i className="bi bi-facebook me-1 xxIcon"></i></a>
+    </div>
+      </Col>
+</Row>
      {userRole === "ADMIN" &&  
 
 <Button className="buttonDelete" onClick={ () => deleteCard(eventItem.id)}>Elimina</Button>
@@ -109,10 +121,6 @@ useEffect(() => {
       </Card.Body>
   <figcaption className="figCaptionEventPage">
     <h3>{eventItem.name}</h3>
-    <div className="iconEventPage">
-      <a href="https://www.instagram.com/futuroimperfetto/"> <i className="ion-social-instagram-outline ms-3 me-5 xxIcon"></i></a>
-      <a href="https://www.facebook.com/futuroimperfetto2.0"> <i className="bi bi-facebook me-2 xxIcon"></i></a>
-    </div>
   </figcaption>
 </Card>
 </Col>

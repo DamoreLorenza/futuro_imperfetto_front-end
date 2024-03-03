@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
-import "./ReservationSection.css"
+import { useEffect, useRef, useState } from "react"
+import "./ReservationForm.css"
 import 'react-calendar/dist/Calendar.css';
-import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Form, Overlay, Row } from "react-bootstrap";
 import ModalChooserGame from "./ModalChooserGame";
 
 
@@ -14,7 +14,7 @@ const ReservationForm = () =>{
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [userData, setUserData] = useState(null);
-//   const [gameName, setGameName] = useState("")
+
 
   const [idUser, setIdUser] = useState(null);
   const [idDesk, setIdDesk] = useState(null);
@@ -23,12 +23,22 @@ const ReservationForm = () =>{
   const [desk, setDesk] = useState([])
   const [game, setGame] = useState([]) 
 
-//   const handleSeatsChange = (e) => {
-//     const selectedSeats = parseInt(e.target.value);
-//     setSelectedSeats(selectedSeats);
-//   };
+  const [showButt, setShowButt] = useState(false);
+  const target = useRef(null);
 
-const formattedTime = `${time}:00`;
+  const isTimeValid = () => {
+    const hour = parseInt(time.split(":")[0]);
+    const minute = parseInt(time.split(":")[1]);
+  
+    // Controlla se l'ora selezionata è tra le 19:30 e le 00:30
+    if ((hour === 19 && minute >= 30) || (hour >= 20 && hour < 24) || (hour === 0 && minute <= 30)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+ const formattedTime = `${time}:00`;
 
   const handleGameChange = (e) => {
     setSelectedGame(e.target.value);
@@ -73,120 +83,6 @@ const formattedTime = `${time}:00`;
 
 
 
-//   const reservationSubmitDesk = () => {
-//     fetch(`${process.env.REACT_APP_BACKEND}/desk`, {
-//       method: "GET",
-//       headers: {
-//         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-//         "Content-Type": "application/json",
-//       },
-//     })
-//     .then((res) => {
-//       if (res.ok) {
-//         return res.json();
-//       } else {
-//         throw new Error("errore");
-//       }
-//     })
-//     .then((data) => {
-//       console.log("desk", data);
-//       if (data && Array.isArray(data.content)) {
-//           setDesk(data.content);
-//           console.log("desk", desk)
-         
-//       } else {
-//           setDesk([]); 
-//       }
-//   })
-//     .catch((err) => {
-//       console.log("errore", err);
-//     });
-// };
-
-
-
-// const fetchGameName = () => {
-//   fetch(`${process.env.REACT_APP_BACKEND}/game`, {
-//     method: "GET",
-//     headers: {
-//       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-//       "Content-Type": "application/json",
-//     },
-//   })
-//   .then((res) => {
-//     if (res.ok) {
-//       return res.json();
-//     } else {
-//       throw new Error("errore");
-//     }
-//   })
-//   .then((gameData) => {
-//     console.log("game", gameData);
-//     if (gameData && Array.isArray(gameData.content)) {
-//         setGame(gameData.content);
-//         console.log("game", game)
-    
-//     } else {
-//         setGame([]); 
-//     }
-// })
-// .catch((err) => {
-//   console.log("errore", err);
-// });
-// };
-
-
-
-// function reservationPost() {
-  
-//   fetch(`${process.env.REACT_APP_BACKEND}/tableReservation`, {
-//     method: "POST",
-//     headers: {
-//      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-//      "Content-Type": "application/json",
-//      },
-//     body: JSON.stringify({
-//         date: date,
-//         time: time,
-
-//         userId: userId,
-//         gameId: gameId,
-//         deskId: deskId,
-
-        
-//     }),
-//   })
-//     .then((response) => {
-//       if (response.ok) {
-//         setDate("");
-//         setTime("");
-//         setUserId("");
-//          setGameId("");
-//         setDeskId("");
-        
-        
-//         window.alert("Prenotazione effettuata con successo!");
-//       } else {
-//         throw new Error("errore nella fetch");
-//       }
-//     })
-//     .catch((err) => {
-//         console.error("Errore durante la richiesta POST:", err);
-//         // Controlla se ci sono dettagli aggiuntivi forniti dal backend
-//         if (err.response && err.response.data && err.response.data.message) {
-//           console.error("Messaggio di errore dal backend:", err.response.data.message);
-//         }
-//       });
-// }
-  
-// const handleReservation = () => {
-//     reservationSubmitDesk()
-//       .then(fetchGameName)
-//       .then(reservationPost)
-//       .catch((err) => {
-//         console.error("Errore nella gestione della prenotazione:", err);
-//       });
-//   };
 
 const reservationSubmitDesk = async () => {
     try {
@@ -292,6 +188,9 @@ const reservationSubmitDesk = async () => {
         window.alert("Si è verificato un errore durante la prenotazione: " + err.message);
       }
   };
+
+
+
     return(
         <>
         <Container className="container d-flex justify-content-center">
@@ -308,7 +207,12 @@ const reservationSubmitDesk = async () => {
         <Form.Label>Nome utente</Form.Label>
         <Form.Control className="inputPrenotazione" size="sm" type="text" placeholder="Nome" 
         value={userData ? userData.name : ""}
-        onChange={() => {}}
+    //     disabled={!userData} // Disabilita il campo se userData non è presente
+    // onClick={() => {
+    //   if (!userData) {
+    //     alert("Per effettuare l'autenticazione, bisogna effettuare l'accesso");
+    //   }
+   // }}
         />
       </Form.Group>
         </Col>
@@ -342,10 +246,6 @@ const reservationSubmitDesk = async () => {
         <Form.Group className="mb-3" >
         <Form.Label>Numero persone</Form.Label>
         <Form.Control className="inputPrenotazione" size="sm" type="number" placeholder="Numero persone" max={10} min={1} 
-        //   value={seats}
-        //   onChange={(e) => {setSelectedSeats(parseInt(e.target.value));
-        //   handleSeatsChange()
-        //   }}
         inputmode="numeric"
         value={selectedSeats}
         onChange={(e) => setSelectedSeats(parseInt(e.target.value))}
@@ -360,8 +260,6 @@ const reservationSubmitDesk = async () => {
         <Form.Label>Data prenotazione</Form.Label>
        <Form.Control className="inputPrenotazione" size="sm" type="date" placeholder="Data prenotazione" 
         value={date}  
-        // dateFormat="yyyy-MM-dd"
-        // onChange={handleDateChange}
         onChange={(e) => setDate(e.target.value)}
        /> 
       </Form.Group>
@@ -370,13 +268,45 @@ const reservationSubmitDesk = async () => {
       </Col>
     </Row>
 </Card.Title>
+
         <Card.Text className="cardTextTime">
         <Row className="rowForInput">
         <Col xs={10} sm={8} md={8} xl={7}>
         <Form.Group className="mb-3" >
-        <Form.Label>Dalle ore</Form.Label>
+        <Form.Label>Dalle ore
+        <Button className="buttBadge p-1 ms-4 " ref={target} onClick={() => setShowButt(!showButt)}>
+        <i className="bi bi-exclamation-triangle"></i>
+      </Button>
+      <Overlay target={target.current} show={showButt} placement="right">
+        {({
+          placement: _placement,
+          arrowProps: _arrowProps,
+          show: _show,
+          popper: _popper,
+          hasDoneInitialMeasure: _hasDoneInitialMeasure,
+          ...props
+        }) => (
+          <div
+            {...props}
+            style={{
+              position: 'absolute',
+              backgroundColor: 'rgba(255, 100, 100, 0.85)',
+              padding: '2px 10px',
+              color: 'black',
+              borderRadius: 3,
+              ...props.style,
+            }}
+          >
+            Limite orario prenotazione 19:30 / 00:30
+          </div>
+        )}
+      </Overlay>
+        </Form.Label>
         <Form.Control className="inputPrenotazione" size="sm" type="time" placeholder="Dalle ore" 
           value={formattedTime} onChange={(e) => setTime(e.target.value)} 
+          minTime="19:30"
+          maxTime="24:30"
+
         />
       </Form.Group>
         
@@ -391,12 +321,8 @@ const reservationSubmitDesk = async () => {
         <Form.Label>Desideri prenotare un gioco da tavola?</Form.Label>
         <ModalChooserGame onGameSelect={(gameName) => setSelectedGame(gameName)}/>
         <Form.Control className="inputPrenotazione" size="sm" type="text" placeholder=""
-        //  value={selectedGame} 
-        //  onChange={(e) => {setSelectedGame(parseInt(e.target.value));
-        //  handleGameChange()
-        //  }}
         value={selectedGame}
-  onChange={handleGameChange}
+        onChange={handleGameChange}
          />
         
       </Form.Group>
@@ -408,19 +334,9 @@ const reservationSubmitDesk = async () => {
         Hai prenotato il giorno {date} alle ore {time} per {selectedSeats} persone. Il gioco selezionato è: {selectedGame}
         </Card.Footer>
         <Button className="buttonReservation"  
-//         onClick={() => {
-//      handleSeatsChange();      
-//      reservationSubmitDesk();
-   
-//      handleGameChange();
-//      fetchGameName();
-
-//     // reservationPost();
-// }}
-onClick= 
-{handleReservation}
-  
->Conferma prenotazione</Button>
+         onClick= {handleReservation}
+         disabled={!isTimeValid()}
+        >Conferma prenotazione</Button>
       </Card.Body>
 
     </Card>

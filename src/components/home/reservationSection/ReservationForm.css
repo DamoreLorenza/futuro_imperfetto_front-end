@@ -39,7 +39,29 @@ border: black solid 2px;
         border: black solid 2px;
         }
 
+        .buttBadge{
+            background-color: #941a1e !important;
+            border: 1px solid black;
+        }
 
+        .buttBadge:hover {
+            background-color: #941a1e !important;
+            border: 1px solid black;
+        }
+
+        .buttBadge:focus {
+            background-color: #941a1e !important;
+            border: 1px solid black;
+        }
+
+
+        .buttonReservation:disabled {
+        
+            opacity: 0.5; 
+            cursor: not-allowed; 
+            background-color: #941a1e !important;
+            border: 1px solid black;
+          }
 
 
         @media screen and (min-width: 280px) {
@@ -53,7 +75,8 @@ border: black solid 2px;
             .inputPrenotazione{
                 width: 150px;
             }
-            
+
+
         }
   
         

@@ -56,53 +56,20 @@ function loginUser() {
     })
 
     .catch((err) =>{
-      alert("Il tuo account non esiste. Si prega di registrarsi.");
-      navigate("/registration");
-      console.log("ERRORE!", err)} );
+      if (err.message === "Password errata") {
+        alert("Password errata, riprovare.");
+        navigate("/login");
+      } else if (err.message === "Email non registrata") {
+        alert("Il tuo account non esiste. Si prega di registrarsi.");
+        navigate("/registration");
+      } else {
+        alert("Errore durante il login. Riprova più tardi.");
+        console.log("ERRORE!", err);
+      }
+} );
+
 }
 
-
-// const getUser = (event) => {
-//   if (event) {
-//     event.preventDefault();
-//   }
-
-//   fetch(`${process.env.REACT_APP_BACKEND}/user`, {
-//       method: "GET",
-//       headers: {
-//         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-//         "Content-Type": "application/json",
-//       },
-//     })
-//     .then((res) => {
-//       if (res.ok) {
-//         return res.json();
-//       } else {
-//         throw new Error("errore");
-//       }
-//     })
-//     .then((data) => {
-//       console.log("data", data.content[1].role);
-//       // if (data && Array.isArray(data.content)) {
-//       //     setUser(data.content);
-//       //     console.log("user", data)
-//       //     console.log("user", data.content[0].id)
-//       //     console.log("user", data.content[0].email)
-//       if(email == data.content[0].email){console.log("siii")}
-     
-//       else {
-//           // setUser([]); 
-//           console.log("nooo");
-//       }
-//    })
-//     .catch((err) => {
-//       console.log("errore", err);
-//     });
-// };
-
-// useEffect(() => {
-//   getUser();
-// }, []);
 
 
   return (

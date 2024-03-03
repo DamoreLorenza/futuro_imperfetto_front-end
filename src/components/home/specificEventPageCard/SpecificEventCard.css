@@ -12,8 +12,26 @@
   font-size: 20px;
   /* background: rgba(36,32,33,255); */
   border-radius: 5px;
-  background: rgb(159,0,0);
-  background: radial-gradient(circle, rgba(159,0,0,0.7344187675070029) 12%, rgba(0,0,0,0.9080882352941176) 82%);
+  /* background: rgb(159,0,0);
+  background: radial-gradient(circle, rgba(159,0,0,0.7344187675070029) 12%, rgba(0,0,0,0.9080882352941176) 82%); */
+
+  /* background: rgb(148,26,30);
+background: radial-gradient(circle, rgba(148,26,30,1) 12%, rgba(0,0,0,0.9080882352941176) 82%); */
+
+/* background: rgb(148,26,30);
+background: radial-gradient(circle, rgba(148,26,30,0.9024859943977591) 12%, rgba(0,0,0,0.9080882352941176) 82%); */
+
+/* background: rgb(148,26,30);
+background: radial-gradient(circle, rgba(148,26,30,0.7764355742296919) 12%, rgba(0,0,0,0.9080882352941176) 82%); */
+
+/* background: rgb(148,26,30);
+background: radial-gradient(circle, rgba(148,26,30,0.7764355742296919) 12%, rgba(0,0,0,0.8100490196078431) 82%); */
+
+background: rgb(148,26,30);
+background: radial-gradient(circle, rgba(148,26,30,0.8828781512605042) 12%, rgba(0,0,0,0.8100490196078431) 82%);
+
+  /* background: rgb(255,252,0);
+  background: linear-gradient(16deg, rgba(255,252,0,0.7960434173669468) 0%, rgba(168,98,0,0.9220938375350141) 96%); */
 }
 
 
@@ -28,6 +46,8 @@
 
 .snip1578 .imgEventPage {
   max-width: 35%;
+  
+
   margin-top: -15px;
   margin-left: 60%;
   backface-visibility: hidden;
@@ -125,7 +145,7 @@ border-color: white;
       }
 
       .snip1578 .imgEventPage {
-        max-width: 35%;
+        max-width: 40%;
         margin-top: -15px;
         margin-left: 60%;
       }
@@ -143,9 +163,14 @@ border-color: white;
         
       }
 
- .xxIcon{
+      .buttonDelete{
+        width: 80px;
+        font-size: 13px;
+      }
+
+ /* .xxIcon{
 color: transparent !important;
- }
+ } */
 
       .cardEventPageText{
         font-size: 13px;
@@ -159,6 +184,8 @@ color: transparent !important;
 
     }
     
+
+
     
       @media screen and (min-width: 360px) {
 
@@ -169,6 +196,41 @@ color: transparent !important;
           .xxIcon{
             color: white !important;
              }
+
+      
+            .snip1578 .imgEventPage {
+              max-width: 40%;
+              margin-top: -15px;
+              margin-left: 60%;
+            }
+      
+            .snip1578 h3 {
+              margin: 0;
+              font-size: 23px;
+              font-weight: normal;
+            }
+      
+            .snip1578 .iconEventPage {
+              font-size: 20px;
+              margin-top: 10px !important;
+              
+              
+            }
+      
+            .buttonDelete{
+              width: 80px;
+              font-size: 13px;
+            }
+      
+      
+            .cardEventPageText{
+              font-size: 13px;
+              margin-top: 30px;
+          }
+      
+
+
+
       }
     
      @media screen and (min-width: 375px) {
@@ -216,6 +278,12 @@ color: transparent !important;
           .snip1578{
             margin-left: 5em !important;
           }
+
+          .snip1578 .imgEventPage {
+            max-width: 50%;
+            margin-top: -15px;
+            margin-left: 60%;
+          }
       }
     
       @media screen and (min-width: 768px) {
@@ -234,7 +302,7 @@ color: transparent !important;
           }
     
           .snip1578 .imgEventPage {
-            max-width: 35%;
+            max-width: 55%;
             margin-top: -15px;
             margin-left: 60%;
           }

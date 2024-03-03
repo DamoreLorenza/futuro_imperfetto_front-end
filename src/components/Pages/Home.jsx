@@ -209,27 +209,27 @@ const functionGetUser = (event) => {
 <Col xs={2} md={2} lg={2} xl={2}></Col>
 <Col xs={7} md={8} lg={8} xl={8}>
 <Carousel>
-      <Carousel.Item interval={5000}>
+      <Carousel.Item interval={3000}>
 
         <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c8.jpg"} />
        
       </Carousel.Item>
-      <Carousel.Item interval={5000}>
+      <Carousel.Item interval={3000}>
 
         <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c2.jpg"} />
        
       </Carousel.Item>
-      <Carousel.Item interval={5000}>
+      <Carousel.Item interval={3000}>
 
         <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c3.jpg"} />
        
         </Carousel.Item>
-        <Carousel.Item interval={5000}>
+        <Carousel.Item interval={3000}>
 
         <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c4.jpg"} />
        
       </Carousel.Item>
-      <Carousel.Item interval={5000}>
+      <Carousel.Item interval={3000}>
       
         <Image className="imageCarousel" src={process.env.PUBLIC_URL + "/assets/c5.jpg"} />
        

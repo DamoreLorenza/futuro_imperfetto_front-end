@@ -76,7 +76,7 @@ const GamesCard = ({ searchTerm }) => {
         fetch(`${process.env.REACT_APP_BACKEND}/game?page=${page}&size=${gamesPerPage}&orderBy=${orderBy}`, {
             method: "GET",
             headers: {
-              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+              Authorization: `Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiIzYTA4ODYzNy1kNjYzLTQ2MjktYjBjMi1jNDliYjYxOWE0NzUiLCJpYXQiOjE3MDkzOTg0NzUsImV4cCI6MTcxMDAwMzI3NX0.3JsSp5-K56gzzElpxuwJ0YoSAbTKIOq0Vwjibzpc_VJlwUYmQETC26sPtsna7nQX`,
               "Content-Type": "application/json",
             },
         })

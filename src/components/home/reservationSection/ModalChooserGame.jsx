@@ -75,7 +75,7 @@ const handleGameSelection = (gameName) => {
         Mostrami la lista
       </Button>
 
-      <Modal className="modalChooser" show={show} onHide={handleClose}>
+      <Modal  className="modalChooser" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Scegli 1 gioco</Modal.Title>
         </Modal.Header>
