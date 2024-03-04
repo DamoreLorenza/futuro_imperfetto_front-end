@@ -1,14 +1,16 @@
 Futuro Imperfetto 2.0
 💻 Full Stack Capstone Project
+ Welcome to Futuro Imperfetto 2.0. This capstone represents the site of a board games venue in Pescara.
 
+📋 Functionality By browsing the site you will be able to:
+-register and authenticate; 
+-view the board games present in the room; 
+-scheduled events; -book tables and games. 
+For administrators additional features such as:
+insert/delete games and events; 
+-viewing the reservation list.
 
-📋 Functionality
-User registration and login with JWT token
-Management of information sheets by the administrator (add card game or event, delete)
-
-
-
-📦 Installed Packages
+📦 Dependencies and Packages to install
 
 npx create-react-app
 npm install react-bootstrap bootstrap
