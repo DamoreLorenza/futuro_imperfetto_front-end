@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Home from './components/pages/Home';
-import Event from './components/pages/Event';
-import Login from './components/pages/Login';
-import Games from './components/pages/Games';
-import Reservation from './components/pages/Reservation';
-import Registration from './components/pages/Registration';
-import ReservationListPage from './components/pages/ReservationListPage';
+import Home from './components/Pages/Home';
+import Event from './components/Pages/Event';
+import Login from './components/Pages/Login';
+import Games from './components/Pages/Games';
+import Reservation from './components/Pages/Reservation';
+import Registration from './components/Pages/Registration';
+import ReservationListPage from './components/Pages/ReservationListPage';
 
 
 
