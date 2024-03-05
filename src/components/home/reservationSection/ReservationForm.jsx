@@ -152,8 +152,8 @@ const reservationSubmitDesk = async () => {
             date: date,
             time: formattedTime,
             idUser: idUser,
-            idGame: idGame,
-            idDesk: idDesk,
+            idGame: [idGame],
+            idDesk: [idDesk],
           }),
         }
       );
@@ -161,8 +161,8 @@ const reservationSubmitDesk = async () => {
         setDate("");
         setTime("");
         setIdUser("");
-        setIdGame("");
-        setIdDesk("");
+        setIdGame(null);
+        setIdDesk(null);
         window.alert("Prenotazione effettuata con successo!");
       } else {
         throw new Error("errore nella fetch");

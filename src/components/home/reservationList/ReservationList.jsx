@@ -144,7 +144,8 @@ useEffect(() => {
         <div key={index} className={isPastDate(tableReservationItem.date) ? 'past-date' : ''}>
           <ul className="table">
             <li className="listWrite">Prenotazione a nome di: {tableReservationItem.user.name} {tableReservationItem.user.surname}</li>
-            <li className="listWrite">Numero persone: {tableReservationItem.desk}</li>
+            <li className="listWrite">Numero persone: {tableReservationItem.deskId}</li>
+            {/* <td className="tableTwo">{tableReservationItem.desk.map(deskId => <div key={deskId}>{deskId}</div>)}</td>  */}
             <li className="listWrite">Data: {tableReservationItem.date}</li>
             <li className="listWrite">Orario: {tableReservationItem.time}</li>
             <li className="listWrite">Giochi prenotati: {tableReservationItem.game}</li>

@@ -113,8 +113,9 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             .buttonModale2{
           
               font-size: 15px;
-              margin-top: 3em !important;
-              margin-left: 10em;
+              position: absolute;
+              top: 21em;
+              right: 3em;
               
                 }
                 }
@@ -127,8 +128,9 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             .buttonModale2{
           
               font-size: 18px;
-              margin-top: 3em !important;
-              margin-left: 10em;
+              position: absolute;
+              top: 15em;
+              right: 11em;
               
                 }
                 }
@@ -142,22 +144,24 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             .buttonModale2{
           
               font-size: 15px;
-              margin-top: 3em !important;
-              margin-left: 40em;
+              position: absolute;
+              top: 25em;
+              right: 1em;
               
                 }
                 }
 
 
 
-          @media screen and (min-width: 1400px) {
+          @media screen and (min-width: 1300px) {
 
     
               .buttonModale2{
     
                 font-size: 20px;
-                margin-top: -3em !important;
-                
+                position: absolute;
+                top: 13em;
+                right: 14em;
                 
                   }
                  

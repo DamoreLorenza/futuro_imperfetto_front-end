@@ -135,7 +135,7 @@ const functionGetUser = (event) => {
 
         </Offcanvas.Body>
 
-        <Offcanvas.Body>
+        <Offcanvas.Body className='mb-5'>
         
 
           {/* Pulsante Profilo */}
