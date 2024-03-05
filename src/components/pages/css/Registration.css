@@ -1,0 +1,194 @@
+
+.containerPageLogin{
+    min-height: 100vh !important;
+}
+
+.form-check{
+    padding-left: 0;
+}
+
+.formTextForButton{
+    width: 200px;
+    color: black;
+    font-size: 20px;
+}
+
+.buttonSendRegisterPage{
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    color: black;
+}
+.buttonSendRegisterPage:hover{
+    background-color: transparent;
+    border: 0;
+    color: #941a1e;
+}
+.buttonSendRegisterPage:active{
+    background-color: transparent !important;
+    border: 0;
+}
+
+.buttonAccedi{
+    background-color: rgba(36,32,33,255);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 200px;
+}
+
+.formControlLogin:focus{
+background-color: black;
+color: white;
+}
+
+
+
+
+@media screen and (min-width: 280px) {
+
+    .formControlLogin{
+        width: 10em;
+        background-color: rgba(36,32,33,255);
+        color: white;
+    }
+
+    .formLabelLogin{
+        color: rgba(36,32,33,255);
+        font-size: larger;
+        font-weight: bold;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .iconaPassword{
+        font-size: 10px;
+        padding: 3px;
+    }
+
+    .formTextForButton{
+
+        font-size: 15px;
+    }
+
+    .buttonAccedi{
+        width: 100px;
+    }
+    
+
+}
+
+
+  @media screen and (min-width: 360px) {
+    .formControlLogin{
+        width: 15em;
+    }
+    .labelOne{
+        margin-top: 15em;
+    }
+  }
+
+ @media screen and (min-width: 375px) {
+    .formControlLogin{
+        width: 15em;
+    }
+
+    .labelOne{
+        margin-top: 5em;
+    }
+  }
+
+  @media screen and (min-width: 390px) {
+    .formControlLogin{
+        width: 15em;
+    }
+
+    .labelOne{
+        margin-top: 10em !important;
+    }
+  
+  }  
+
+
+  @media screen and (min-width: 412px) {
+    .iconaPassword{
+        font-size: 18px;
+        padding: 5px;
+    }
+
+    
+  }
+
+  @media screen and (min-width: 430px) {
+
+  }
+
+  
+  @media screen and (min-width: 540px) {
+    .formControlLogin{
+        width: 24em;
+    }
+
+    .labelOne{
+        margin-top: 25em;
+    }
+
+    .buttonAccedi{
+        width: 150px;
+    }
+  
+  }
+
+  @media screen and (min-width: 600px) {
+    .formControlLoginFirst{
+        width: 10em;
+
+    }
+  }
+
+
+  @media screen and (min-width: 820px) {
+
+  }
+
+  @media screen and (min-width: 912px) {
+    .formControlLogin{
+        width: 27em;
+    }
+    .formControlLoginFirst{
+        width: 10em;
+
+    }
+  }  
+
+  @media screen and (min-width: 1024px) {
+    .formTextForButton{
+        font-size: 18px;
+    }
+    .formControlLoginFirst{
+        width: 10em;
+
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .formControlLogin{
+        width: 25em;
+    }
+    .formControlLoginFirst{
+        width: 10em;
+
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    .iconaPassword{
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    .formControlLoginFirst{
+        width: 10em;
+
+    }
+    
+  }
+
+

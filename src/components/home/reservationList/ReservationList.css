@@ -1,0 +1,53 @@
+.tableReservation{
+    margin-top: 20em;
+    margin-right: 2em;
+    
+    
+    }
+
+    .listWrite{
+        font-size: 15px;
+    }
+
+.table{
+    background-color: rgba(36,32,33,255) !important;
+    color: white !important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;  
+    border: solid 3px white;
+  
+   
+}
+
+.tableTwo{
+    color: white !important;
+    background-color: rgba(36,32,33,255) !important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px; 
+    border: solid 3px white;
+
+}   
+
+.buttonEliminaRiga{
+    color: white;
+    border:  white;
+    background-color: transparent !important;
+}
+.buttonEliminaRiga:hover{
+    color: black ;
+}
+
+@media screen and (min-width: 950px){
+    .tableReservation{
+        margin-top: 20em;
+        margin-right: 2em;
+        width: 800px !important;
+        
+        }
+
+.table{
+
+    width: 10em;
+   
+}
+}

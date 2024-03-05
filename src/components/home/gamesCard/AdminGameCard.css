@@ -1,0 +1,168 @@
+.formInsertGame{
+width: 300px;
+background-color: rgba(36,32,33,255);
+border-radius: 5px;
+color: white;
+padding: 1em 1em 1em 1em;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+}
+
+.formControlInsertGame{
+
+    background-color: whitesmoke;
+}
+
+.modal-content{
+    background-color: rgba(36,32,33,255);
+    width: 450px;
+}
+
+.buttonModale2{
+    background-color: rgba(36,32,33,255);
+    color: whitesmoke;
+    border-color: rgba(148,26,30,255);
+    margin-right: 23px;
+    margin-top: 10px;
+}
+.buttonModale2:hover{
+    background-color: rgba(148,26,30,255);
+    color: whitesmoke;
+    border-color: rgba(148,26,30,255);
+}
+
+.buttonModale2::selection {
+    background-color: rgba(148,26,30,255);
+    color: whitesmoke;
+}
+
+.buttonModale2:focus {
+    background-color: rgba(148,26,30,255);
+    color: whitesmoke;
+}
+
+.buttonModale2:active {
+    background-color: rgba(148,26,30,255);
+    color: whitesmoke;
+}
+
+
+    
+    @media screen and (min-width: 280px) {
+    
+      .buttonModale2{
+    
+    font-size: 10px;
+    margin-top: 1em !important;
+    
+      }
+    }
+
+    @media screen and (min-width: 375px) {
+    
+        .buttonModale2{
+      
+     margin-left: 5em;
+      
+        }
+      }
+  
+      @media screen and (min-width: 440px) {
+    
+        .buttonModale2{
+      
+     margin-left: 11em;
+      
+        }
+      }
+
+          @media screen and (min-width: 470px) {
+  
+                   
+      .buttonModale2{
+    
+        font-size: 15px;
+        margin-top: 1em !important;
+        margin-left: 4em;
+        
+          }
+              
+          }
+        
+          
+          @media screen and (min-width: 570px) {
+            
+
+    
+              
+      .buttonModale2{
+    
+        font-size: 15px;
+        margin-top: 3em !important;
+        margin-left: 10em;
+        
+          }
+          }
+        
+          @media screen and (min-width: 650px) {
+            
+
+    
+              
+            .buttonModale2{
+          
+              font-size: 15px;
+              position: absolute;
+              top: 21em;
+              right: 3em;
+              
+                }
+                }
+
+           @media screen and (min-width: 768px) {
+            
+
+    
+              
+            .buttonModale2{
+          
+              font-size: 18px;
+              position: absolute;
+              top: 15em;
+              right: 11em;
+              
+                }
+                }
+
+                
+           @media screen and (min-width: 992px) {
+            
+
+    
+              
+            .buttonModale2{
+          
+              font-size: 15px;
+              position: absolute;
+              top: 25em;
+              right: 1em;
+              
+                }
+                }
+
+
+
+          @media screen and (min-width: 1300px) {
+
+    
+              .buttonModale2{
+    
+                font-size: 20px;
+                position: absolute;
+                top: 13em;
+                right: 14em;
+                
+                  }
+                 
+            }

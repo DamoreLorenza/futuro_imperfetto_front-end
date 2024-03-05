@@ -1,0 +1,651 @@
+.buttonChangePageLeft{
+position: absolute;
+right: 14em;
+
+}
+
+.buttonChangePageRight{
+  position: absolute;
+  right: 12em;
+  
+  }
+
+  .insertCardPosition{
+    position: absolute;
+    right: 14em ;
+    top:5em;
+  }
+
+.h1Games {
+  font-weight: 400;
+	font-size: 30px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+	text-align: center;
+  color: black;
+    
+}
+.pGames {
+	font-size: max(10pt, 2.5vmin);
+	line-height: 1.4;
+	color: white;
+	margin-bottom: 1.5rem;
+}
+
+em{
+  color: black !important;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.wrapGames {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	width: 85vmin;
+	height: 50vmin;
+	margin: 2rem auto;
+	border: 8px solid;
+  border-image: linear-gradient(-50deg,  rgb(119, 62, 0), rgb(11, 11, 11), rgb(95, 49, 0), rgba(36,32,33,255), rgba(36,32,33,255), rgb(122, 67, 0)) 1;
+	/* border-image: linear-gradient(-50deg, rgba(148,26,30,255), rgba(148,26,30,255), rgb(93, 101, 93), black, rgba(36,32,33,255), rgba(36,32,33,255), black) 1; */
+  /* border-image: linear-gradient(-50deg,  black) 1; */
+	transition: .3s ease-in-out;
+	position: relative;
+	overflow: hidden;
+}
+
+.overlayGames-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 15vmin;
+	height: 100%;
+	padding: .5rem 0 0 .5rem;
+	border: 3px solid;
+	border-image: 
+    	linear-gradient(
+      	to bottom, 
+      	rgba(36,32,33,255) 5%,
+      	rgba(148,26,30,255) 35% 65%,
+      	rgba(36,32,33,255) 95%
+    	) 0 0 0 100%;
+	transition: .3s ease-in-out .2s;
+	z-index: 1;
+}
+
+.overlayGames {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	padding: 1rem .75rem;
+	/* background: rgba(36,32,33,255); */
+  /* background: rgb(246,229,199); */
+ 
+  background-size: 48rem;
+  border: 10px solid black;
+
+  /* background-image: url("https://img.freepik.com/premium-photo/flying-ship-vessel-steampunk-machine-device-illustration-generative-ai_850000-13726.jpg"); */
+
+background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709072261/f1h9fjkwkcpamsupxgqj.jpg");
+
+/* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709072280/qtoamzphavg1wv6oghuf.jpg"); */
+/* 
+background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709044542/y4tcjdcolem2b2ltcifh.jpg"); */
+
+/* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709043685/l80d3gcjag4n2g4fq0jp.png"); */
+ 
+  /* background-size: 49rem; */
+  transition: .4s ease-in-out;
+	z-index: 1;
+}
+
+.imageGames-content {
+	position: absolute;
+	top: 0em;
+	right: 0;
+  left: 15em;
+	max-width: 50vmin;
+  /* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1708088792/x4jkgnm2rbpjflyrgsw2.png"); */
+	
+  /* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1708090348/qsjyftsknwzwp1ixbktf.png"); */
+	/* background-repeat: no-repeat;
+  background-size: 5rem; */
+  background-position: bottom;
+	transition: .3s ease-in-out;
+  
+
+}
+
+.insetGames {
+	max-width: 50%;
+	margin: 0.25em 1em 1em 0;
+	border-radius: 0.25em;
+	float: left;
+ 
+ 
+}
+
+.dotsGames {
+	position: absolute;
+	bottom: 1rem;
+	right: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 55px;
+	height: 4vmin;
+	transition: .3s ease-in-out .3s;
+  
+}
+.dotGames {
+	width: 14px;
+	height: 14px;
+	background: rgb(0, 0, 0);
+	border: 1px solid rgb(130, 0, 0);
+	border-radius: 50%;
+	transition: .3s ease-in-out .3s;
+}
+
+.textGames {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 60vmin;
+	height: 100%;
+	padding: 3vmin 4vmin;
+	background: rgba(36,32,33,255);
+	box-shadow: inset 1px 1px 15px 0 rgba(0 0 0 / .4);
+	overflow-y: scroll;
+  
+}
+
+.wrapGames:hover .overlayGames
+ {
+	transform: translateX(-59vmin);
+  margin-right: 5px;
+
+}
+
+.wrapGames:hover .overlayGames:hover
+ {
+	transform: translateX(-59vmin);
+  margin-right: 5px;
+}
+.wrapGames:hover .imageGames-content {
+	width: 30vmin;
+}
+
+.wrapGames:hover .overlayGames-content {
+	border: none;
+	transition-delay: .2s;
+	transform: translateX(60vmin);
+}
+.wrapGames:hover .dotsGames {
+	transform: translateX(1rem);
+}
+.wrapGames:hover .dotsGames .dotGames {
+	background: rgba(36,32,33,255);
+}
+
+
+/* Animations and timing delays */
+.animateGames {
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
+  animation-fill-mode: backwards;
+}
+/* Pop In */
+.popGames { animation-name: pop; }
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+/* Slide In */
+.slideGames { animation-name: slide; }
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translate(4em, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+/* Slide Left */
+.slideGames-left { animation-name: slide-left; }
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translate(-40px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+.slideGames-up {animation-name: slide-up;}
+@keyframes slide-up {
+	0% {
+		opacity: 0;
+		transform: translateY(3em);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.delayGames-1 {
+  animation-delay: 0.3s;
+}
+.delayGames-2 {
+  animation-delay: 0.6s;
+}
+.delayGames-3 {
+  animation-delay: 0.9s;
+}
+.delayGames-4 {
+  animation-delay: 1.2s;
+}
+.delayGames-5 {
+  animation-delay: 1.5s;
+}
+.delayGames-6 {
+  animation-delay: 1.8s;
+}
+.delayGames-7 {
+  animation-delay: 2.1s;
+}
+.delayGames-8 {
+  animation-delay: 2.4s;
+}
+
+
+/* 
+per schermo grande */
+
+
+  @media screen and (min-width: 1500px) {
+     .wrapGames {
+        margin-top: 5em !important;
+        margin-left: 5em !important;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .wrapGames {
+       margin-top: 5em !important;
+       margin-left: 3em !important;
+   }
+ }
+
+
+/* fine schermo grande */
+
+
+/* per schermo piccolo */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:200);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+.game1578 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: relative;
+  display: inline-block;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: white;
+  text-align: left;
+  font-size: 20px;
+  background: rgba(36,32,33,255);
+  border-radius: 5px;
+}
+
+
+.game1578 *,
+.game1578:before,
+.game1578:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.game1578 .imgGamePage {
+  max-width: 35%;
+  margin-top: -15px;
+  margin-left: 60%;
+  backface-visibility: hidden;
+  vertical-align: top;
+  border-radius: 5px;
+}
+
+.game1578 .figCaptionGamePage {
+  position: absolute;
+  top: 0;
+  right: 40%;
+  left: 0;
+  bottom: 0;
+  padding: 15px;
+  
+}
+
+.game1578 h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+
+
+.game1578 .iconGamePage {
+  font-size: 15px;
+  margin-top: 10px !important;
+  
+}
+
+.game1578 .iconGamePage a {
+  color: #ccc;
+  
+}
+
+.game1578 .iconGamePage a:hover {
+  color: rgba(148,26,30,255);
+}
+
+.cardGamePageText{
+    font-size: 15px;
+}
+
+.insertCardPosition{
+  
+}
+
+@media screen and (min-width: 280px) {
+
+  .buttonModale{
+
+font-size: 10px;
+margin-top: 12em !important;
+
+  }
+
+    .game1578 {
+        margin-left: -2em;
+        margin-bottom: 80px;
+        margin-right: 2em;
+        min-width: 230px;
+        max-width: 315px;
+        width: 100%;
+        font-size: 20px;
+      }
+
+      .game1578One{
+        margin-top: 2em !important;
+      }
+
+      .game1578 .imgGamePage {
+        max-width: 35%;
+        margin-top: -15px;
+        margin-left: 60%;
+      }
+
+      .game1578 h3 {
+        margin: 0;
+        font-size: 15px;
+        font-weight: normal;
+      }
+
+      .game1578 .iconGamePage {
+        font-size: 20px;
+        margin-top: 10px !important;
+        
+      }
+
+      .cardGamePageText{
+        font-size: 10px;
+       
+    }
+
+    .buttonChangePageLeft{
+     top: 14em;
+     
+      
+      }
+      
+      .buttonChangePageRight{
+        top: 14em;
+        
+        }
+
+        .insertCardPosition{
+        
+        }
+    }
+    
+    
+      @media screen and (min-width: 360px) {
+
+        .game1578One {
+            margin-top: 2em !important;
+            
+          }
+      }
+    
+     @media screen and (min-width: 370px) {
+      .buttonChangePageLeft{
+        top: 16em;
+        right: 7em;
+         
+         }
+         
+         .buttonChangePageRight{
+           top: 16em;
+           right: 5em;
+           }
+
+           .insertCardPosition{
+            
+          }
+      }
+    
+      @media screen and (min-width: 390px) {
+    
+      }  
+    
+    
+      @media screen and (min-width: 465px) {
+        .game1578One {
+            margin-top: 3em !important;
+            
+          }
+      }
+    
+      @media screen and (min-width: 470px) {
+    
+        .game1578One {
+            margin-top: 3em !important;
+            
+          }
+          .buttonChangePageLeft{
+            top: 20em;
+            right: 7em;
+             
+             }
+             
+             .buttonChangePageRight{
+               top: 20em;
+               right: 5em;
+               }
+
+               
+  .buttonModale{
+
+    font-size: 15px;
+    margin-top: 12em !important;
+    
+      }
+          
+      }
+    
+      
+      @media screen and (min-width: 570px) {
+        
+        .game1578One {
+            margin-left: 5em !important;
+            
+          }
+
+          .game1578{
+            margin-left: 5em !important;
+          }
+
+          
+  .buttonModale{
+
+    font-size: 12px;
+    margin-top: 8em !important;
+    
+      }
+      }
+    
+      @media screen and (min-width: 768px) {
+        .game1578 {
+            margin-left: 0 !important;
+            
+            min-width: 400px;
+            max-width: 400px;
+            width: 100%;
+            font-size: 40px;
+          }
+
+          .game1578One{
+            margin-top: 3em !important;
+          }
+    
+          .game1578 .imgGamePage {
+            max-width: 35%;
+            margin-top: -15px;
+            margin-left: 60%;
+          }
+    
+          .game1578 h3 {
+            margin: 0;
+            font-size: 30px;
+            font-weight: normal;
+          }
+    
+          .game1578 .iconGamePage {
+            font-size: 25px;
+            margin-top: 15px !important;
+            
+          }
+      }
+    
+    
+      @media screen and (min-width: 820px) {
+    
+      }
+    
+      @media screen and (min-width: 992px) {
+        .game1578 {
+            
+            margin-left: 3em !important;
+            
+          }
+          .game1578One{
+margin-top: 3em !important;
+
+          }
+          .game1578:hover{
+    
+            transform: translateX(50%);
+            transform: (1.5, 1.5);
+        }
+      }  
+    
+      @media screen and (min-width: 1180px) {
+        .game1578 {
+            
+            margin-left: 2em !important;
+            margin-right: 20px !important;
+            
+          }
+
+          .game1578One{
+           margin-top: 3em !important; 
+          }
+      }
+    
+      @media screen and (min-width: 1200px) {
+        .game1578 {
+            
+            margin-left: 2.5em !important;
+            margin-right: 20px !important;
+            
+          }
+
+          .game1578One{
+            margin-top: 10em !important;
+          }
+
+          em{
+            color: black !important;
+            font-weight: bolder;
+            font-size: 18px;
+          }
+
+
+/* grandezza immagini giochi da tavola */
+           .insetGames{
+            max-width: 100%;
+            height: 200px !important; 
+            object-fit: cover; 
+            border-radius: 5px; 
+            border: 6px solid black;
+           }
+
+
+           .imageGames-content {
+
+            left: 10em;
+
+          
+          }
+      }
+    
+
+      @media screen and (min-width: 1400px) {
+
+
+          em{
+            color: black !important;
+            font-weight: bolder;
+            font-size: 25px;
+          }
+          .imageGames-content {
+
+            left: 15em;
+
+          
+          }
+
+          .buttonModale{
+
+            font-size: 20px;
+            margin-top: -3em !important;
+            
+            
+              }
+             
+        }
