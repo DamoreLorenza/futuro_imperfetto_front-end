@@ -2,7 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import "./css/Home.css"
 import "./css/Reservation.css"
 import CustomOffCanvas from "../commonComponent/offCanvas/CustomOffCanvas";
-import ReservationForm from "../home/reservationSection/ReservationForm";
+import ReservationForm from "../Home/reservationSection/ReservationForm";
 
 const Reservation = () => {
     return (

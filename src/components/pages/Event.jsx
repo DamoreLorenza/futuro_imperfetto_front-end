@@ -2,7 +2,7 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import CustomOffCanvas from "../commonComponent/offCanvas/CustomOffCanvas";
 import "./css/Event.css"
 import "./css/Home.css"
-import SpecificEventCard from "../home/specificEventPageCard/SpecificEventCard";
+import SpecificEventCard from "../Home/specificEventPageCard/SpecificEventCard";
 
 const Event = () => {
     return (

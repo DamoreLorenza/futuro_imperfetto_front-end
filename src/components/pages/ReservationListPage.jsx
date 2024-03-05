@@ -1,6 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap"
 import CustomOffCanvas from "../commonComponent/offCanvas/CustomOffCanvas"
-import ReservationList from "../home/reservationList/ReservationList"
+import ReservationList from "../Home/reservationList/ReservationList"
 import { useEffect, useState } from "react";
 
 
