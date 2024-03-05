@@ -12,6 +12,12 @@ const [gameId, setGameId] = useState([])
 const [deskId, setDeskId] = useState([])
 
 
+const [gameNames, setGameNames] = useState([]);
+const [gameNamesById, setGameNamesById] = useState({});
+
+const [deskSeats, setDeskSeats] = useState([]);
+const [deskSeatsById, setDeskSeatsById] = useState({});
+
 
     // per schermo table
     const isFullScreen = screenSize.width > 950 && screenSize.height > 640;
@@ -95,17 +101,29 @@ const getTableReservationById = (id) => {
       console.log("desk", data.idDesk);
       console.log("game", data.idGame);
 
-      if (data && Array.isArray(data.content)) {
-        setReservationId((prevIds) => [...prevIds, data.content]);
-        if (data.idDesk) { // Verifica se idDesk è definito
-          const idDesk = Array.isArray(data.idDesk) ? data.idDesk[0] : data.idDesk;
-          getDesk(idDesk);
-        }
-        if (data.idGame) { // Verifica se idGame è definito
-          getGameName(data.idGame);
-        }
+      if (Array.isArray(data.content)) {
+        const reservationIds = data.content.map((reservation) => {
+          if (reservation.idGame) {
+            const idGame = Array.isArray(reservation.idGame) ? reservation.idGame[0] : reservation.idGame;
+            // getGameName(idGame);
+            getGameName(idGame, reservation.id); // Utilizza reservation.id come reservationId
+          }
+          if (reservation.idDesk) {
+            const idDesk = Array.isArray(reservation.idDesk) ? reservation.idDesk[0] : reservation.idDesk;
+            getDeskSeats(idDesk, reservation.id);
+          }
+          return reservation.id;
+        });
+        reservationIds.forEach(getTableReservationById);
       } else {
-        setReservationId([]);
+        if (data.idGame) {
+          const idGame = Array.isArray(data.idGame) ? data.idGame[0] : data.idGame;
+          getGameName(idGame, data.id); // Utilizza data.id come reservationId
+        }
+        if (data.idDesk) {
+          const idDesk = Array.isArray(data.idDesk) ? data.idDesk[0] : data.idDesk;
+          getDeskSeats(idDesk, data.id);
+        }
       }
     })
     .catch((error) => {
@@ -113,50 +131,37 @@ const getTableReservationById = (id) => {
     });
 };
 
-
-
-const getDesk = (idDesk) => {
-  // Se idDesk è definito
-  if (idDesk) {
-    // Se idDesk è un array e ha almeno un elemento
-    if (Array.isArray(idDesk) && idDesk.length > 0) {
-      // Estrai l'ID dalla prima posizione dell'array
-      const deskId = idDesk[0];
-      fetch(`${process.env.REACT_APP_BACKEND}/desk/${deskId}`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          } else {
-            throw new Error("Error retrieving desk");
-          }
-        })
-        .then((data) => {
-          console.log("Deskoooo:", data);
-          if (data && Array.isArray(data.content)) {
-            setDeskId(data.content);
-          } else {
-            setDeskId([]);
-          }
-        })
-        .catch((error) => {
-          console.error("Error making request:", error);
-        });
-    } else {
-      console.error("Invalid desk ID format:", idDesk);
-    }
-  } else {
-    console.error("Desk ID is undefined");
-  }
+const getDeskSeats = (idDesk, reservationId) => {
+  fetch(`${process.env.REACT_APP_BACKEND}/desk/${idDesk}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("Error retrieving desk");
+      }
+    })
+    .then((data) => {
+      console.log("Data d received:", data);
+      console.log("Data d received:", data.seats);
+      
+      setDeskSeatsById((prevSeats) => ({
+        ...prevSeats,
+        [reservationId]: data.seats
+      }));
+      console.log("deskSeatsById:", deskSeatsById);
+    })
+    .catch((error) => {
+      console.error("Error making request:", error);
+    });
 };
 
-// Function to get name of a game by ID
-const getGameName = (idGame) => {
+const getGameName = (idGame, reservationId) => {
   fetch(`${process.env.REACT_APP_BACKEND}/game/${idGame}`, {
     method: "GET",
     headers: {
@@ -172,17 +177,48 @@ const getGameName = (idGame) => {
       }
     })
     .then((data) => {
-      console.log("Game name:", data);
-      if (data && Array.isArray(data.content)) {
-        setGameId(data.content);
-      } else {
-        setGameId([]);
-      }
+      console.log("Data received:", data);
+      console.log("Data received:", data.name);
+      // Aggiungo il nome del gioco all'oggetto gameNamesById utilizzando l'id della prenotazione come chiave
+      setGameNamesById((prevNames) => ({
+        ...prevNames,
+        [reservationId]: data.name
+      }));
+      console.log("gameNamesById:", gameNamesById);
     })
     .catch((error) => {
       console.error("Error making request:", error);
     });
 };
+
+
+// Function to get name of a game by ID
+// const getGameName = (idGame) => {
+//   fetch(`${process.env.REACT_APP_BACKEND}/game/${idGame}`, {
+//     method: "GET",
+//     headers: {
+//       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+//       "Content-Type": "application/json",
+//     },
+//   })
+//     .then((res) => {
+//       if (res.ok) {
+//         return res.json();
+//       } else {
+//         throw new Error("Error retrieving game");
+//       }
+//     })
+//     .then((data) => {
+//       console.log("Data received:", data);
+//       console.log("Data received:", data.name);
+//       // setGameId(data.name);
+//       setGameNames((prevNames) => [...prevNames, data.name]);
+
+//     })
+//     .catch((error) => {
+//       console.error("Error making request:", error);
+//     });
+// };
 
 
 const deleteTableReservations = (tableReservationId) => {
@@ -212,7 +248,8 @@ const deleteTableReservations = (tableReservationId) => {
 
 useEffect(() => {
   getTableReservations();
-  getDesk();
+  getDeskSeats();
+  getGameName();
 
   
 }, []);
@@ -233,11 +270,12 @@ useEffect(() => {
         <div key={index} className={isPastDate(tableReservationItem.date) ? 'past-date' : ''}>
           <ul className="table">
             <li className="listWrite">Prenotazione a nome di: {tableReservationItem.user.name} {tableReservationItem.user.surname}</li>
-            <li className="listWrite">Numero persone: {tableReservationItem.idDesk}</li>
+            <li className="listWrite">Numero persone: {deskSeatsById[tableReservationItem.id]}</li>
             {/* <td className="tableTwo">{tableReservationItem.desk.map(deskId => <div key={deskId}>{deskId}</div>)}</td>  */}
             <li className="listWrite">Data: {tableReservationItem.date}</li>
             <li className="listWrite">Orario: {tableReservationItem.time}</li>
-            <li className="listWrite">Giochi prenotati: {tableReservationItem.gameId}</li>
+            {/* {gameId && <li className="listWrite">Giochi prenotati: {gameId}</li>} */}
+            <li className="listWrite">Giochi prenotati: {gameNamesById[tableReservationItem.id]}</li>
             <li className="buttonEliminaRiga">
               <Button className="buttonEliminaRiga" onClick={() => deleteTableReservations(tableReservationItem.id)}>Elimina</Button>
             </li>
@@ -266,10 +304,14 @@ useEffect(() => {
         {tableReservation.map((tableReservationItem, index) => (
           <tr key={index} className={isPastDate(tableReservationItem.date) ? 'past-date' : ''}>
               <td className="tableTwo">{tableReservationItem.user.name} {tableReservationItem.user.surname}</td>
-              <td className="tableTwo">{tableReservationItem.idDesk}</td>
+
+              <td className="tableTwo">{deskSeatsById[tableReservationItem.id]}</td>
+
               <td className="tableTwo">{tableReservationItem.date}</td>
               <td className="tableTwo">{tableReservationItem.time}</td>
-              <td className="tableTwo">{tableReservationItem.game}</td>
+
+              <td className="tableTwo">{gameNamesById[tableReservationItem.id]}</td>
+
               <td className="buttonEliminaRiga"><Button className="buttonEliminaRiga" onClick={() => deleteTableReservations(tableReservationItem.id)}>Elimina</Button></td>
             </tr>
         ))}

@@ -31,13 +31,18 @@ border: black solid 2px;
 
 .buttonReservation::selection{
     background-color: #941a1e !important;
-    
+    border: black solid 2px !important;
     }
 
     .buttonReservation:hover{
         background-color: #941a1e;
         border: black solid 2px;
         }
+
+        .buttonReservation:active{
+            background-color: #941a1e !important;
+            border: black solid 2px !important;
+            }
 
         .buttBadge{
             background-color: #941a1e !important;
