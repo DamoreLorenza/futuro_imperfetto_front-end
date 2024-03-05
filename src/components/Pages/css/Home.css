@@ -15,7 +15,7 @@ top: 16em;
 transform: rotate(25deg);
 }
 
-/* // daiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii */
+
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
@@ -165,7 +165,7 @@ transform: rotate(25deg);
    }
 
 .imageCarousel{
-    border-radius: 2%;  
+    border-radius: 2% !important;  
   
 }
 
@@ -198,45 +198,246 @@ transform: rotate(25deg);
 
    @media screen and (min-width: 250px) {
    
-   
+    .accordion-collapse.collapse.show{
+        font-size: 10px !important;
+        width: 20em;
+       }
+       
+    
 
-   
+    .accordion-button{
+        font-size: 15px !important;
+
+       }
+
+    .OffHomeTitle{
+
+      font-size: 20px !important;
+        
+    }
+    .iconHomeWrite{
+        color: black;
+        line-height: 10px;
+        font-size: 15px;
+
+    
+    }
+
+    .dadi{
+        width: 150px;
+        height: 150px;
+        position: absolute;
+       left: -2em;
+        top: 21em;
+        transform: rotate(25deg);
+        }
+        
+        .accordion{
+            
+            position: relative;
+            left: 1em !important;
+            top: -40px;
+       }
+    
+       .imageCarousel{
+    
+        width: 200px;
+        height: 200px;
+       }
+    
+       .carousel-inner{
+        margin-left: 3em;
+       }
+    
+       .carousel-indicators{
+        margin-left: 10em;
+    }
+    
+    .carousel-control-next {
+        right: -79px;
+    }
+    
+    .carousel-control-prev {
+        left: 1em;
+    }
+
+    .futuroDescription{
+
+        line-height: 30px;
+        font-size: 20px;
+        padding-left: 2em;
+        padding-right: 2em;
+       
+    }
+
    }
    
    
    
    @media screen and (min-width: 375px) {
 
-   
+    .futuroDescription{
+
+        line-height: 35px;
+        font-size: 18px;
+        padding-left: 4em;
+        padding-right: 4em;
+       
+    }
 
    
    }
-   
-   @media screen and (min-width: 390px) {
 
    
+   @media screen and (min-width: 440px) {
 
-   }  
+    .dadi{
+        width: 150px;
+        height: 150px;
+        position: absolute;
+       left: -1em;
+        top: 25em;
+        transform: rotate(25deg);
+        }
+        
+        .accordion{
+        
+            position: relative;
+            left: 4em !important;
+            top: -40px;
+       }
+    
+       .imageCarousel{
+    
+        width: 400px;
+        height: 400px;
+       }
+    
+       .carousel-inner{
+        margin-left: 3em;
+       }
+    
+       .carousel-indicators{
+        margin-left: 10em;
+    }
+    
+    .carousel-control-next {
+        right: -79px;
+    }
+    
+    .carousel-control-prev {
+        left: 1em;
+    }
    
-   
-   @media screen and (min-width: 412px) {
+    .futuroDescription{
+
+        line-height: 40px;
+        font-size: 20px;
+       
+    }
 
 
-
-   
    }
    
    @media screen and (min-width: 470px) {
    
+    .accordion-collapse.collapse.show{
+        font-size: 15px !important;
+        width: 21em;
+       }
+       
+    
+    .accordion-button{
+        font-size: 25px !important;
+
+       }
+        
+        .OffHomeTitle{
+          font-size: 30px !important;
+            margin-top: 5px;
+        }
+        
+        
+        .iconHomeWrite{
+            line-height: 10px;
+            font-size: 25px;
+            border: 0;
+        
+        }
+    
+    
+           .accordion{
+             position: relative;
+             left: 55px ;
+             top: -40px;
+            width: 10em;
+           }
+
+           
+           .imageCarousel{
+        
+            width: 300px;
+            height: 300px;
+           }
+      
+        
+
+           .carousel-inner{
+            margin-left: 3em;
+            margin-bottom: 5em;
+          
+           }
+        
+        .carousel-indicators{
+            margin-left: 17em;
+        }
+        
+        
+        .futuroDescription{
+
+            padding-left: 5em;
+            padding-right: 5em;
+            line-height: 50px;
+            font-size: 20px;
+         
+        }
 
 
-
-   
+        .dadi{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: -3em;
+            top: 24em;
+            transform: rotate(25deg);
+            }
    
    }
 
-   @media screen and (min-width: 540px) {
+   @media screen and (min-width: 580px) {
+    .dadi{
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        left: 1em;
+        top: 2em;
+        transform: rotate(25deg);
+        }
+        .accordion{
+     
+            left: 7em !important;
+      
+       }
 
+       .carousel-inner{
+        margin-left: 6em;
+       }
+
+    
+    .carousel-control-prev {
+        left: 3em;
+    }
+        
    }
  
    @media screen and (min-width: 756px) {
@@ -266,17 +467,18 @@ transform: rotate(25deg);
 }
 
 .carousel-control-prev {
-    left: 5em;
+    left: 1em;
 }
 
 .dadi{
     width: 250px;
     height: 250px;
     position: absolute;
-    left: 5em;
+    left: 3em;
     top: 20em;
     
     }
+        
 
    }
 
@@ -294,7 +496,7 @@ transform: rotate(25deg);
 
 
    .carousel-inner{
-    margin-left: 5em;
+    margin-left: 7em;
    }
 
    .carousel-indicators{
@@ -317,6 +519,7 @@ transform: rotate(25deg);
     top: 20em;
     
     }
+
 
    }
 
@@ -360,6 +563,9 @@ transform: rotate(25deg);
 
 
    @media screen and (min-width: 1000px) {
+
+
+
     .accordion{
         
         position: relative;
@@ -572,7 +778,8 @@ left: 2em;
    .imageCarousel{
 
     width: 800px;
-    height: 750px;
+    height: 700px;
+    margin-left: 6em;
    }
 
    .carousel-inner{
@@ -594,8 +801,12 @@ left: 2em;
     }
     
     .carousel-control-prev {
-        left: 1em;
+        left: 4em;
     }
+
+    .carousel-indicators {
+        margin-left: 270px;
+       }
    }
  
    @media screen and (min-width: 1800px) {
@@ -620,6 +831,11 @@ left: 2em;
          top: -40px;
     }    
     .carousel-inner{
-        margin-left: 17em;
+        margin-left: 19em;
        }
+
+       .carousel-indicators {
+        margin-left: 200px;
+       }
+
    }

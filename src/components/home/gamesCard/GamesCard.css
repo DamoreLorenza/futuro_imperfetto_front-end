@@ -34,6 +34,7 @@ right: 14em;
 em{
   color: black !important;
   font-weight: bolder;
+  font-size: 25px;
 }
 
 .wrapGames {
@@ -44,8 +45,9 @@ em{
 	height: 50vmin;
 	margin: 2rem auto;
 	border: 8px solid;
+  border-image: linear-gradient(-50deg,  rgb(119, 62, 0), rgb(11, 11, 11), rgb(95, 49, 0), rgba(36,32,33,255), rgba(36,32,33,255), rgb(122, 67, 0)) 1;
 	/* border-image: linear-gradient(-50deg, rgba(148,26,30,255), rgba(148,26,30,255), rgb(93, 101, 93), black, rgba(36,32,33,255), rgba(36,32,33,255), black) 1; */
-  border-image: linear-gradient(-50deg,  black) 1;
+  /* border-image: linear-gradient(-50deg,  black) 1; */
 	transition: .3s ease-in-out;
 	position: relative;
 	overflow: hidden;
@@ -78,12 +80,13 @@ em{
 	padding: 1rem .75rem;
 	/* background: rgba(36,32,33,255); */
   /* background: rgb(246,229,199); */
+ 
+  background-size: 48rem;
+  border: 10px solid black;
 
-  background-size: 40rem;
+  /* background-image: url("https://img.freepik.com/premium-photo/flying-ship-vessel-steampunk-machine-device-illustration-generative-ai_850000-13726.jpg"); */
 
-  background-image: url("https://img.freepik.com/premium-photo/flying-ship-vessel-steampunk-machine-device-illustration-generative-ai_850000-13726.jpg");
-
-/* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709072261/f1h9fjkwkcpamsupxgqj.jpg"); */
+background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709072261/f1h9fjkwkcpamsupxgqj.jpg");
 
 /* background-image: url("https://res.cloudinary.com/drf1t0gkq/image/upload/v1709072280/qtoamzphavg1wv6oghuf.jpg"); */
 /* 
@@ -369,10 +372,18 @@ per schermo grande */
 }
 
 @media screen and (min-width: 280px) {
+
+  .buttonModale{
+
+font-size: 10px;
+margin-top: 12em !important;
+
+  }
+
     .game1578 {
-        
+        margin-left: -2em;
         margin-bottom: 80px;
-        
+        margin-right: 2em;
         min-width: 230px;
         max-width: 315px;
         width: 100%;
@@ -402,16 +413,18 @@ per schermo grande */
       }
 
       .cardGamePageText{
-        font-size: 20px;
+        font-size: 10px;
+       
     }
 
     .buttonChangePageLeft{
-     top: 18em;
+     top: 14em;
+     
       
       }
       
       .buttonChangePageRight{
-        top: 18em;
+        top: 14em;
         
         }
 
@@ -474,6 +487,14 @@ per schermo grande */
                top: 20em;
                right: 5em;
                }
+
+               
+  .buttonModale{
+
+    font-size: 15px;
+    margin-top: 12em !important;
+    
+      }
           
       }
     
@@ -488,6 +509,14 @@ per schermo grande */
           .game1578{
             margin-left: 5em !important;
           }
+
+          
+  .buttonModale{
+
+    font-size: 12px;
+    margin-top: 8em !important;
+    
+      }
       }
     
       @media screen and (min-width: 768px) {
@@ -570,6 +599,12 @@ margin-top: 3em !important;
             margin-top: 10em !important;
           }
 
+          em{
+            color: black !important;
+            font-weight: bolder;
+            font-size: 18px;
+          }
+
 
 /* grandezza immagini giochi da tavola */
            .insetGames{
@@ -579,9 +614,38 @@ margin-top: 3em !important;
             border-radius: 5px; 
             border: 6px solid black;
            }
+
+
+           .imageGames-content {
+
+            left: 10em;
+
+          
+          }
       }
     
-    
 
-    
-/* fine shcermo piccolo */
+      @media screen and (min-width: 1400px) {
+
+
+          em{
+            color: black !important;
+            font-weight: bolder;
+            font-size: 25px;
+          }
+          .imageGames-content {
+
+            left: 15em;
+
+          
+          }
+
+          .buttonModale{
+
+            font-size: 20px;
+            margin-top: -3em !important;
+            
+            
+              }
+             
+        }

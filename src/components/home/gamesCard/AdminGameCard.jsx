@@ -58,7 +58,7 @@ const AdminGameCard = () =>{
 
 return(
     <>
-<Button className="buttonModale" onClick={handleShow}>
+<Button className="buttonModale2" onClick={handleShow}>
 Inserisci un nuovo gioco da tavola
 </Button>
 <Modal className="modaleGame" show={show} onHide={handleClose}>

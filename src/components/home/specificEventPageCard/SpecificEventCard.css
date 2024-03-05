@@ -80,12 +80,13 @@ background: radial-gradient(circle, rgba(148,26,30,0.8828781512605042) 12%, rgba
 }
 
 .snip1578 .iconEventPage a {
-  color: #ccc;
+  /* color: #ccc; */
+  color: transparent;
   
 }
 
 .snip1578 .iconEventPage a:hover {
-  color: rgba(148,26,30,255);
+  color: transparent;
 }
 
 
@@ -168,9 +169,9 @@ border-color: white;
         font-size: 13px;
       }
 
- /* .xxIcon{
-color: transparent !important;
- } */
+ .xxIcon{
+color: white;
+ }
 
       .cardEventPageText{
         font-size: 13px;
@@ -256,6 +257,11 @@ color: transparent !important;
             margin-top: 6em !important;
             
           }
+                .buttonModale{
+        position: absolute !important;
+        right: 11em !important;
+        top:15em !important;
+      }
       }
     
 
@@ -263,8 +269,8 @@ color: transparent !important;
 
       .buttonModale{
         position: absolute !important;
-        right: 14em !important;
-        top:19em !important;
+        right: 16em !important;
+        top:17em !important;
       }
     }
       

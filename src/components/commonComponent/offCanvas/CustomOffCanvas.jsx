@@ -36,10 +36,10 @@ useEffect(() => {
     setIsLoggedIn(localStorage.getItem("authToken") !== null);
     const storedUserRole = localStorage.getItem("userRole") || '';
     setUserRole(storedUserRole);
-    console.log("userRole:", storedUserRole); // Verifica il valore di userRole
+    console.log("userRole:", storedUserRole); // Verifico il valore di userRole
   };
 
-  // Verifica se c'è un token di autenticazione presente nel localStorage
+  // Verifico se c'è un token di autenticazione presente nel localStorage
   if (localStorage.getItem("authToken") !== null) {
     setIsLoggedIn(true); //utente è autenticato
     const storedUserRole = localStorage.getItem("userRole") || '';

@@ -8,6 +8,9 @@ const GamesCard = ({ searchTerm }) => {
     const [game, setGame] = useState([]);
     const [userRole, setUserRole] = useState(localStorage.getItem(""));
 
+    const [allGames, setAllGames] = useState([]);
+    const [filteredGames, setFilteredGames] = useState([]);
+
     // per paginazione
     const [currentPage, setCurrentPage] = useState(0);
     const gamesPerPage = 10;
@@ -68,6 +71,16 @@ const GamesCard = ({ searchTerm }) => {
     
         return [...matchingExact, ...containingKeywords];
       };
+
+      useEffect(() => {
+        // ricerca sui giochi filtrati e ordinati ogni volta che cambia il termine di ricerca
+        setFilteredGames(filterAndSortGames(allGames));
+      }, [searchTerm, allGames]);
+
+      // Calcola i giochi da visualizzare in base alla pagina corrente
+  const indexOfLastGame = (currentPage + 1) * gamesPerPage;
+  const indexOfFirstGame = indexOfLastGame - gamesPerPage;
+  const currentGames = filteredGames.slice(indexOfFirstGame, indexOfLastGame);
     
       // Filtra e ordina i giochi
       const filteredAndSortedGames = filterAndSortGames(game);
@@ -105,15 +118,39 @@ const GamesCard = ({ searchTerm }) => {
     return(
 
             <>
-                      <div>
-                        <button className="buttonChangePageLeft rounded-circle bg-danger " onClick={prevPage} disabled={currentPage === 0}><i className="bi bi-arrow-left-circle-fill"></i></button>
-                        <button className="buttonChangePageRight rounded-circle bg-danger" onClick={nextPage} disabled={game.length < gamesPerPage }><i className="bi bi-arrow-right-circle-fill"></i></button>
-                       </div> 
-                       {userRole === "ADMIN" && <AdminGameCard className="insertCardPosition"/>}
 
+                       {isFullScreen ? (
+                    <div>
+                        <button className="buttonChangePageLeft rounded-circle bg-danger " onClick={prevPage} disabled={currentPage === 0}>
+                            <i className="bi bi-arrow-left-circle-fill"></i>
+                        </button>
+                        <button className="buttonChangePageRight rounded-circle bg-danger" onClick={nextPage} disabled={game.length < gamesPerPage }>
+                            <i className="bi bi-arrow-right-circle-fill"></i>
+                        </button>
+                    </div>
+                ) : isLargeScreen ? (
+                    <div>
+                        <button className="buttonChangePageLeft rounded-circle bg-danger " onClick={prevPage} disabled={currentPage === 0}>
+                            <i className="bi bi-arrow-left-circle-fill"></i>
+                        </button>
+                        <button className="buttonChangePageRight rounded-circle bg-danger" onClick={nextPage} disabled={game.length < gamesPerPage }>
+                            <i className="bi bi-arrow-right-circle-fill"></i>
+                        </button>
+                    </div>
+                ) : (
+                    <div>
+                        <button className="buttonChangePageLeft rounded-circle bg-danger " onClick={prevPage} disabled={currentPage === 0}>
+                            <i className="bi bi-arrow-left-circle-fill"></i>
+                        </button>
+                        <button className="buttonChangePageRight rounded-circle bg-danger" onClick={nextPage} disabled={game.length < gamesPerPage }>
+                            <i className="bi bi-arrow-right-circle-fill"></i>
+                        </button>
+                    </div>
+                )}
+                {userRole === "ADMIN" && <AdminGameCard className="insertCardPosition"/>}  
+               
 
                 {isFullScreen ? (
-
 
 
                     //per schermo pieno
@@ -172,11 +209,7 @@ const GamesCard = ({ searchTerm }) => {
                                 </Card.Body>
                                 <figcaption className="figCaptionGamePage">
                                     <h3>{gameItem.name}</h3>
-                                    <div className="iconGamePage">
-                                        <a href="#">
-                                            <i className="ion-social-twitter me-2"></i>
-                                        </a>
-                                    </div>
+
                                 </figcaption>
                             </Card>
                         </div>

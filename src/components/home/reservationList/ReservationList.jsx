@@ -5,7 +5,29 @@ import { useEffect, useState } from "react"
 
 const ReservationList = () =>{
 const [tableReservation, setTableReservation]= useState([])
-const [tableReservation2, setTableReservation2]= useState([])
+const [screenSize, setScreenSize] = useState(getScreenSize());
+
+
+
+    // per schermo table
+    const isFullScreen = screenSize.width > 950 && screenSize.height > 640;
+    const isSmallScreen = screenSize.width < 950;
+
+    useEffect(() => {
+        function handleResize() {
+            setScreenSize(getScreenSize());
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    function getScreenSize() {
+        return {
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+    }
 
   // Funzione per verificare se una data è passata
   const isPastDate = (dateString) => {
@@ -79,9 +101,66 @@ useEffect(() => {
 }, []);
 
 
+// const getSeatsForReservation = (deskId) => {
+//   fetch(`${process.env.REACT_APP_BACKEND}/tableReservation/${deskId}`, {
+//     method: "GET",
+//     headers: {
+//       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+//       "Content-Type": "application/json",
+//     },
+//   })
+//   .then((response) => {
+//     if (response.ok) {
+//       return response.json();
+//     } else {
+//       throw new Error("Errore durante il recupero degli ID dei desk per la prenotazione");
+//     }
+//   })
+//   .then((data) => {
+//     console.log("Desk IDs for reservation", data);
+//     // Gestisci i dati qui, ad esempio aggiornando lo stato del componente
+//   })
+//     .catch((err) => {
+//       console.log("Errore durante il recupero dei posti per la prenotazione", err);
+//     });
+// };
+
+// // Aggiorna il secondo hook useEffect per chiamare la funzione getSeatsForReservation per ogni prenotazione del tavolo
+// useEffect(() => {
+//   tableReservation.forEach(getSeatsForReservation);
+// }, [tableReservation]);
+
+
     return(
     
     <>
+
+
+{
+  isSmallScreen ? (
+    // Renderizza la vista per schermi piccoli
+    <div className="tableReservation ">
+      {tableReservation.map((tableReservationItem, index) => (
+        <div key={index} className={isPastDate(tableReservationItem.date) ? 'past-date' : ''}>
+          <ul className="table">
+            <li className="listWrite">Prenotazione a nome di: {tableReservationItem.user.name} {tableReservationItem.user.surname}</li>
+            <li className="listWrite">Numero persone: {tableReservationItem.desk}</li>
+            <li className="listWrite">Data: {tableReservationItem.date}</li>
+            <li className="listWrite">Orario: {tableReservationItem.time}</li>
+            <li className="listWrite">Giochi prenotati: {tableReservationItem.game}</li>
+            <li className="buttonEliminaRiga">
+              <Button className="buttonEliminaRiga" onClick={() => deleteTableReservations(tableReservationItem.id)}>Elimina</Button>
+            </li>
+          </ul>
+        </div>
+      ))}
+    </div>
+  ) : (
+
+
+
+
+//per schermo pieno
     <Table className="tableReservation" >
       <thead>
         <tr>
@@ -97,22 +176,16 @@ useEffect(() => {
         {tableReservation.map((tableReservationItem, index) => (
           <tr key={index} className={isPastDate(tableReservationItem.date) ? 'past-date' : ''}>
               <td className="tableTwo">{tableReservationItem.user.name} {tableReservationItem.user.surname}</td>
-              <td className="tableTwo">
-               {tableReservationItem.desk ? tableReservationItem.desk.seats : ''}
-              
-               </td>
+              <td className="tableTwo">{tableReservationItem.desk}</td>
               <td className="tableTwo">{tableReservationItem.date}</td>
               <td className="tableTwo">{tableReservationItem.time}</td>
-              <td className="tableTwo">
-              {tableReservationItem.game ? tableReservationItem.game.name : 'Gioco non disponibile'}
-             
-              </td>
+              <td className="tableTwo">{tableReservationItem.game}</td>
               <td className="buttonEliminaRiga"><Button className="buttonEliminaRiga" onClick={() => deleteTableReservations(tableReservationItem.id)}>Elimina</Button></td>
             </tr>
         ))}
       </tbody>
     </Table>
-
+    )  }
     </>
     )
     

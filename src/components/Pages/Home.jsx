@@ -26,7 +26,7 @@ const Home = () => {
   }
 
 
-//ascoltiamo gli eventi nello storage per l'accesso e l'uscita dell'utente dal suo profilo
+//eventi nello storage per l'accesso e l'uscita dell'utente dal suo profilo
 useEffect(() => {
   const handleStorageChange = () => {
     setIsLoggedIn(localStorage.getItem("authToken") !== null);
@@ -35,7 +35,7 @@ useEffect(() => {
     console.log("userRole:", storedUserRole); // Verifica il valore di userRole
   };
 
-  // Verifica se c'è un token di autenticazione presente nel localStorage
+  // Verifico se c'è un token di autenticazione presente nel localStorage
   if (localStorage.getItem("authToken") !== null) {
     setIsLoggedIn(true); //utente è autenticato
     const storedUserRole = localStorage.getItem("userRole") || '';
@@ -110,7 +110,7 @@ const functionGetUser = (event) => {
           {/* Pulsante Login */}
           {!isLoggedIn && (
             <Button className='iconHomeWrite' onClick={() => navigate("/login")}>
-              <i className="bi bi-box-arrow-in-right iconHome"></i>
+              <i className="bi bi-box-arrow-in-right iconHome me-2"></i>
               Login
             </Button>
           )}  
@@ -196,10 +196,10 @@ const functionGetUser = (event) => {
             </Col>
             <Col xs={2} md={2} lg={2} xl={2} className="colLoghiHome">
     <Row className="me-3">  
- <Col>
-       <a href="https://www.facebook.com/futuroimperfetto2.0" className="loghiHome"> <i className="bi bi-facebook text-primary  fs-2 mt-5 loghiHome "></i></a>
+ <Col lg={6} xl={3} xxl={2}>
+       <a href="https://www.facebook.com/futuroimperfetto2.0" className="loghiHome"> <i className="bi bi-facebook text-primary me-1  fs-2 mt-5 loghiHome "></i></a>
  </Col> 
- <Col>
+ <Col lg={6} xl={2} xxl={2}>
        <a href="https://www.instagram.com/futuroimperfetto/" className="loghiHome2"><i className="bi bi-instagram text-danger fs-2 mt-5 loghiHome2"></i></a> 
  </Col>       
       </Row>   
@@ -257,8 +257,8 @@ Tutt* sono bene accolti sulla nave volante.
           </Row>
 
           <Row className="mt-5">
-<Col xs={1} md={1} lg={1} xl={2}></Col>
-<Col xs={1} md={1} lg={1} xl={8}>
+          <Col xs={2} md={2} lg={2} xl={2}></Col>
+          <Col xs={7} md={8} lg={8} xl={8}>
 <Carousel>
       <Carousel.Item interval={5000}>
 
@@ -289,7 +289,7 @@ Tutt* sono bene accolti sulla nave volante.
     </Carousel>
 
 </Col>
-<Col xs={1} md={1} lg={1} xl={2}></Col>
+<Col xs={4} md={2} lg={2} xl={2}></Col>
 
 </Row>
         {/* </Container> */}

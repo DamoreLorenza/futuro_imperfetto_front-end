@@ -108,8 +108,8 @@ useEffect(() => {
       </Col>
         <Col xs={6} className="mt-3">
         <div className="iconEventPage">
-      <a href="https://www.instagram.com/futuroimperfetto/"> <i className="ion-social-instagram-outline ms-1 me-1 xxIcon"></i></a>
-      <a href="https://www.facebook.com/futuroimperfetto2.0"> <i className="bi bi-facebook me-1 xxIcon"></i></a>
+      <a href="https://www.instagram.com/futuroimperfetto/"> <i className="ion-social-instagram-outline  ms-mt-5 me-1 xxIcon"></i></a>
+      <a href="https://www.facebook.com/futuroimperfetto2.0"> <i className="bi bi-facebook me-1  xxIcon"></i></a>
     </div>
       </Col>
 </Row>

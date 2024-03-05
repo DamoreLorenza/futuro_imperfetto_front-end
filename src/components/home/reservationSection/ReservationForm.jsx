@@ -223,7 +223,7 @@ const reservationSubmitDesk = async () => {
         <Form.Label>Cognome utente</Form.Label>
         <Form.Control className="inputPrenotazione" size="sm" type="text" placeholder="Cognome"
          value={userData ? userData.surname : ""}
-         onChange={() => {}}
+        
          />
       </Form.Group>
         </Col>
@@ -235,7 +235,7 @@ const reservationSubmitDesk = async () => {
         <Form.Label>Email utente</Form.Label>
         <Form.Control className="inputPrenotazione" size="sm" type="email" placeholder="email" 
         value={userData ? userData.email : ""}
-        onChange={() => {}}
+        
         />
       </Form.Group>
         </Col>
@@ -304,8 +304,7 @@ const reservationSubmitDesk = async () => {
         </Form.Label>
         <Form.Control className="inputPrenotazione" size="sm" type="time" placeholder="Dalle ore" 
           value={formattedTime} onChange={(e) => setTime(e.target.value)} 
-          minTime="19:30"
-          maxTime="24:30"
+
 
         />
       </Form.Group>

@@ -17,16 +17,17 @@ const Games = () => {
         <Container className="container">
         
           <Row className="d-flex justify-content-between">
-          <Col xs={1} md={2} lg={1} xl={1} className="inserimentoCanvas d-flex">
+          <Col xs={1} md={2} lg={1} xl={2} className="inserimentoCanvas d-flex">
             <CustomOffCanvas/>
             
           </Col>
+          <Col xs={0} md={8} lg={10} xl={9} ></Col>
           <Col xs={10} md={2} lg={1} xl={1} >
-                      <Form>
+                      <Form className="ms-lg-5">
           <Form.Control
               type="text"
               placeholder="Search"
-              className="formSearchBar  mr-sm-2 "
+              className="formSearchBar  ms-md-5 "
               value={searchTerm} // Assegna il valore di ricerca al campo di input
                 onChange={handleSearchChange}
                 
