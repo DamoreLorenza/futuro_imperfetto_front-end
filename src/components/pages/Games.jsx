@@ -2,7 +2,7 @@ import { Col, Container, Form, Row } from "react-bootstrap";
 import "./css/Home.css"
 import "./css/Games.css"
 import CustomOffCanvas from "../commonComponent/offCanvas/CustomOffCanvas";
-import GamesCard from "../home/gamesCard/GamesCard";
+import GamesCard from "../Home/gamesCard/GamesCard";
 import { useState } from "react";
 
 const Games = () => {
