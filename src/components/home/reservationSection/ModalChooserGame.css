@@ -27,8 +27,8 @@ border-color: black;
 }
 
 .showListButton:active{
-    background-color: rgba(148,26,30,255);
-    border-color: black;
+    background-color: rgba(148,26,30,255) !important;
+    border-color: black !important;
 }
 
 .showListButton::selection{
